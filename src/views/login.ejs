@@ -1,8 +1,52 @@
 <html>
     <head>
         <title>로그인</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <script>
+            function register_btn() {
+                document.location.href = "/user/register";
+            }
+
+            function login() {
+
+                let form = document.getElementById("login_form");
+
+                axios({
+                    method: "post",
+                    url: "http://localhost:8000/user/login",
+                    data: {
+                        id: form.id.value,
+                        pw: form.pw.value
+                    }
+                }).then((response) => {
+                    return response.data;
+                }).then((data) => {
+                    if (data) {
+                        let submit_form = document.getElementById("submit_form");
+                        submit_form.id.value = form.id.value;
+                        submit_form.submit();
+                    } else {
+                        form.id.value = "";
+                        form.pw.value = "";
+
+                        $("p").text("아이디 또는 비밀번호가 틀렸습니다.");
+                    }
+                })
+            }
+        </script>
     </head>
     <body>
-        로그인
+        <form id="submit_form" action="/user" method="POST">
+            <input type="hidden" name="id">
+        </form>
+        <form id="login_form">
+            <input type="text" name="id" placeholder="아이디를 입력하세요" required> <br>
+            <input type="password" name="pw" placeholder="비밀번호를 입력하세요" required>
+            <p></p>
+            <button type="button" onclick="login()">로그인</button> <br>
+            <button type="button" onclick="register_btn();">회원가입</button>
+        </form>
     </body>
 </html>

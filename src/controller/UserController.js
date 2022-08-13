@@ -1,9 +1,28 @@
 const models = require("../model");
 
+// 로그인
 exports.login = (req, res) => {
     res.render("login");
 }
 
+exports.post_login = (req, res) => {
+    models.User.findOne({
+        where: {id: req.body.id, pw: req.body.pw}
+    }).then((result) => {
+        console.log(result);
+        if (result == null) {
+            res.send(false);
+        } else {
+            res.send(true);
+        }
+    })
+}
+
+exports.index = (req, res) => {
+    res.render("index");
+}
+
+// 회원가입
 exports.register = (req, res) => {
     res.render("register");
 }
@@ -36,6 +55,8 @@ exports.post_register = (req, res) => {
     })
 }
 
+
+// 프로필
 exports.profile = (req, res) => {
     res.render("profile");
 }
