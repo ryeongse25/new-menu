@@ -7,6 +7,7 @@ router.get("/", user.login);
 
 // register
 router.get("/register", user.register);
+router.post("/id_check", user.idCheck);
 
 // profile
 router.get("/profile", user.profile);
