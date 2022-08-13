@@ -1,0 +1,15 @@
+{
+    "development" : {
+        "host" : "localhost",
+        "database" : "recipe",
+        "username" : "user",
+        "password" : "Sesac1234*",
+        "dialect" : "mysql"
+    },
+    "production" : {
+
+    },
+    "test" :{
+
+    }
+}
