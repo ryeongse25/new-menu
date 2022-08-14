@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Average&display=swap');
+
+:root {
+    --primary: blue;
+    --light: #E1DDDD;
+    --dark: #312D2D;
+    --green: #2E5543;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: transparent;
+    padding: 25px 32px;
+    border-bottom: 2px solid var(--light);
+}
+
+h1 {
+    color: #312D2D;
+    font-size: 35px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding-right: 30px;
+    font-family: 'Average', serif;
+}
+
+h1 > .god {
+    color: var(--green);
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+    z-index: 1;
+    top: 5px;
+
+    user-select: none;
+
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background-color: var(--dark);
+    border-radius: 6px;
+    z-index: 1;
+
+    transform-origin: 0 0;
+
+    transition: 0.4s;
+}
+
+.hamburger:hover span:nth-child(2) {
+    transform: translateX(10px);
+    background-color: var(--dark);
+}
+
+.hamburger.is-active span:nth-child(1) {
+    transform: translate(0px, -2px) rotate(45deg);
+}
+
+.hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+    transform: translate(15px);
+}
+
+.hamburger.is-active span:nth-child(3) {
+    transform: translate(-3px, 3px) rotate(-45deg);
+}
+
+.hamburger.is-active:hover span {
+    background-color: var(--primary);
+}
+
+.menu {
+    display: none;
+    flex: 1 1 0%;
+    margin: 0 -16px;
+    font-family: 'Average', serif;
+}
+
+.menu a {
+    color: var(--dark);
+    margin: 0 10px;
+    text-decoration: none;
+    transition: 0.4s;
+    padding: 8px 16px;
+    border-radius: 99px;
+    position: relative;
+    top: 5px;
+}
+
+.menu a.is-active, menu a:hover {
+    color: var(--green);
+    font-weight: bold; 
+}
+
+.menu_left {
+    display: none;
+    margin: 0 -16px;
+}
+
+.menu_left a {
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 12px;
+    padding: 8px 7px;
+    word-break: keep-all;
+}
+
+.login {
+    position: relative;
+    top: 13px;
+    margin-left: 50px;
+
+}
+
+.signup {
+    position: relative;
+    top: 13px;
+}
+
+.bar {
+    position: relative;
+    top: 19px;
+}
+
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+    .menu {
+        display: flex;
+    }
+    .menu_left {
+        display: flex;
+    }
+}
