@@ -13,6 +13,7 @@ exports.post_login = (req, res) => {
         if (result == null) {
             res.send(false);
         } else {
+            req.session.id = req.body.id;
             res.send(true);
         }
     })
