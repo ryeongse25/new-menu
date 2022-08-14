@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+:root {
+    --light: #E1DDDD;
+    --dark: #312D2D;
+    --green: #2E5543;
+    --red: #BC5539;
+}
+
+.container3 {
+    margin: 0 auto;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-row-gap: 40px;
+    grid-auto-rows: auto;
+    font-family: 'Noto Sans KR', sans-serif;
+    position: relative;
+    top: 40%;
+}
+
+.container3 * {
+    box-sizing: border-box;
+}
+
+.icon {
+    text-align: center;
+    cursor: pointer;
+}
+
+.icon:hover {
+    transform: scale(1.05);
+}
+
+.icon img {
+    height: 130px;
+    width: 130px;
+}
+
+.icon h5 {
+    padding-top: 12px;
+    color: var(--red);
+    font-size: 15px;
+    text-align: center;
+}

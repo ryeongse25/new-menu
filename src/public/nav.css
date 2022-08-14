@@ -1,7 +1,8 @@
+/* nav bar */
+
 @import url('https://fonts.googleapis.com/css2?family=Average&display=swap');
 
 :root {
-    --primary: blue;
     --light: #E1DDDD;
     --dark: #312D2D;
     --green: #2E5543;
@@ -13,7 +14,7 @@
     box-sizing: border-box;
 }
 
-.container {
+.container1 {
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -95,7 +96,7 @@ h1 > .god {
 }
 
 .hamburger.is-active:hover span {
-    background-color: var(--primary);
+    background-color: var(--dark);
 }
 
 .menu {
@@ -116,7 +117,7 @@ h1 > .god {
     top: 5px;
 }
 
-.menu a.is-active, menu a:hover {
+.menu a.is-active, .menu a:hover {
     color: var(--green);
     font-weight: bold; 
 }
@@ -138,13 +139,17 @@ h1 > .god {
     position: relative;
     top: 13px;
     margin-left: 50px;
-
 }
 
 .signup {
     position: relative;
     top: 13px;
 }
+
+.login:hover, 
+.signup:hover,
+.mypage:hover,
+.bookmark:hover {transform: scale(1.05);}
 
 .bar {
     position: relative;
