@@ -19,7 +19,17 @@ exports.post_login = (req, res) => {
 }
 
 exports.index = (req, res) => {
-    res.render("index");
+    console.log(req.session);
+    if (req.session == undefined || req.session.id == "") {
+        res.render("index");
+    } else {
+        models.User.findOne({
+            where: {id: req.body.id}
+        }).then((result) => {
+            console.log(result);
+            res.render("index", {data: result});
+        })
+    }
 }
 
 // 회원가입
