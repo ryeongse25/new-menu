@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Biryani:wght@700&family=Inter:wght@800&display=swap');
+
+:root {
+    --font: #515555;
+    --bar: #D9D9D9;
+}
+
+.container4 {
+    width: 70%;
+    height: 450px;
+    margin: 200px auto;
+    overflow: hidden;
+    position: relative;
+    top: 30%;
+}
+
+.container4 h1 {
+    width: 90%;
+    margin: 20px auto;
+    font-weight: bold;
+    color: var(--font);
+    text-align: center;
+    padding: 0;
+}
+
+.container4 span {
+    position: absolute;
+    top: 52%;
+    font-size: 60px;
+    color: var(--font);
+    cursor: pointer;
+    left: .5%;
+    z-index: 1;
+}
+
+.container4 span:nth-of-type(2) {
+    left: 98%;
+    text-align: right;
+}
+
+.container4 section {
+    width: 90%;
+    height: 400px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: left;
+    overflow-x: auto;
+}
+
+.container4 section::-webkit-scrollbar {
+    visibility: hidden;
+}
+
+.container4 img {
+    min-width: 280px;
+    height: 350px;
+    position: relative;
+    left: 0;
+    margin: 10px 15px;
+    transition: 0.5s;
+}
