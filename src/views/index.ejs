@@ -7,12 +7,15 @@
         <link rel="stylesheet" href="/nav.css">
         <link rel="stylesheet" href="/search_bar.css">
         <link rel="stylesheet" href="/icon.css">
+        <link rel="stylesheet" href="/best_menu.css">
 
         <script src="https://kit.fontawesome.com/c35f3dd7d0.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
         <%-include('nav.ejs') %>
+        <script src="nav.js"></script>
+
         <%-include('search.ejs') %>
     
         <div class="container3">
@@ -57,5 +60,23 @@
                 <h5>디저트</h5>
             </div>    
         </div>
+
+        <div class="container4">
+            <h1>Best Menu</h1>
+            <span class="arrow"><i class="fa-solid fa-angle-left"></i></span>
+            <span class="arrow"><i class="fa-solid fa-angle-right"></i></span>
+
+            <section class="slider">
+                <img src="bm1.jpg" class="bm">
+                <img src="bm2.jpg" class="bm">
+                <img src="bm3.jpg" class="bm">
+                <img src="bm4.jpg" class="bm">
+                <img src="bm5.jpg" class="bm">
+                <img src="bm6.jpg" class="bm">
+                <img src="bm7.jpg" class="bm">
+                <img src="bm8.jpg" class="bm">
+            </section>
+        </div>
+        <script src="best_menu.js"></script>
     </body>
 </html>

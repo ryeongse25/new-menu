@@ -27,6 +27,7 @@
     padding: 5px;
     padding-top: 7px;
     height: 50px;
+    font-size: 15px;
 }
 
 .search_btn {
@@ -44,9 +45,10 @@
 
 form .fa-solid {
     align-self: center;
-    padding: 10px 10px;
+    padding: 12px 10px;
     color: var(--green);
     border: 4px solid var(--green);
     border-right: none;
     height: 50px;
+    font-size: 20px;
 }
