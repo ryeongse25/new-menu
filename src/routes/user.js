@@ -6,6 +6,11 @@ const user = require("../controller/UserController");
 router.get("/", user.login);
 router.post("/login", user.post_login);
 
+// find_id
+router.get("/find_id", user.find_id);
+router.post("/find_id", user.post_find_id);
+router.post("/find_id/result", user.find_id_result);
+
 // register
 router.get("/register", user.register);
 router.post("/id_check", user.id_check);

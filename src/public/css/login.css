@@ -125,3 +125,8 @@ h2 {
 h2 > .god {
    color: var(--green);
 }
+
+/* 아이디 비밀번호 찾기 a tag */
+a {
+   text-decoration: none;
+}
