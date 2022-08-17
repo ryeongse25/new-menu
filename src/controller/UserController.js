@@ -59,8 +59,18 @@ exports.profile = (req, res) => {
     const user = req.session.user;
 
     if ( user != undefined ) {
-        res.render("profile", {isLogin: true, user: user});
+        models.User.findOne({where: {id: user}})
+        .then((result) => {
+            res.render("profile", {isLogin: true, user: user, name: result.name, tel: result.tel, email: result.email});
+        })
     } else {
         res.redirect("/user");
     }
 }
+
+// exports.delete = (req, res) => {
+//     models.User.destroy({where: {id: req.body.id}})
+//     .then((result) => {
+//         res.send("탈퇴되었습니다.");
+//     })
+// }
