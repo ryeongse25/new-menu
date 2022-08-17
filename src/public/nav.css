@@ -1,6 +1,7 @@
 /* nav bar */
 
 @import url('https://fonts.googleapis.com/css2?family=Average&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
 :root {
     --light: #E1DDDD;
@@ -167,4 +168,15 @@ h1 > .god {
     .menu_left {
         display: flex;
     }
+}
+
+.welcome {
+    color: var(--dark);
+    margin: 0 10px;
+    transition: 0.4s;
+    padding: 10px 1px;
+    position: relative;
+    top: 5px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
 }
