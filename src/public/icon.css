@@ -11,13 +11,13 @@
     margin: 0 auto;
     max-width: 1200px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
     grid-row-gap: 40px;
     grid-column-gap: 20px;
     grid-auto-rows: auto;
     font-family: 'Noto Sans KR', sans-serif;
     position: relative;
-    top: 40%;
+    top: 33%;
 }
 
 .container3 * {
