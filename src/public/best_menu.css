@@ -6,17 +6,17 @@
 }
 
 .container4 {
-    width: 70%;
+    width: 65%; /*1500px*/
     height: 450px;
     margin: 200px auto;
     overflow: hidden;
     position: relative;
-    top: 30%;
+    top: 25%;
 }
 
 .container4 h1 {
     width: 90%;
-    margin: 20px auto;
+    margin: 30px auto;
     font-weight: bold;
     color: var(--font);
     text-align: center;

@@ -8,55 +8,57 @@
         <link rel="stylesheet" href="/search_bar.css">
         <link rel="stylesheet" href="/icon.css">
         <link rel="stylesheet" href="/best_menu.css">
+        <link rel="stylesheet" href="/main_menu.css">
+        <link rel="stylesheet" href="/scroll.css">
 
         <script src="https://kit.fontawesome.com/c35f3dd7d0.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
         <%-include('nav.ejs') %>
-        <script src="nav.js"></script>
+        <script src="/nav.js"></script>
 
         <%-include('search.ejs') %>
     
         <div class="container3">
             <div class="icon" data-name="p-1">
-                <img src="clock.png">
+                <img src="/img/clock.png">
                 <h5>간편식</h5>
             </div>
             <div class="icon" data-name="p-2">
-                                <img src="soup.png">
+                <img src="/img/soup.png">
                 <h5>국/찌개</h5>
             </div>
             <div class="icon" data-name="p-3">
-                <img src="noodles.png">
+                <img src="/img/noodles.png">
                 <h5>면</h5>
             </div>
             <div class="icon" data-name="p-4">
-                <img src="barbecue.png">
+                <img src="/img/barbecue.png">
             <h5>고기</h5>
             </div>
             <div class="icon" data-name="p-5">
-            <img src="seafood.png">
+            <img src="/img/seafood.png">
                 <h5>해산물</h5>
             </div>
             <div class="icon" data-name="p-6">
-                <img src="vegetables.png">
+                <img src="/img/vegetables.png">
                 <h5>채소</h5>
             </div>
-                        <div class="icon" data-name="p-7">
-                <img src="oven.png">
+                <div class="icon" data-name="p-7">
+                <img src="/img/oven.png">
                 <h5>오븐</h5>
             </div>
             <div class="icon" data-name="p-8">
-                <img src="grill.png">
+                <img src="/img/grill.png">
                 <h5>그릴</h5>
             </div>
             <div class="icon" data-name="p-9">
-                <img src="sauces.png">
+                <img src="/img/sauces.png">
                 <h5>소스</h5>
             </div>
             <div class="icon" data-name="p-10">
-                <img src="dessert.png">
+                <img src="/img/dessert.png">
                 <h5>디저트</h5>
             </div>    
         </div>
@@ -67,16 +69,73 @@
             <span class="arrow"><i class="fa-solid fa-angle-right"></i></span>
 
             <section class="slider">
-                <img src="bm1.jpg" class="bm">
-                <img src="bm2.jpg" class="bm">
-                <img src="bm3.jpg" class="bm">
-                <img src="bm4.jpg" class="bm">
-                <img src="bm5.jpg" class="bm">
-                <img src="bm6.jpg" class="bm">
-                <img src="bm7.jpg" class="bm">
-                <img src="bm8.jpg" class="bm">
+                <img src="/img/bm1.jpg" class="bm">
+                <img src="/img/bm2.jpg" class="bm">
+                <img src="/img/bm3.jpg" class="bm">
+                <img src="/img/bm4.jpg" class="bm">
+                <img src="/img/bm5.jpg" class="bm">
+                <img src="/img/bm6.jpg" class="bm">
+                <img src="/img/bm7.jpg" class="bm">
+                <img src="/img/bm8.jpg" class="bm">
             </section>
         </div>
-        <script src="best_menu.js"></script>
+        <script src="/best_menu.js"></script>
+
+        <div class="container5">
+            <h2>New Menu</h2>
+            <div class="container5_card">
+                <div class="main_card">
+                    <a href="#"><img src="/img/pineapple-fried-rice.jpg" class="main_card_image"></a>
+                    <div class="card_content">
+                        <h4>파인애플 볶음밥</h4>
+                    </div>
+                </div>
+                <div class="main_card">
+                    <a href="#"><img src="/img/mango-soup.jpg" class="main_card_image"></a>
+                    <div class="card_content">
+                        <h4>망고 수프</h4>
+                    </div>
+                </div>
+                <div class="main_card">
+                    <a href="#"><img src="/img/pineapple-fried-rice.jpg" class="main_card_image"></a>
+                    <div class="card_content">
+                        <h4>파인애플 볶음밥</h4>
+                    </div>
+                </div>
+                <div class="main_card">
+                    <a href="#"><img src="/img/pineapple-fried-rice.jpg" class="main_card_image"></a>
+                    <div class="card_content">
+                        <h4>파인애플 볶음밥</h4>
+                    </div>
+                </div>
+                <div class="main_card">
+                    <a href="#"><img src="/img/pineapple-fried-rice.jpg" class="main_card_image"></a>
+                    <div class="card_content">
+                        <h4>파인애플 볶음밥</h4>
+                    </div>
+                </div>
+                <div class="main_card">
+                    <a href="#"><img src="/img/pineapple-fried-rice.jpg" class="main_card_image"></a>
+                    <div class="card_content">
+                        <h4>파인애플 볶음밥</h4>
+                    </div>
+                </div>
+                <div class="main_card">
+                    <a href="#"><img src="/img/pineapple-fried-rice.jpg" class="main_card_image"></a>
+                    <div class="card_content">
+                        <h4>파인애플 볶음밥</h4>
+                    </div>
+                </div>
+                <div class="main_card">
+                    <a href="#"><img src="/img/pineapple-fried-rice.jpg" class="main_card_image"></a>
+                    <div class="card_content">
+                        <h4>파인애플 볶음밥</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <input class="goupbtn" type="button" onclick="clickme()" value=""></div>
+        <script src="/scroll.js"></script>
     </body>
 </html>
