@@ -15,6 +15,13 @@
 
                 let form = document.getElementById("login_form");
 
+                let result = form.checkValidity();
+
+                if ( !result ) {
+                    form.reportValidity();
+                    return false;
+                }
+
                 axios({
                     method: "post",
                     url: "http://localhost:8000/user/login",
@@ -31,7 +38,7 @@
                         form.id.value = "";
                         form.pw.value = "";
 
-                        $("p").text("아이디 또는 비밀번호가 틀렸습니다.");
+                        $("#error-msg").text("아이디 또는 비밀번호가 틀렸습니다.");
                     }
                 })
             }
@@ -50,7 +57,7 @@
             <input type="text" name="id" class="txtb" placeholder="아이디를 입력하세요" required> <br>
             <h3>Password</h3>
             <input type="password" name="pw" class="txtb" placeholder="비밀번호를 입력하세요" required>
-            <p></p>
+            <p id="error-msg"></p>
             <button type="button" onclick="login();" class="login_btn">로그인</button> <br>
             <p id="p1">아직 회원이 아니신가요?<p id="p2">최상의 서비스와 혜택을 누려보세요</p></p>
             <button type="button" onclick="register_btn();" class="register_btn">회원가입</button>
