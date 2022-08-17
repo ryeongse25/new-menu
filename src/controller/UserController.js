@@ -20,6 +20,30 @@ exports.post_login = (req, res) => {
     })
 }
 
+exports.find_id = (req, res) => {
+    res.render("find_id");
+}
+
+exports.post_find_id = (req, res) => {
+    models.User.findOne({
+        where: {name: req.body.name, email: req.body.email}
+    }).then((result) => {
+        if (result == null) {
+            res.send(false);
+        } else {
+            res.send(true);
+        }
+    })
+}
+
+exports.find_id_result = (req, res) => {
+    models.User.findOne({
+        where: {name: req.body.name, email: req.body.email}
+    }).then((result) => {
+        res.render("find_id_result", {id: result.id});
+    })
+}
+
 // 회원가입
 exports.register = (req, res) => {
     res.render("register");
