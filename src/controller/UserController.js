@@ -10,7 +10,7 @@ exports.post_login = (req, res) => {
     models.User.findOne({
         where: {id: req.body.id, pw: req.body.pw}
     }).then((result) => {
-        req.session.user = result.name;
+        req.session.user = req.body.id;
         console.log(result);
         if (result == null) {
             res.send(false);
@@ -56,5 +56,11 @@ exports.post_register = (req, res) => {
 
 // 프로필
 exports.profile = (req, res) => {
-    res.render("profile");
+    const user = req.session.user;
+
+    if ( user != undefined ) {
+        res.render("profile", {isLogin: true, user: user});
+    } else {
+        res.redirect("/user");
+    }
 }

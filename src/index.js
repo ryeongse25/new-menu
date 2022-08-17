@@ -30,6 +30,20 @@ app.get("/", function(req, res) {
     }
 });
 
+// 로그아웃
+app.get("/logout", (req,res) => {
+    const user = req.session.user;
+
+    req.session.destroy(function(err){
+        res.send(
+            `<script>
+                alert('로그아웃 성공');
+                location.href='/';
+            </script>`
+        );
+    });
+})
+
 app.use('/user', userRouter);
 
 app.listen(port, ()=>{
