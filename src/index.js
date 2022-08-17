@@ -21,7 +21,13 @@ const userRouter = require("./routes/user");
 
 // 메인 페이지
 app.get("/", function(req, res) {
-    res.render("index");
+    const user = req.session.user;
+
+    if ( user != undefined ) {
+        res.render("index", {isLogin: true, user: user});
+    } else {
+        res.render("index", {isLogin: false});
+    }
 });
 
 app.use('/user', userRouter);

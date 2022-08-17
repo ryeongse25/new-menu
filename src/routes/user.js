@@ -4,7 +4,6 @@ const user = require("../controller/UserController");
 
 // login
 router.get("/", user.login);
-router.post("/", user.index);
 router.post("/login", user.post_login);
 
 // register
