@@ -14,4 +14,7 @@ router.post("/register", user.post_register);
 // profile
 router.get("/profile", user.profile);
 
+// delete
+router.delete("/delete", user.delete);
+
 module.exports = router;

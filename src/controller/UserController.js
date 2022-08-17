@@ -68,9 +68,12 @@ exports.profile = (req, res) => {
     }
 }
 
-// exports.delete = (req, res) => {
-//     models.User.destroy({where: {id: req.body.id}})
-//     .then((result) => {
-//         res.send("탈퇴되었습니다.");
-//     })
-// }
+exports.delete = (req, res) => {
+    console.log(req.body);
+    models.User.destroy({where: {id: req.body.id}})
+    .then((result) => {
+        req.session.destroy(function(err){
+            res.send("탈퇴되었습니다.");
+        });
+    })
+}
