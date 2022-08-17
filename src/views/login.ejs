@@ -24,9 +24,7 @@
                     return response.data;
                 }).then((data) => {
                     if (data) {
-                        let submit_form = document.getElementById("submit_form");
-                        submit_form.id.value = form.id.value;
-                        submit_form.submit();
+                        location.href="/";
                     } else {
                         form.id.value = "";
                         form.pw.value = "";
@@ -38,7 +36,7 @@
         </script>
     </head>
     <body>
-        <form id="submit_form" action="/user" method="POST">
+        <form id="submit_form" action="/" method="POST">
             <input type="hidden" name="id">
         </form>
         <form id="login_form">

@@ -6,31 +6,18 @@ exports.login = (req, res) => {
 }
 
 exports.post_login = (req, res) => {
+    console.log(req.body);
     models.User.findOne({
         where: {id: req.body.id, pw: req.body.pw}
     }).then((result) => {
+        req.session.user = result.name;
         console.log(result);
         if (result == null) {
             res.send(false);
         } else {
-            req.session.id = req.body.id;
             res.send(true);
         }
     })
-}
-
-exports.index = (req, res) => {
-    console.log(req.session);
-    if (req.session == undefined || req.session.id == "") {
-        res.render("index");
-    } else {
-        models.User.findOne({
-            where: {id: req.body.id}
-        }).then((result) => {
-            console.log(result);
-            res.render("index", {data: result});
-        })
-    }
 }
 
 // 회원가입
