@@ -3,6 +3,8 @@
         <title>로그인</title>
         <meta charset = "UTF-8">
         <link rel = "stylesheet" href = "/css/login.css">
+        <script src="/js/nav.js"></script>
+
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
@@ -47,7 +49,7 @@
     <body>
         <nav>
             <div class="container1">
-                <h2>Recipe of <span class="god">GOD</span></h2>
+                <h2 onclick="main_page();">Recipe of <span class="god">GOD</span></h2>
             </div>
         </nav>
         
@@ -61,7 +63,7 @@
             <button type="button" onclick="login();" class="login_btn">로그인</button> <br>
 
             <!-- 아이디 비밀번호 찾기 -->
-            <ul style="display: flex; list-style-type: none;"> 
+            <ul style="display: flex; list-style-type: none; justify-content: center; margin-top: 15px;"> 
                 <li><a href="/user/find_id">아이디 찾기</a></li>
                 <li style="margin: 0 7 0 7">|</li>
                 <li><a href="/user/find_password">비밀번호 찾기</a></li>
