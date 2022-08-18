@@ -2,6 +2,7 @@
     <head>
         <title>비밀번호 찾기</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/find_pw.css">
 
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -42,14 +43,23 @@
     </head>
 
     <body>
+        <nav>
+            <div class="container1">
+                <h2 onclick="main_page();">Recipe of <span class="god">GOD</span></h2>
+            </div>
+        </nav>
         <form id="submit_form" action="/user/find_password/result" method="POST">
             <input type="hidden" name="id">
             <input type="hidden" name="email">
         </form>
         <form id="password_form">
-            <input type="text" name="id" placeholder="아이디를 입력하세요." required> <br>
-            <input type="email" name="email" placeholder="이메일을 입력하세요." required> <br>
-            <button type="button" onclick="find_password();">비밀번호 찾기</button>
+            <h1 class="pw_font">비밀번호 찾기</h1>
+            <p>회원가입시 등록한 개인정보를 입력하세요.</p>
+            <h3>ID</h3>
+            <input type="text" name="id" class="txtb" placeholder="아이디를 입력하세요." required> <br>
+            <h3>Email</h3>
+            <input type="email" name="email" class="txtb" placeholder="이메일을 입력하세요." required> <br>
+            <button type="button" onclick="find_password();" class="pw_btn">비밀번호 찾기</button>
         </form>
     </body>
 </html>
