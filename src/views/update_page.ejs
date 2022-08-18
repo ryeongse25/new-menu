@@ -1,8 +1,13 @@
 <html>
     <head>
         <title>정보수정</title>
+        <meta charset="UTF-8">
+        
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <link rel = "stylesheet" href = "/css/modify.css">
+        <script src="/js/nav.js"></script>
 
         <script>
             function update() {
@@ -35,18 +40,30 @@
     </head>
 
     <body>
+        <nav>
+            <div class="container1">
+                <h2 onclick="main_page();">Recipe of <span class="god">GOD</span></h2>
+            </div>
+        </nav>
+
+        <h1 class="modify_font">정보수정</h1>
+
         <form id="update_form">
-            ID <br>
-            <input type="text" name="id" value="<%=user%>"> <br>
-            PASSWORD <br>
-            <input type="password" name="pw" value="<%=pw%>" required> <br>
-            NAME <br>
-            <input type="text" name="name" value="<%=name%>" reauired> <br>
-            PHONE  NUMBER <br>
-            <input type="text" name="tel" value="<%=tel%>"> <br>
-            EMAIL <br>
-            <input type="text" name="email" value="<%=email%>" reauired> <br>
-            <button type="button" onclick="update()">정보 수정</button>
+            <table>
+                <tr>
+                    <td><h3>ID</h3></td>
+                    <td class="id"><%=user%></td>
+                </tr>
+            </table>
+            <h3>PASSWORD</h3>
+            <input type="password" name="pw" value="<%=pw%>" class="txtb" required> <br>
+            <h3>NAME</h3>
+            <input type="text" name="name" value="<%=name%>" class="txtb" reauired> <br>
+            <h3>PHONE NUMBER</h3>
+            <input type="text" name="tel" value="<%=tel%>" class="txtb"> <br>
+            <h3>EMAIL</h3>
+            <input type="text" name="email" value="<%=email%>" class="txtb" reauired> <br>
+            <button type="button" onclick="update()" class="register_btn">정보 수정</button>
         </form>
     </body>
 </html>

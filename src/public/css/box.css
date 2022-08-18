@@ -72,6 +72,10 @@ header {
     text-align: center;
 }
 
+#modify:hover {
+    cursor: pointer;
+}
+
 #modify:active{
     font-size: 15px;
 }
@@ -84,6 +88,10 @@ header {
     width: 120px;
     
     text-align: center;
+}
+
+#delete:hover {
+    cursor: pointer;
 }
 
 #delete:active{

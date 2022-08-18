@@ -70,18 +70,18 @@ h3{
     background-color : rgb(239, 234, 232);
 }
 .register_btn{
-            width : 100%;
-            padding : 20px;
-            margin-top : 25px;
-            /* margin-bottom: 50px; */
-            border-radius : 5px;
-            cursor : pointer;
-            background-color : rgb(186, 77, 47);
-            font-size : 18px;
-            font-weight : 550;
-            color : white;
-            border : none;
-    }
+    width : 100%;
+    padding : 20px;
+    margin-top : 25px;
+    /* margin-bottom: 50px; */
+    border-radius : 5px;
+    cursor : pointer;
+    background-color : rgb(186, 77, 47);
+    font-size : 18px;
+    font-weight : 550;
+    color : white;
+    border : none;
+}
 
 .container1 {
       margin: 0 auto;
@@ -92,25 +92,30 @@ h3{
       z-index: 10;
 }
   
-  nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 99;
-      background-color: white;
-      border-bottom: 2px solid var(--light);
-  }
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: white;
+    border-bottom: 2px solid var(--light);
+}
   
-  h2 {
-      color: #312D2D;
-      font-size: 50px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-family: 'Average', serif;
-  }
+h2 {
+    color: #312D2D;
+    font-size: 50px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Average', serif;
+    display: inline-block;
+}
+
+h2:hover {
+    cursor: pointer;
+}
   
-  h2 > .god {
-      color: var(--green);
-  }
+h2 > .god {
+    color: var(--green);
+}

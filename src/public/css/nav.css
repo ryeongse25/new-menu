@@ -102,10 +102,11 @@ h1 > .god {
 }
 
 .menu {
-    display: none;
+    /* display: none; */
     flex: 1 1 0%;
-    margin: 0 -16px;
+    /* margin: 0 -16px; */
     font-family: 'Average', serif;
+    font-weight: bolder;
 }
 
 .menu a {
