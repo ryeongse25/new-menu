@@ -73,11 +73,13 @@
         margin-top: 50px;
         margin-bottom: 0px;
         font-family: 'Noto Sans KR', sans-serif;
+        font-weight: bolder;
      }
      #p2{
         color : rgb(186, 77, 47);
         font-size: 15px;
         margin-top: 0px;
+        font-weight: bolder;
 
      }
      .register_btn{
@@ -95,12 +97,12 @@
     }
 
 .container1 {
-      margin: 0 auto;
-      padding-top: 40px;
-      padding-bottom: 10px;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 10;
+   margin: 0 auto;
+   padding-top: 40px;
+   padding-bottom: 10px;
+   align-items: center;
+   justify-content: space-between;
+   z-index: 10;
 }
   
 nav {
@@ -120,6 +122,11 @@ h2 {
    letter-spacing: 2px;
    text-transform: uppercase;
    font-family: 'Average', serif;
+   display: inline-block;
+}
+
+h2:hover {
+   cursor: pointer;
 }
   
 h2 > .god {
@@ -129,4 +136,6 @@ h2 > .god {
 /* 아이디 비밀번호 찾기 a tag */
 a {
    text-decoration: none;
+   color : rgb(46, 85, 67);
+   font-weight: bolder;
 }

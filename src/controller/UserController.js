@@ -10,11 +10,11 @@ exports.post_login = (req, res) => {
     models.User.findOne({
         where: {id: req.body.id, pw: req.body.pw}
     }).then((result) => {
-        req.session.user = req.body.id;
         console.log(result);
         if (result == null) {
             res.send(false);
         } else {
+            req.session.user = req.body.id;
             res.send(true);
         }
     })
