@@ -44,6 +44,16 @@ app.get("/logout", (req,res) => {
     });
 })
 
+app.get("/recipe", (req, res) => {
+    const user = req.session.user;
+
+    if ( user != undefined ) {
+        res.render("recipe", {isLogin: true, user: user});
+    } else {
+        res.render("recipe", {isLogin: false});
+    }
+})
+
 app.use('/user', userRouter);
 
 app.listen(port, ()=>{
