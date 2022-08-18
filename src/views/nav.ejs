@@ -19,10 +19,12 @@
             <% } %>
             <div class="dropdown">
                 <a href="/user/profile"><i class="fa-regular fa-user" class="link"></i></a>
-                <div class="dropdown_menu">
-                    <div class="mypage"><a href="#">마이페이지</a></div>
-                    <div class="logout"><a href="#" class="logout">로그아웃</a></div>
-                </div>
+                <% if ( isLogin ) { %>
+                    <div class="dropdown_menu">
+                        <div class="mypage"><a href="/user/profile">마이페이지</a></div>
+                        <div class="logout"><a href="/logout" class="logout">로그아웃</a></div>
+                    </div>
+                <% } %>
             </div>
             <a href="#"><i class="fa-regular fa-pen-to-square"></i></a> 
             <a href="#"><i class="fa-regular fa-bookmark"></i></a>
