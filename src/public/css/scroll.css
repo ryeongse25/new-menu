@@ -6,17 +6,17 @@
 .upbtn {
     top: 90%;
     left: 94%;
-    width: 40px;
-    height: 40px;
+    width: 43px;
+    height: 43px;
     background-color: #ffffffa4;
     border: var(--bar) 1px solid; 
     position: fixed;
     z-index: 2;
-    font-size: 10px;
+    font-size: 15px;
     font: var(--fa-font-solid)
 }
 
-.downbtn {
+/* .downbtn {
     top: 93.5%;
     left: 94%;
     width: 40px;
@@ -27,4 +27,4 @@
     z-index: 2;
     font-size: 10px;
     font: var(--fa-font-solid)
-}
+} */

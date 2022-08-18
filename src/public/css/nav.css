@@ -1,12 +1,12 @@
 /* nav bar */
 
-@import url('https://fonts.googleapis.com/css2?family=Average&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
 
 :root {
     --light: #E1DDDD;
     --dark: #312D2D;
     --green: #2E5543;
+    --red: #BC5539;
 }
 
 * {
@@ -21,6 +21,7 @@
     align-items: center;
     justify-content: space-between;
     z-index: 10;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 nav {
@@ -30,22 +31,14 @@ nav {
     right: 0;
     z-index: 99;
     background-color: white;
-    padding: 25px 32px;
+    padding: 38px 32px;
     border-bottom: 2px solid var(--light);
 }
 
-h1 {
-    color: #312D2D;
-    font-size: 35px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding-right: 30px;
-    font-family: 'Average', serif;
-}
-
-h1 > .god {
-    color: var(--green);
+.logo {
+    position: relative;
+    max-width: 80px;
+    margin-left: 20px;
 }
 
 .hamburger {
@@ -102,11 +95,8 @@ h1 > .god {
 }
 
 .menu {
-    /* display: none; */
+    display: none;
     flex: 1 1 0%;
-    /* margin: 0 -16px; */
-    font-family: 'Average', serif;
-    font-weight: bolder;
 }
 
 .menu a {
@@ -118,9 +108,13 @@ h1 > .god {
     border-radius: 99px;
     position: relative;
     top: 5px;
+    letter-spacing: 1px;
+    font-size: 25px;
+    font-weight: 600;
+    word-break: keep-all;
 }
 
-.menu a.is-active, .menu a:hover {
+.menu a:hover {
     color: var(--green);
     font-weight: bold; 
 }
@@ -133,30 +127,73 @@ h1 > .god {
 .menu_left a {
     text-decoration: none;
     color: var(--dark);
-    font-size: 12px;
     padding: 8px 7px;
     word-break: keep-all;
+    font-weight: 400;
 }
 
 .login {
     position: relative;
-    top: 13px;
+    top: 17px;
     margin-left: 50px;
+}
+
+.bar {
+    position: relative;
+    top: 25px;
+    font-size: 14px;
 }
 
 .signup {
     position: relative;
-    top: 13px;
+    top: 17px;
+    margin-right: 5px;
+}
+
+.fa-user, .fa-pen-to-square, .fa-bookmark {
+    font-size: 30px;
+    margin: 8px;
+    position: relative;
+}
+
+.fa-user {
+    top: 8px;
+}
+
+.fa-bookmark {
+    margin-right: 40px;
 }
 
 .login:hover, 
-.signup:hover,
-.mypage:hover,
-.bookmark:hover {transform: scale(1.05);}
+.signup:hover {transform: scale(1.05);}
 
-.bar {
-    position: relative;
-    top: 19px;
+.fa-user:hover,
+.fa-bookmark:hover,
+.fa-pen-to-square:hover { color: var(--red);}
+
+@media screen and (max-width: 960px) {
+    .menu a { 
+        font-size: 20px;
+    }
+    .fa-pen-to-square, .fa-bookmark { 
+        font-size: 22px;
+        top: 5px;
+    }
+    .fa-user {
+        font-size: 22px;
+        top: 13px;
+    }
+    .login {
+        font-size: 13px;
+
+    }
+    .signup {
+        font-size: 13px;
+        margin-right: 0px;
+    }
+    .bar {
+        font-size: 10px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -178,6 +215,43 @@ h1 > .god {
     padding: 10px 1px;
     position: relative;
     top: 5px;
-    font-family: 'Noto Sans KR', sans-serif;
     font-size: 15px;
 }
+
+.dropdown {
+    position: relative;
+}
+
+.fa-user {
+    display: inline-block;
+}
+
+.dropdown_menu {
+    position: absolute;
+    left: 0;
+    top: calc(100% + .25rem);
+    background-color: white;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    display: none;
+    transform: translate(-33px, -10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    
+    word-break: keep-all;
+    text-align: center;
+} 
+
+.mypage, .logout {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 16px;
+}
+
+.mypage:hover,
+.logout:hover {background-color: rgba(239, 234, 232, 0.781);}
+
+
+.dropdown:hover .dropdown_menu { display: block; }
