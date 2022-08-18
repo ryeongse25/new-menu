@@ -12,7 +12,6 @@
     border : none;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     }
     body{
          background-color : white;
@@ -20,21 +19,16 @@
     }
     h1{
        font-size : 33px;
-       font-weight : 2000;
        color : rgb(46, 85, 67);
-       margin-top: 100px;
      }
     #login_form{
-               background-color : white;
                width : 500px;
                padding : 10px;
                display: block;
                margin-left: auto;
                margin-right: auto;
-               /* margin-top: 0px; */
-               margin-bottom : 50px;
                position: relative;
-               top: 10%;
+               top: 20%;
     }
     h3{
        width : 100%;
@@ -79,8 +73,7 @@
         color : rgb(186, 77, 47);
         font-size: 15px;
         margin-top: 0px;
-        font-weight: bolder;
-
+        font-family: 'Noto Sans KR', sans-serif;
      }
      .register_btn{
                     width : 100%;
@@ -94,6 +87,9 @@
                     font-weight : 550;
                     color : white;
                     border : none;
+    }
+    .find {
+      font-family: 'Noto Sans KR', sans-serif;
     }
 
 .container1 {

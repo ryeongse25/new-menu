@@ -1,24 +1,31 @@
 <nav>
     <div class="container1">
-        <a href="/" style="text-decoration: none;"><h1>RECIPE of <span class="god">GOD</span></h1></a>
+        <a href="/"><img src="/img/logo.png" class="logo"></a>
 
         <div class="menu">
-            <a href="/" class="is-active">Home</a>
-            <a href="/recipe">Recipe</a>
-            <a href="#">Board</a>
-            <a href="#">About</a>
+            <a href="/" class="is-active">新메뉴</a>
+            <a href="/recipe">메뉴판</a>
+            <a href="#">이벤트</a>
+            <a href="#">새소식</a>
         </div>
 
         <div class="menu_left">
             <% if ( !isLogin ) { %>
                 <a href="/user" class="login">로그인</a>
-                <span style="font-size: 12px;" class="bar">|</span>
+                <span class="bar">|</span>
                 <a href="/user/register" class="signup">회원가입</a>
             <% } else { %>
                 <p class="welcome"><%=user%>님 환영합니다.</p>
             <% } %>
-            <a href="/user/profile"><img src="/img/mypage.png" style="width: 25px; height: 25px;" class="mypage"></a>
-            <a href="#"><img src="/img/bookmark.png" style="width: 28px; height: 28px;" class="bookmark"></a>
+            <div class="dropdown">
+                <a href="/user/profile"><i class="fa-regular fa-user" class="link"></i></a>
+                <div class="dropdown_menu">
+                    <div class="mypage"><a href="#">마이페이지</a></div>
+                    <div class="logout"><a href="#" class="logout">로그아웃</a></div>
+                </div>
+            </div>
+            <a href="#"><i class="fa-regular fa-pen-to-square"></i></a> 
+            <a href="#"><i class="fa-regular fa-bookmark"></i></a>
         </div>
 
         <button class="hamburger is-active">

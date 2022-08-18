@@ -7,14 +7,28 @@
     --red: #BC5539;
 }
 
+* {
+    box-sizing : border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .container5 {
     position: relative;
-    top: 22%;
+    top: 40%;
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.total {
+    width: 100%;
+    text-align: left;
 }
 
 .container5_card {
     margin: 0 auto;
-    max-width: 1500px;
+    max-width: 1300px;
     display: grid;
     grid-template-columns: repeat(4, minmax(250px, 1fr));
     grid-column-gap:30px;
