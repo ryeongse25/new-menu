@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>정보수정</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <script>
+            function update() {
+                let form = document.getElementById("update_form");
+
+                let result = form.checkValidity();
+
+                if ( !result ) {
+                    form.reportValidity();
+                    return false;
+                }
+                
+                axios({
+                    method: "patch",
+                    url: "http://localhost:8000/user/update",
+                    data: {
+                        id: form.id.value,
+                        pw: form.pw.value,
+                        name: form.name.value,
+                        tel: form.tel.value,
+                        email: form.email.value
+                    }
+                }).then((response) => {
+                    return response.data;
+                }).then((data) => {
+                    alert(data);
+                })
+            }
+        </script>
+    </head>
+
+    <body>
+        <form id="update_form">
+            ID <br>
+            <input type="text" name="id" value="<%=user%>"> <br>
+            PASSWORD <br>
+            <input type="password" name="pw" value="<%=pw%>" required> <br>
+            NAME <br>
+            <input type="text" name="name" value="<%=name%>" reauired> <br>
+            PHONE  NUMBER <br>
+            <input type="text" name="tel" value="<%=tel%>"> <br>
+            EMAIL <br>
+            <input type="text" name="email" value="<%=email%>" reauired> <br>
+            <button type="button" onclick="update()">정보 수정</button>
+        </form>
+    </body>
+</html>
