@@ -20,6 +20,7 @@ exports.post_login = (req, res) => {
     })
 }
 
+// 아이디 찾기
 exports.find_id = (req, res) => {
     res.render("find_id");
 }
@@ -41,6 +42,31 @@ exports.find_id_result = (req, res) => {
         where: {name: req.body.name, email: req.body.email}
     }).then((result) => {
         res.render("find_id_result", {id: result.id});
+    })
+}
+
+// 비밀번호 찾기
+exports.find_pw = (req, res) => {
+    res.render("find_pw");
+}
+
+exports.post_find_pw = (req, res) => {
+    models.User.findOne({
+        where: {id: req.body.id, email: req.body.email}
+    }).then((result) => {
+        if (result == null) {
+            res.send(false);
+        } else {
+            res.send(true);
+        }
+    })
+}
+
+exports.find_pw_result = (req, res) => {
+    models.User.findOne({
+        where: {id: req.body.id, email: req.body.email}
+    }).then((result) => {
+        res.render("find_pw_result", {pw: result.pw});
     })
 }
 
@@ -99,5 +125,27 @@ exports.delete = (req, res) => {
         req.session.destroy(function(err){
             res.send("탈퇴되었습니다.");
         });
+    })
+}
+
+exports.update_page = (req, res) => {
+    const user = req.session.user;
+
+    models.User.findOne({where: {id: user}})
+    .then((result) => {
+        res.render("update_page", {isLogin: true, user: user, name: result.name, pw: result.pw, tel: result.tel, email: result.email});
+    });
+}
+
+exports.update = (req, res) => {
+    let obj = {
+        pw: req.body.pw,
+        name: req.body.name,
+        tel: req.body.tel,
+        email: req.body.email
+    }
+    models.User.update(obj, {where: {id: req.body.id}})
+    .then((result) => {
+        res.send("회원정보가 수정되었습니다.")
     })
 }
