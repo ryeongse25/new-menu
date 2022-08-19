@@ -194,6 +194,9 @@ nav {
     .bar {
         font-size: 10px;
     }
+    .welcome {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) {
@@ -214,8 +217,9 @@ nav {
     transition: 0.4s;
     padding: 10px 1px;
     position: relative;
-    top: 5px;
+    top: 16px;
     font-size: 15px;
+    word-break: keep-all;
 }
 
 .dropdown {
