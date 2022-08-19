@@ -1,11 +1,43 @@
 <html>
     <head>
         <title>글쓰기</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <script>
+            function cancel() {
+                alert("취소 되었습니다.");
+                location.href = "/recipe"
+            }
+        </script>
+
     </head>
 
     <body>
-        <form  action="/">
-            TITLE
+        <form id="write_form">
+            <h3>레시피 제목</h3>
+            <input type="text" name="title" placeholder="레시피 제목을 적어주세요"> <br>
+            <h3>요리 소개</h3> <textarea name="comment" cols="30" rows="10">레시피에 대해 간단히 소개해주세요.</textarea> <br>
+            <h3>동영상</h3> <input type="text" name="link" placeholder="동영상이 있으면 주소를 입력하세요"> <br>
+            <h3>카테고리</h3>
+            <select name="category_kind">
+                <option value="" selected>종류별</option>
+                <option value="grill">그릴</option>
+            </select>
+            <select name="category_ food">
+                <option value="" selected>재료별</option>
+                <option value="beef">소고기</option>
+            </select>
+            <p>분류를 바르게 설정해주시면, 사용자들이 쉽게 레시피를 검색할 수 있어요.</p>
+            <h3>재료</h3> <textarea name="material" cols="30" rows="10">요리에 들어갈 재료와 양념을 작성해 주세요. </textarea>
+            <h3>요리 순서</h3>
+            <h4>Step1</h4>
+            <textarea name="step1" cols="30" rows="10">요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요<br>예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요</textarea>
+            <input type="file">
+            <h3>요리 완성 사진</h3>
+            <button type="button" onclick="posting();">레시피 등록</button>
+            <button type="button" onclick="cancel();">취소</button>
+            <br> <%=user%>
         </form>
     </body>
 </html>

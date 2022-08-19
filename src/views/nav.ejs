@@ -26,7 +26,11 @@
                     </div>
                 <% } %>
             </div>
-            <a href="/recipe/write"><i class="fa-regular fa-pen-to-square"></i></a> 
+            <% if ( !isLogin ) { %>
+                <a href="/" onclick="alert('해당 기능은 로그인이 필요합니다.')"><i class="fa-regular fa-pen-to-square"></i></a> 
+            <% } else { %>
+                <a href="/recipe/write"><i class="fa-regular fa-pen-to-square"></i></a> 
+            <% } %>
             <a href="#"><i class="fa-regular fa-bookmark"></i></a>
         </div>
 
