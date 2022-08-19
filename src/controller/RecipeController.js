@@ -9,5 +9,11 @@ exports.main = (req, res) => {
 }
 
 exports.write_recipe_page = (req, res) => {
-    res.render("recipe_form");
+    const user = req.session.user;
+
+    res.render("recipe_form", {user: user});
+}
+
+exports.post_write = (req, res) => {
+    
 }
