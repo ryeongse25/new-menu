@@ -9,6 +9,30 @@
                 alert("취소 되었습니다.");
                 location.href = "/recipe"
             }
+
+            function posting() {
+                let form = document.getElementById("write_form");
+
+                let result = form.checkValidity();
+
+                if ( !result ) {
+                    form.reportValidity();
+                    return false;
+                }
+
+                axios({
+                    method: "post",
+                    url: "http://localhost:8000/recipe/detail",
+                    data: {
+                        id: "<%=user%>"
+                    }
+                }).then((response) => {
+                    return response.data;
+                }).then((data) => {
+                    alert(data);
+                    location.href = "/";
+                })
+            }
         </script>
 
     </head>
@@ -16,7 +40,7 @@
     <body>
         <form id="write_form">
             <h3>레시피 제목</h3>
-            <input type="text" name="title" placeholder="레시피 제목을 적어주세요"> <br>
+            <input type="text" name="title" placeholder="레시피 제목을 적어주세요" required> <br>
             <h3>요리 소개</h3> <textarea name="comment" cols="30" rows="10">레시피에 대해 간단히 소개해주세요.</textarea> <br>
             <h3>동영상</h3> <input type="text" name="link" placeholder="동영상이 있으면 주소를 입력하세요"> <br>
             <h3>카테고리</h3>
@@ -37,7 +61,6 @@
             <h3>요리 완성 사진</h3>
             <button type="button" onclick="posting();">레시피 등록</button>
             <button type="button" onclick="cancel();">취소</button>
-            <br> <%=user%>
         </form>
     </body>
 </html>
