@@ -24,8 +24,10 @@
                 }).then((data) => {
                     if (data) {
                         $("p").text("사용할 수 있는 아이디입니다.");
+                        $("#register_btn").attr("disabled", false);
                     } else {
-                        $("p").text("이미 사용 중인 아이디입니다.")
+                        $("p").text("이미 사용 중인 아이디입니다.");
+
                     }
                 })
             }
@@ -66,7 +68,6 @@
                 <h2 onclick="main_page();">Recipe of <span class="god">GOD</span></h2>
             </div>
         </nav> -->
-        <!-- <h1>회원가입</h1> -->
         <form id="register_form">
             <h1 class="register_font">회원가입</h1>
             <h3>ID</h3>
@@ -82,7 +83,7 @@
             <input type="tel" name="tel" class="txtb" placeholder="전화번호를 입력하세요"> <br>
             <h3>Email</h3>
             <input type="email" name="email" class="txtb" placeholder="이메일을 입력하세요" required> <br>
-            <button type="button" onclick="register()" class="register_btn">회원가입</button>
+            <button type="button" onclick="register()" class="register_btn" id="register_btn" disabled="true">회원가입</button>
         </form>
     </body>
 </html>

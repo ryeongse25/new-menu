@@ -18,6 +18,7 @@ app.use(session({
 }))
 
 const userRouter = require("./routes/user");
+const recipeRouter = require("./routes/recipe");
 
 // 메인 페이지
 app.get("/", function(req, res) {
@@ -44,17 +45,8 @@ app.get("/logout", (req,res) => {
     });
 })
 
-app.get("/recipe", (req, res) => {
-    const user = req.session.user;
-
-    if ( user != undefined ) {
-        res.render("recipe", {isLogin: true, user: user});
-    } else {
-        res.render("recipe", {isLogin: false});
-    }
-})
-
 app.use('/user', userRouter);
+app.use('/recipe', recipeRouter);
 
 app.listen(port, ()=>{
     console.log( "Server Port : ", port );
