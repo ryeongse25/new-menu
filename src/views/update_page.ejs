@@ -6,7 +6,7 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-        <link rel = "stylesheet" href = "/css/modify.css">
+        <link rel = "stylesheet" href = "/css/update_page.css">
         <script src="/js/nav.js"></script>
 
         <script>
@@ -46,24 +46,25 @@
             </div>
         </nav>
 
-        <h1 class="modify_font">정보수정</h1>
+        <!-- <h1 class="update_font">정보수정</h1> -->
 
         <form id="update_form">
+            <h1 class="update_font">정보수정</h1>
             <table>
                 <tr>
-                    <td><h3>ID</h3></td>
-                    <td class="id"><%=user%></td>
+                    <td><h4>ID</h4></td>
+                    <td class="id"><%=user%><span>님 개인정보를 입력해주세요.</span></td>
                 </tr>
             </table>
-            <h3>PASSWORD</h3>
+            <h3>Password</h3>
             <input type="password" name="pw" value="<%=pw%>" class="txtb" required> <br>
-            <h3>NAME</h3>
+            <h3>Name</h3>
             <input type="text" name="name" value="<%=name%>" class="txtb" reauired> <br>
-            <h3>PHONE NUMBER</h3>
+            <h3>Phone Number</h3>
             <input type="text" name="tel" value="<%=tel%>" class="txtb"> <br>
-            <h3>EMAIL</h3>
+            <h3>Email</h3>
             <input type="text" name="email" value="<%=email%>" class="txtb" reauired> <br>
-            <button type="button" onclick="update()" class="register_btn">정보 수정</button>
+            <button type="button" onclick="update();" class="update_btn">정보 수정</button>
         </form>
     </body>
 </html>
