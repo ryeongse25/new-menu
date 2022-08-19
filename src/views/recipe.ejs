@@ -6,6 +6,7 @@
 
         <link rel="stylesheet" href="/css/nav.css">
         <link rel="stylesheet" href="/css/search_bar.css">
+        <link rel="stylesheet" href="/css/icon.css">
         <link rel="stylesheet" href="/css/recipe.css">
         <link rel="stylesheet" href="/css/scroll.css">
 
@@ -17,6 +18,49 @@
         <script src="/js/nav.js"></script>
 
         <%-include('search.ejs') %>
+
+        <div class="container3">
+            <div class="icon" data-name="p-1">
+                <img src="/img/clock.png">
+                <h5>간편식</h5>
+            </div>
+            <div class="icon" data-name="p-2">
+                <img src="/img/soup.png">
+                <h5>국/찌개</h5>
+            </div>
+            <div class="icon" data-name="p-3">
+                <img src="/img/noodles.png">
+                <h5>면</h5>
+            </div>
+            <div class="icon" data-name="p-4">
+                <img src="/img/barbecue.png">
+            <h5>고기</h5>
+            </div>
+            <div class="icon" data-name="p-5">
+            <img src="/img/seafood.png">
+                <h5>해산물</h5>
+            </div>
+            <div class="icon" data-name="p-6">
+                <img src="/img/vegetables.png">
+                <h5>채소</h5>
+            </div>
+                <div class="icon" data-name="p-7">
+                <img src="/img/oven.png">
+                <h5>오븐</h5>
+            </div>
+            <div class="icon" data-name="p-8">
+                <img src="/img/grill.png">
+                <h5>그릴</h5>
+            </div>
+            <div class="icon" data-name="p-9">
+                <img src="/img/sauces.png">
+                <h5>소스</h5>
+            </div>
+            <div class="icon" data-name="p-10">
+                <img src="/img/dessert.png">
+                <h5>디저트</h5>
+            </div>    
+        </div>
 
         <div class="container5">
             <p class="total">총 <span class="count">0</span>개</p>
@@ -75,6 +119,6 @@
         <input class="upbtn" type="button" onclick="clickup()" value="&#xf106">
         <input class="downbtn" type="button" onclick="clickdown()" value="&#xf107">
 
-        <script src="scroll.js"></script>
+        <script src="js/scroll.js"></script>
     </body>
 </html>
