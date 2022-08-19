@@ -3,7 +3,7 @@
         "host" : "localhost",
         "database" : "recipe",
         "username" : "user",
-        "password" : "1234",
+        "password" : "Sesac1234*",
         "dialect" : "mysql"
     },
     "production" : {
