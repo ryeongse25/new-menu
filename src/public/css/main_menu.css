@@ -11,16 +11,11 @@
     box-sizing : border-box;
     margin: 0;
     padding: 0;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .container6 {
-    width : 1550px;
+    width : 1500px;
     padding : 10px;
     margin: 0 auto;
     position: relative;
@@ -32,9 +27,23 @@ img {
     grid-auto-flow: row dense; */
 }
 
+.gallery-item {
+    height: auto;
+    margin: 0.5rem;
+    box-shadow: 0 0 4px rgb(195, 190, 190);
+}
+
 .gallery-link {
     text-decoration: none;
     color: black;
+}
+
+.gallery-link2 {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .small_bar {
@@ -47,7 +56,6 @@ img {
 .gallery-text {
     line-height: 1.5;
     padding: 15px;
-    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .gallery-text h2 {
@@ -63,15 +71,11 @@ img {
     margin-left: 5px;
 }
 
-.gallery-item {
+.top_img {
+    max-width: 100%;
     height: auto;
-    margin: 0.5rem;
-    box-shadow: 0 0 4px rgb(195, 190, 190);
-}
+    margin-bottom: 20px;
 
-.gallery-item img {
-    width: 100%;
-    /* height: 100%; */
     object-fit: cover;
     display: block;
     margin-bottom: 30px;
@@ -79,15 +83,13 @@ img {
 
 .plus_img {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    height: auto;
 }
 
-.gallery-link2 {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
+/*  */
 
 .gallery-overlay {
     position: absolute;
@@ -116,6 +118,41 @@ img {
 .fa-circle-plus {
     font-size: 2.2rem;
     margin-top: 50px;
+}
+
+/*  */
+
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 18px;
+    margin-bottom: 18px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.rk {
+    margin-left: 20px;
+    font-size: 30px;
+    position: relative;
+    bottom: 18px;
+}
+
+.option_img {
+    width: 70px;
+    height: 70px;
+    margin-left: 30px;
+    margin-right: 20px;
+    position: relative;
+    top: 5px;
+}
+
+.name {
+    font-size: 20px;
+    position: relative;
+    bottom: 22px;
 }
 
 @media (min-width: 764px) {
@@ -156,9 +193,9 @@ img {
         grid-row: 1 / 4;    
     }
 
-        .gallery-item:nth-child(9) {
-            grid-row: 4 / 6;
-        }
+    .gallery-item:nth-child(9) {
+        grid-row: 4 / 6;
+    }
 }
 
 /* @media (min-width: 960px) {
