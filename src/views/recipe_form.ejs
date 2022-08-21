@@ -6,8 +6,11 @@
 
         <script>
             function cancel() {
-                alert("취소 되었습니다.");
-                location.href = "/recipe"
+                if (confirm("작성 중인 내용을 삭제하고 페이지를 떠나시겠습니까?")) {
+                    location.href = "/recipe"
+                } else {
+                    return false;
+                }
             }
 
             function posting() {
