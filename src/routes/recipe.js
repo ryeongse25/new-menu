@@ -2,11 +2,12 @@ const express = require("express");
 const router = express.Router();
 const recipe = require("../controller/RecipeController");
 
+const path = require("path");
 const multer = require("multer");
 const upload = multer({
     storage: multer.diskStorage({
         destination(req, file, done) {
-            done(null, 'public/img/');
+            done(null, path.join(__dirname, '../public/img/user_recipe/'));
         },
         filename(req, file, done) {
             const ext = path.extname(file.originalname);
