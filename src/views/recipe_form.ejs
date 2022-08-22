@@ -15,35 +15,44 @@
                 }
             }
 
-            function posting() {
-                let form = document.getElementById("write_form");
+            // function posting() {
+            //     let form = document.getElementById("write_form");
 
-                let result = form.checkValidity();
+            //     let result = form.checkValidity();
 
-                if ( !result ) {
-                    form.reportValidity();
-                    return false;
-                }
+            //     if ( !result ) {
+            //         form.reportValidity();
+            //         return false;
+            //     }
 
-                axios({
-                    method: "post",
-                    url: "http://localhost:8000/recipe/detail",
-                    data: {
-                        id: "<%=user%>"
-                    }
-                }).then((response) => {
-                    return response.data;
-                }).then((data) => {
-                    alert(data);
-                    location.href = "/";
-                })
-            }
+            //     axios({
+            //         method: "post",
+            //         url: "http://localhost:8000/recipe/detail",
+            //         data: {
+            //             user_id: "<%=user%>",
+            //             title: form.title.value,
+            //             comment: form.comment.value,
+            //             video_link: form.link.value,
+            //             category_kind: $("#ct_kind").val(),
+            //             category_food: $("#ct_food").val(),
+            //             material: form.material.value,
+            //             img1: form.userfile1.value,
+            //             img2: form.userfile2.value,
+            //             img3: form.userfile3.value,
+            //         }
+            //     }).then((response) => {
+            //         return response.data;
+            //     }).then((data) => {
+            //         alert(data);
+            //         location.href = "/recipe/detail";
+            //     })
+            // }
         </script>
 
     </head>
 
     <body>
-        <form id="write_form">
+        <form id="write_form" enctype="multipart/form-data">
             <h3>레시피 등록</h3>
             <hr>
             <h4>레시피 제목</h4>
@@ -51,11 +60,11 @@
             <h4>요리 소개</h4> <textarea name="comment" cols="30" rows="10" class="txtb2">레시피에 대해 간단히 소개해주세요.</textarea> <br>
             <h4>동영상</h4> <input type="text" name="link" class="txtb1" placeholder="동영상이 있으면 주소를 입력하세요"> <br>
             <h4>카테고리</h4>
-            <select name="category_kind" class="txtb3">
+            <select name="ct_kind" class="txtb3">
                 <option value="" selected>종류별</option>
                 <option value="grill">그릴</option>
             </select>
-            <select name="category_ food" class="txtb3">
+            <select name="ct_ food" class="txtb3">
                 <option value="" selected>재료별</option>
                 <option value="beef">소고기</option>
             </select>
@@ -66,10 +75,10 @@
             <textarea name="step1" cols="30" rows="10" class="txtb4">요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요<br>예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요</textarea>
             <input type="file" class="imgb">
             <h4>요리 완성 사진</h4>
-            <input type="file" class="imgb">
-            <input type="file" class="imgb">
-            <input type="file" class="imgb">
-            <input type="file" class="imgb">
+            <input type="file" class="imgb" name="usefile1">
+            <input type="file" class="imgb" name="userfile2">
+            <input type="file" class="imgb" name="usefile3">
+            <input type="file" class="imgb" name="userfile4">
             <div class="btn">
             <button type="button" onclick="posting();" class="posting_btn">레시피 등록</button>
             <button type="button" onclick="cancel();" class="cancel_btn">취소</button>
