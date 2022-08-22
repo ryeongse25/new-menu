@@ -3,8 +3,12 @@
         <title>글쓰기</title>
         <meta charset = "UTF-8">
         <link rel = "stylesheet" href = "/css/recipe_form.css">
+        <link rel="stylesheet" href="/css/nav.css">
+
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <script src="https://kit.fontawesome.com/c35f3dd7d0.js" crossorigin="anonymous"></script>
 
         <script>
             function next_step() {
@@ -61,6 +65,9 @@
     </head>
 
     <body>
+        <%-include('nav.ejs') %>
+        <script src="/js/nav.js"></script>
+
         <form id="write_form" action="/recipe/detail" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="user_id" value="<%=user%>">
             <h3>레시피 등록</h3>
