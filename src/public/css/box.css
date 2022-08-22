@@ -1,123 +1,89 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-#container {
-    margin: 0 auto;
-    font-family: 'Quicksand', serif;
-}
-
-/* 헤더 영역*/
-/* header {
-    width: 100%;
-    height: 70px;
+/* nav {
+  position: static;
 } */
 
-/*profile 영역*/
-
-#profile {
-    width: 100%;
-    height: 400px;
+#myPageText {
+  text-align: center;
+  padding: 40px 0;
+  background-color: white;
 }
 
-#myPageText {
-    width: 100%;
-    height: 100px;
-    line-height: 100px;
-    margin-left: 100px;
-    margin-top: -30px;
+#myPageText h1 {
+  font-size: 42px;
+  margin: 0px 20px;
+  margin-top: 150px;
 }
 
 #information {
-    width: 100%;
-    height: 200px;
-
-    border: 2px solid #D9D9D9;
-    width: 1330px;
-    margin: 15px auto;
-    padding: 10px;
+  display: flex;
+  margin: 0px auto;
+  margin-top: 80px;
+  padding: 10px 10px;
+  width: 800px;
+  border: 2px solid var(--light);
+  border-radius: 8px;
+  box-shadow: 2px 4px 8px var(--light);
 }
 
 #boxInfo {
-    float: left;
-    width: 600px;
-    height: 100%;
+  padding: 30px;
+  margin: 32px auto;
+  width: 300px;
+  color: 248, 241, 255;
+  text-align: center;
 }
 
-#photo {
-    border: 2px solid #D9D9D9;
-
-    margin: 15px 350px;
-    padding: 0px 37px;
-    width: 180px;
-}
-#photo img {
-    object-fit: cover;
+#boxInfo img {
+  border: 2px solid white;
+  box-shadow: 2px 4px 8px var(--light);
+  border-radius: 50%;
+  background-color: white;
+  object-fit: cover;
 }
 
-#button {
-    margin-left: 325px;
-    padding: 0px;
+#info-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
-#modify {
-    border: 2px solid #2E5543;
-    color: #2E5543;
-    margin: 0px 320px;
-    padding: 7px;
-    width: 120px;
-    font-size: 16px;
-    text-align: center;
+#info-group p {
+  margin: 5px 10px;
+  border-radius: 2px;
+  padding: 7px 10px;
+  color: white;
 }
 
-#modify:hover {
-    cursor: pointer;
+#info-group p:hover {
+  cursor: pointer;
 }
 
-#modify:active{
-    font-size: 15px;
+.modify {
+  background-color: var(--green);
 }
 
-#delete {
-    border: 2px solid #c87962;
-    color: #c87962;
-    margin: -37px 450px;
-    padding: 7px;
-    width: 120px;
-    
-    text-align: center;
+.delete {
+  background-color: var(--red);
 }
 
-#delete:hover {
-    cursor: pointer;
+#memberInfo {
+  padding: 20px;
+  margin: 32px auto;
+  width: 400px;
+  color: 248, 241, 255;
+  text-align: center;
 }
 
-#delete:active{
-    font-size: 15px;
+#memberInfo h2 {
+  margin: 23px 0px;
 }
 
-.memberInfo {
-    /* float: right; */
-    /* width: 650px;
-    height: 100%; */
-    padding: 10px;
-    line-height: 50px;
-    margin-left: 700px;
+table {
+  margin: 0 auto;
 }
 
-.name {
-    font-size: large;
-    font-weight: bold;
-}
-
-.phone {
-    font-size: medium;
-    font-weight: bold;
-}
-
-.mail {
-    font-size: medium;
-    font-weight: bold;
+.input {
+  width: 150px;
+  padding: 10px;
+  font-weight: 500;
 }

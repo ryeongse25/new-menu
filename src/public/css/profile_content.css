@@ -1,62 +1,20 @@
 /* tab content 부분 */
-.tab_content {
-    width: 85%;
-    height: 60em;
-    text-align: center;
-    position:relative; 
+
+#tab_content {
+  padding: 15px;
+  margin: 0 auto;
+  width: 970px;
+  border-radius: 8px;
+  color: black;
 }
+/* tab1_content(레시피) */
 
-#tab1_content,
-#tab2_content,
-#tab3_content,
-#tab4_content {
-    width: 97%;
-    height: 58.7em;
-    /* display: flex; */
-    align-items: center; 
-    justify-content: center;  
-    border: 0.5px solid #A19A9A;
-    background-color: white;
-    margin-left: 1em;
-    margin-top: 0.65em;
-    position: absolute;  
+#tab1_content {
+  text-align: center;
 }
-
-.recipe,
-.love {
-    width: 90%;
-    height: 3em;
-    border-bottom: 3px solid gray;
-    text-align: left;
-    /* margin: 0em 0em 0em 0em; */
-    line-height: 3em;
-    justify-content: center;  
-    display: inline-block;
-}
-
-.food,
-.command {
-    width: 90%;
-    height: 3em;
-    border-bottom: 3px solid white;
-    line-height: 3em;
-    justify-content: center;  
-    display: inline-block;
-}
-
-/* 레시피 */
-
-.main{
+.main {
   max-width: 1200px;
   margin: 0 auto;
-  text-align: center;
-  margin-left: 2.7em;
-}
-
-h1 {
-    font-size: 1.8em;
-    font-weight: 400;
-    text-align: center;
 }
 
 img {
@@ -66,30 +24,32 @@ img {
 }
 
 .cards {
-  /* display: flex; */
+  display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin-left: -2.75em;
+  margin: 0;
   padding: 0;
-  display: flex;
-  /* align-items: center;  */
-  justify-content: center;  
 }
 
 .cards_item {
   display: flex;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
-
-/* @media (min-width: 40rem) {
+@media (min-width: 40rem) {
   .cards_item {
-    width: 30.333%;
+    width: 50%;
   }
-} */
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
+  }
+}
 
 .card {
-  background-color: #EFEAE8;
+  background-color: white;
   border-radius: 0.25rem;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
   display: flex;
@@ -98,262 +58,259 @@ img {
 }
 
 .card_image > img {
-  width: 18em;
-  height: 11em;
+  width: 300px;
+  height: 200px;
 }
 
 .card_content {
-  margin-top: 1em;  
-  padding: 0.5rem;
+  margin-bottom: 5px;
   background: linear-gradient(to bottom left);
 }
-
-/* .profile_img {
-    width: 3em;
-    height: 2em;
-    border: 2px solid red;
-    border-radius: 100%;
-} */
 
 .card_title {
   color: black;
   font-size: 1.1rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 1px;
   text-transform: capitalize;
-  margin: 0em;
+  margin-top: 20px;
 }
 
 .card_text {
   color: black;
   font-size: 0.875rem;
   line-height: 1.5;
-  margin-bottom: 1.25rem;    
+  margin-bottom: 1.25rem;
   font-weight: 400;
 }
 
 /* 요리 후기 */
 
 .giveFood_content {
-    width: 90%;
-    height: 100vh;
-    margin: 0 auto;
-    margin-top: 2em;
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
+  margin-top: 2em;
 }
 
 .giveFood_content_box {
-    width: 90%;
-    height: 7em;
-    margin: 0 auto;
-    vertical-align: middle;
-    /* border: 0.45em solid skyblue; */
+  width: 90%;
+  height: 7em;
+  margin: 0 auto;
+  vertical-align: middle;
+  /* border: 0.45em solid skyblue; */
 }
 
 .giveFood_content_box .message {
-    width: 100%;
-    height: 3em;
-    background-color: #2E5543;
-    margin: 0em 0em 0em 0em;
-    line-height: 2.5em;
-    color: white;
+  width: 100%;
+  height: 3em;
+  background-color: #2e5543;
+  margin: 0em 0em 0em 0em;
+  line-height: 2.5em;
+  color: white;
 }
 
 .giveFood_content_box .giveFood_message {
-    width: 100%;
-    height: 4em;
-    background-color: white;
-    line-height: 3.7em;
-    border-left: 0.2em solid #2E5543;
-    border-right: 0.2em solid #2E5543;
-    border-bottom: 0.2em solid #2E5543;
+  width: 100%;
+  height: 4em;
+  background-color: white;
+  line-height: 3.7em;
+  border-left: 0.2em solid #2e5543;
+  border-right: 0.2em solid #2e5543;
+  border-bottom: 0.2em solid #2e5543;
 }
 
 .writeFood_content {
-    width: 90%;
-    height: 100vh;
-    margin: 0 auto;
-    margin-top: 2em;
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
+  margin-top: 2em;
 }
 
 .writeFood_content_box {
-    width: 90%;
-    height: 7em;
-    margin: 0 auto;
+  width: 90%;
+  height: 7em;
+  margin: 0 auto;
 }
 
 .writeFood_content_box .message {
-    width: 100%;
-    height: 3em;
-    background-color: #2E5543;
-    margin: 0em 0em 0em 0em;
-    line-height: 2.5em;
-    color: white;
+  width: 100%;
+  height: 3em;
+  background-color: #2e5543;
+  margin: 0em 0em 0em 0em;
+  line-height: 2.5em;
+  color: white;
 }
 
 .writeFood_content_box .writeFood_message {
-    width: 100%;
-    height: 4em;
-    background-color: white;
-    line-height: 3.7em;
-    border-left: 0.2em solid #2E5543;
-    border-right: 0.2em solid #2E5543;
-    border-bottom: 0.2em solid #2E5543;
+  width: 100%;
+  height: 4em;
+  background-color: white;
+  line-height: 3.7em;
+  border-left: 0.2em solid #2e5543;
+  border-right: 0.2em solid #2e5543;
+  border-bottom: 0.2em solid #2e5543;
 }
 
 #tab2_content {
-    text-align: center;
-    list-style:none;
+  text-align: center;
+  list-style: none;
 }
 
 #tab2_content .food {
-    text-align: left;
-    margin-left: 0.3em;
+  text-align: left;
+  margin-left: 0.3em;
 }
 
 #tab2_content .food_box {
-    width: 96%;
-    display: flex;
-    margin-left: 2%;
-   list-style:none;
+  width: 96%;
+  display: flex;
+  margin-left: 2%;
+  list-style: none;
 }
 
-#tab2_content .food_box .giveFood, .writeFood {
-    border: 0.1em solid #A19A9A;
-    width: 50%;
-    height: 3em;    
-    line-height: 2.5em;
+#tab2_content .food_box .giveFood,
+.writeFood {
+  border: 0.1em solid #a19a9a;
+  width: 50%;
+  height: 3em;
+  line-height: 2.5em;
 }
 
-#tab2_content .food_box .giveFood, .writeFood:hover {
-    cursor:pointer;
+#tab2_content .food_box .giveFood,
+.writeFood:hover {
+  cursor: pointer;
 }
 
 /* 댓글 */
 
 #tab3_content {
-    text-align: center;
-    list-style:none;
+  text-align: center;
+  list-style: none;
 }
 
 #tab3_content .command {
-    text-align: left;
-    margin-left: 0.3em;
+  text-align: left;
+  margin-left: 0.3em;
 }
 
 #tab3_content .command_box {
-    width: 96%;
-    display: flex;
-    margin-left: 2%;
-   list-style:none;
+  width: 96%;
+  display: flex;
+  margin-left: 2%;
+  list-style: none;
 }
 
-#tab3_content .command_box .giveCommand, .writeCommand {
-    border: 0.1em solid #A19A9A;
-    width: 50%;
-    height: 3em;    
-    line-height: 2.5em;
+#tab3_content .command_box .giveCommand,
+.writeCommand {
+  border: 0.1em solid #a19a9a;
+  width: 50%;
+  height: 3em;
+  line-height: 2.5em;
 }
 
-#tab3_content .command_box .giveCommand, .writeCommand:hover {
-    cursor:pointer;
+#tab3_content .command_box .giveCommand,
+.writeCommand:hover {
+  cursor: pointer;
 }
 
 .giveCommand_content {
-    width: 90%;
-    height: 100vh;
-    margin: 0 auto;
-    margin-top: 2em;
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
+  margin-top: 2em;
 }
 
 .giveCommand_content_box {
-    width: 90%;
-    height: 7em;
-    margin: 0 auto;
-    vertical-align: middle;
-    /* border: 0.45em solid skyblue; */
+  width: 90%;
+  height: 7em;
+  margin: 0 auto;
+  vertical-align: middle;
+  /* border: 0.45em solid skyblue; */
 }
 
 .giveCommand_content_box .message {
-    width: 100%;
-    height: 3em;
-    background-color: #2E5543;
-    margin: 0em 0em 0em 0em;
-    line-height: 2.5em;
-    color: white;
+  width: 100%;
+  height: 3em;
+  background-color: #2e5543;
+  margin: 0em 0em 0em 0em;
+  line-height: 2.5em;
+  color: white;
 }
 
 .giveCommand_content_box .giveCommand_message {
-    width: 100%;
-    height: 4em;
-    background-color: white;
-    line-height: 3.7em;
-    border-left: 0.2em solid #2E5543;
-    border-right: 0.2em solid #2E5543;
-    border-bottom: 0.2em solid #2E5543;
+  width: 100%;
+  height: 4em;
+  background-color: white;
+  line-height: 3.7em;
+  border-left: 0.2em solid #2e5543;
+  border-right: 0.2em solid #2e5543;
+  border-bottom: 0.2em solid #2e5543;
 }
 
 .writeCommand_content {
-    width: 90%;
-    height: 100vh;
-    margin: 0 auto;
-    margin-top: 2em;
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
+  margin-top: 2em;
 }
 
 .writeCommand_content_box {
-    width: 90%;
-    height: 7em;
-    margin: 0 auto;
+  width: 90%;
+  height: 7em;
+  margin: 0 auto;
 }
 
 .writeCommand_content_box .message {
-    width: 100%;
-    height: 3em;
-    background-color: #2E5543;
-    margin: 0em 0em 0em 0em;
-    line-height: 2.5em;
-    color: white;
+  width: 100%;
+  height: 3em;
+  background-color: #2e5543;
+  margin: 0em 0em 0em 0em;
+  line-height: 2.5em;
+  color: white;
 }
 
 .writeCommand_content_box .writeCommand_message {
-    width: 100%;
-    height: 4em;
-    background-color: white;
-    line-height: 3.7em;
-    border-left: 0.2em solid #2E5543;
-    border-right: 0.2em solid #2E5543;
-    border-bottom: 0.2em solid #2E5543;
+  width: 100%;
+  height: 4em;
+  background-color: white;
+  line-height: 3.7em;
+  border-left: 0.2em solid #2e5543;
+  border-right: 0.2em solid #2e5543;
+  border-bottom: 0.2em solid #2e5543;
 }
 
-/* ㅇㅇ */
+/* 찜 */
 
-.love_content{
-    width: 90%;
-    height: 100vh;
-    margin: 0 auto;
-    margin-top: 2em;
+.love_content {
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
+  margin-top: 2em;
 }
 
 .love_content_box {
-    width: 90%;
-    height: 7em;
-    margin: 0 auto;
+  width: 90%;
+  height: 7em;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .love_content_box .message {
-    width: 100%;
-    height: 3em;
-    background-color: #2E5543;
-    margin: 0em 0em 0em 0em;
-    line-height: 2.5em;
-    color: white;
+  width: 100%;
+  height: 3em;
+  background-color: #2e5543;
+  margin: 0em 0em 0em 0em;
+  line-height: 3em;
+  color: white;
 }
 
 .love_content_box .love_content_message {
-    width: 100%;
-    height: 4em;
-    background-color: white;
-    line-height: 3.7em;
-    border-left: 0.2em solid #2E5543;
-    border-right: 0.2em solid #2E5543;
-    border-bottom: 0.2em solid #2E5543;
+  width: 100%;
+  height: 4em;
+  line-height: 4em;
+  background-color: white;
+  border-left: 0.2em solid #2e5543;
+  border-right: 0.2em solid #2e5543;
+  border-bottom: 0.2em solid #2e5543;
 }
