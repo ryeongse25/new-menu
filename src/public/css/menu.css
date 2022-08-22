@@ -165,8 +165,12 @@ form .fa-solid {
 
 @media screen and (max-width: 640px) {
     .search-bar {
-        top: 28%;
+        top: 55%;
         width: 400px;
+    }
+
+    .option {
+        display: none;
     }
 }
 
