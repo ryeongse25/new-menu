@@ -2,7 +2,7 @@ const models = require("../model");
 
 // 로그인
 exports.login = (req, res) => {
-    res.render("login");
+    res.render("login", {isLogin: false});
 }
 
 exports.post_login = (req, res) => {
@@ -22,7 +22,7 @@ exports.post_login = (req, res) => {
 
 // 아이디 찾기
 exports.find_id = (req, res) => {
-    res.render("find_id");
+    res.render("find_id", {isLogin: false});
 }
 
 exports.post_find_id = (req, res) => {
@@ -41,13 +41,13 @@ exports.find_id_result = (req, res) => {
     models.User.findOne({
         where: {name: req.body.name, email: req.body.email}
     }).then((result) => {
-        res.render("find_id_result", {id: result.id});
+        res.render("find_id_result", {isLogin: false, id: result.id});
     })
 }
 
 // 비밀번호 찾기
 exports.find_pw = (req, res) => {
-    res.render("find_pw");
+    res.render("find_pw", {isLogin: false});
 }
 
 exports.post_find_pw = (req, res) => {
@@ -66,13 +66,13 @@ exports.find_pw_result = (req, res) => {
     models.User.findOne({
         where: {id: req.body.id, email: req.body.email}
     }).then((result) => {
-        res.render("find_pw_result", {pw: result.pw});
+        res.render("find_pw_result", {isLogin: false, pw: result.pw});
     })
 }
 
 // 회원가입
 exports.register = (req, res) => {
-    res.render("register");
+    res.render("register", {isLogin: false});
 }
 
 exports.id_check = (req, res) => {

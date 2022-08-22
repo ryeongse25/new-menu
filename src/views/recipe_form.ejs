@@ -3,8 +3,12 @@
         <title>글쓰기</title>
         <meta charset = "UTF-8">
         <link rel = "stylesheet" href = "/css/recipe_form.css">
+        <link rel="stylesheet" href="/css/nav.css">
+
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <script src="https://kit.fontawesome.com/c35f3dd7d0.js" crossorigin="anonymous"></script>
 
         <script>
             function next_step() {
@@ -61,10 +65,12 @@
     </head>
 
     <body>
+        <%-include('nav.ejs') %>
+        <script src="/js/nav.js"></script>
+
         <form id="write_form" action="/recipe/detail" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="user_id" value="<%=user%>">
             <h3>레시피 등록</h3>
-            <hr>
             <h4>레시피 제목</h4>
             <input type="text" name="title" class="txtb1" placeholder="레시피 제목을 적어주세요" required> <br>
             <h4>요리 소개</h4> 
@@ -87,11 +93,9 @@
                 <h4>Step1</h4>
                 <textarea name="step_1" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요"></textarea>
             </div>
-            <button type="button" onclick="next_step();">+ 순서 추가</button> <br>
+            <button type="button" onclick="next_step();" class="add_btn">+ 순서 추가</button> <br>
             <h4>요리 완성 사진</h4>
-            <input type="file" class="imgb" name="userfile1">
-            <input type="file" class="imgb" name="userfile2">
-            <input type="file" class="imgb" name="userfile3">
+            <input type="file" class="imgb" name="userfile" multiple>
             <div class="btn">
                 <button onclick="posting();" class="posting_btn">레시피 등록</button>
                 <button type="button" onclick="cancel();" class="cancel_btn">취소</button>

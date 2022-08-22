@@ -1,123 +1,139 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-#container {
-    margin: 0 auto;
-    font-family: 'Quicksand', serif;
-}
-
-/* 헤더 영역*/
-/* header {
-    width: 100%;
-    height: 70px;
+/* nav {
+  position: static;
 } */
 
-/*profile 영역*/
-
-#profile {
-    width: 100%;
-    height: 400px;
+#myPageText {
+  text-align: center;
+  padding: 40px 0;
+  background-color: white;
 }
 
-#myPageText {
-    width: 100%;
-    height: 100px;
-    line-height: 100px;
-    margin-left: 100px;
-    margin-top: -30px;
+#myPageText h1 {
+  font-size: 42px;
+  margin: 0px 20px;
+  margin-top: 150px;
 }
 
 #information {
-    width: 100%;
-    height: 200px;
-
-    border: 2px solid #D9D9D9;
-    width: 1330px;
-    margin: 15px auto;
-    padding: 10px;
+  display: flex;
+  margin: 0px auto;
+  margin-top: 80px;
+  padding: 10px 10px;
+  width: 800px;
+  border: 2px solid var(--light);
+  border-radius: 8px;
+  box-shadow: 2px 4px 8px var(--light);
 }
 
 #boxInfo {
-    float: left;
-    width: 600px;
-    height: 100%;
+  padding: 30px;
+  margin: 32px auto;
+  width: 300px;
+  color: 248, 241, 255;
+  text-align: center;
 }
 
-#photo {
-    border: 2px solid #D9D9D9;
-
-    margin: 15px 350px;
-    padding: 0px 37px;
-    width: 180px;
-}
-#photo img {
-    object-fit: cover;
-}
-
-#button {
-    margin-left: 325px;
-    padding: 0px;
+#boxInfo img:not(.upload-button) {
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  border: 2px solid white;
+  box-shadow: 2px 4px 8px var(--light);
+  border-radius: 50%;
+  background-color: white;
 }
 
-#modify {
-    border: 2px solid #2E5543;
-    color: #2E5543;
-    margin: 0px 320px;
-    padding: 7px;
-    width: 120px;
-    font-size: 16px;
-    text-align: center;
+/* 이미지 파일 올리기 */
+
+/* 카메라 */
+
+.p-image {
+  position: absolute;
+  z-index: 3;
+}
+.p-image:hover {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-#modify:hover {
-    cursor: pointer;
+.upload-button {
+  font-size: 0.2em;
+  width: 20px;
+  height: 20px;
+  margin-bottom: -15px;
+  margin-left: 150px;
 }
 
-#modify:active{
-    font-size: 15px;
+.upload-button:hover {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
 }
 
-#delete {
-    border: 2px solid #c87962;
-    color: #c87962;
-    margin: -37px 450px;
-    padding: 7px;
-    width: 120px;
-    
-    text-align: center;
+.file-upload {
+  display: none;
 }
 
-#delete:hover {
-    cursor: pointer;
+/* 큰 사진 */
+
+.profile-photo {
+  /* position: absolute; */
+  margin-left: 70px;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
 }
 
-#delete:active{
-    font-size: 15px;
+.profile-photo img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  /* position: absolute; */
 }
 
-.memberInfo {
-    /* float: right; */
-    /* width: 650px;
-    height: 100%; */
-    padding: 10px;
-    line-height: 50px;
-    margin-left: 700px;
+/* 끝 */
+
+#info-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
-.name {
-    font-size: large;
-    font-weight: bold;
+#info-group p {
+  margin: 5px 10px;
+  border-radius: 2px;
+  padding: 7px 10px;
+  color: white;
 }
 
-.phone {
-    font-size: medium;
-    font-weight: bold;
+#info-group p:hover {
+  cursor: pointer;
 }
 
-.mail {
-    font-size: medium;
-    font-weight: bold;
+.modify {
+  background-color: var(--green);
+}
+
+.delete {
+  background-color: var(--red);
+}
+
+#memberInfo {
+  padding: 20px;
+  margin: 32px auto;
+  width: 400px;
+  color: 248, 241, 255;
+  text-align: center;
+}
+
+#memberInfo h2 {
+  margin: 23px 0px;
+}
+
+table {
+  margin: 0 auto;
+}
+
+.input {
+  width: 150px;
+  padding: 10px;
+  font-weight: 500;
 }
