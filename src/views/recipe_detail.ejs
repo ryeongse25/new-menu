@@ -29,6 +29,9 @@
             <div class="txtb4">
                 <h4><%=data.material%></h4>
             </div>
+            <% console.log(picture.length); %>
+            <% for (let i=0; i<picture.length; i++) { %>
+                <img src="/img/user_recipe/" + picture.filename style="width: 100px">
             <div class="btn">
                 <button class="modify_btn">수정하기</button></a> <br>
                 <a href="/user/profile"><button class="mypage_btn">마이페이지</button></a> <br>

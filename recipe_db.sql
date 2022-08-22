@@ -23,6 +23,7 @@ CREATE TABLE user_recipe (
 );
 
 CREATE TABLE user_recipe_step (
+    id int not null primary key auto_increment,
 	food_id int,
     FOREIGN KEY ( food_id ) REFERENCES user_recipe(id),
     stage int unsigned,
