@@ -64,7 +64,6 @@
         <form id="write_form" action="/recipe/detail" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="user_id" value="<%=user%>">
             <h3>레시피 등록</h3>
-            <hr>
             <h4>레시피 제목</h4>
             <input type="text" name="title" class="txtb1" placeholder="레시피 제목을 적어주세요" required> <br>
             <h4>요리 소개</h4> 
@@ -87,7 +86,7 @@
                 <h4>Step1</h4>
                 <textarea name="step_1" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요"></textarea>
             </div>
-            <button type="button" onclick="next_step();">+ 순서 추가</button> <br>
+            <button type="button" onclick="next_step();" class="add_btn">+ 순서 추가</button> <br>
             <h4>요리 완성 사진</h4>
             <input type="file" class="imgb" name="userfile1">
             <input type="file" class="imgb" name="userfile2">
