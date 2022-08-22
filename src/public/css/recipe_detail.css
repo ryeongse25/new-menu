@@ -13,13 +13,16 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     background-color : white;
     text-align : center;
-    }
+}
+
 .recipe_detail_font {
     font-family: 'Noto Sans KR', sans-serif;
 }
+
 .recipe_detail{
     background-color : white;
     width : 800px;
@@ -28,9 +31,11 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-bottom : 50px;
+    margin-top: 200px;
     position: relative;
     top: 3%;
 }
+
 .txtb1{
     background-color : rgb(245, 245, 245);
     border-radius : 5px;
@@ -38,6 +43,7 @@ body {
     width: 100%;
     margin-top: 45px;
 }
+
 .txtb2{
     background-color : rgb(245, 245, 245);
     border-radius : 5px;

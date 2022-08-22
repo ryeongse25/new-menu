@@ -45,7 +45,7 @@ exports.post_write = (req, res) => {
         models.UserRecipePicture.bulkCreate(file_obj)
         .then((result_pic) => {
             console.log(result_pic);
-            res.render("recipe_detail", {isLogin: true, user: req.body.user_id, data: result, data_pic});
+            res.render("recipe_detail", {isLogin: true, user: req.body.user_id, data: result});
         })
     });
 }
