@@ -1,17 +1,3 @@
-const multer = require("multer");
-const upload = multer({
-    storage: multer.diskStorage({
-        destination(req, file, done) {
-            done(null, 'public/img/');
-        },
-        filename(req, file, done) {
-            const ext = path.extname(file.originalname);
-            done(null, path.basename(file.originalname, ext) + ext);
-        }
-    }),
-    limits: {fileSize : 5*1024*1024},
-})
-
 const models = require("../model");
 
 exports.main = (req, res) => {
@@ -43,7 +29,7 @@ exports.post_write = (req, res) => {
     models.UserRecipe.create(recipe_obj)
     .then((result) => {
         console.log(result);
-        res.send("레시피가 성공적으로 등록되었습니다.");
+        res.render("recipe_detail", {data: result});
     });
 }
 

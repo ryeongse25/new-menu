@@ -2,6 +2,20 @@ const express = require("express");
 const router = express.Router();
 const recipe = require("../controller/RecipeController");
 
+const multer = require("multer");
+const upload = multer({
+    storage: multer.diskStorage({
+        destination(req, file, done) {
+            done(null, 'public/img/');
+        },
+        filename(req, file, done) {
+            const ext = path.extname(file.originalname);
+            done(null, path.basename(file.originalname, ext) + ext);
+        }
+    }),
+    limits: {fileSize : 5*1024*1024},
+})
+
 // recipe main page
 router.get("/", recipe.main);
 
