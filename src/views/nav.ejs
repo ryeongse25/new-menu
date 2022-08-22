@@ -1,43 +1,49 @@
 <nav>
-    <div class="container1">
-        <a href="/"><img src="/img/logo.png" class="logo"></a>
+  <div class="container1">
+    <a href="/"><img src="/img/logo.png" class="logo" /></a>
 
-        <div class="menu">
-            <a href="/" class="is-active">新메뉴</a>
-            <a href="/recipe">메뉴판</a>
-            <a href="#">이벤트</a>
-            <a href="#">새소식</a>
-        </div>
-
-        <div class="menu_left">
-            <% if ( !isLogin ) { %>
-                <a href="/user" class="login">로그인</a>
-                <span class="bar">|</span>
-                <a href="/user/register" class="signup">회원가입</a>
-            <% } else { %>
-                <p class="welcome"><%=user%>님 환영합니다.</p>
-            <% } %>
-            <div class="dropdown">
-                <a href="/user/profile"><i class="fa-regular fa-user" class="link"></i></a>
-                <% if ( isLogin ) { %>
-                    <div class="dropdown_menu">
-                        <div class="mypage"><a href="/user/profile">마이페이지</a></div>
-                        <div class="logout"><a href="/logout" class="logout">로그아웃</a></div>
-                    </div>
-                <% } %>
-            </div>
-            <% if ( !isLogin ) { %>
-                <a href="/" onclick="alert('해당 기능은 로그인이 필요합니다.')"><i class="fa-regular fa-pen-to-square"></i></a> 
-            <% } else { %>
-                <a href="/recipe/write"><i class="fa-regular fa-pen-to-square"></i></a> 
-            <% } %>
-            <a href="#"><i class="fa-regular fa-bookmark"></i></a>
-        </div>
-
-        <button class="hamburger is-active">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+    <div class="menu">
+      <a href="/" class="is-active">新메뉴</a>
+      <a href="/recipe">메뉴판</a>
+      <a href="#">이벤트</a>
+      <a href="#">새소식</a>
     </div>
+
+    <div class="menu_left">
+      <% if ( !isLogin ) { %>
+      <a href="/user" class="login">로그인</a>
+      <span class="bar">|</span>
+      <a href="/user/register" class="signup">회원가입</a>
+      <% } else { %>
+      <p class="welcome"><%=user%>님 환영합니다.</p>
+      <% } %>
+      <div class="dropdown">
+        <a href="/user/profile"
+          ><i class="fa-regular fa-user" class="link"></i
+        ></a>
+        <% if ( isLogin ) { %>
+        <div class="dropdown_menu">
+          <div class="mypage"><a href="/user/profile">마이페이지</a></div>
+          <div class="logout">
+            <a href="/logout" class="logout">로그아웃</a>
+          </div>
+        </div>
+        <% } %>
+      </div>
+      <% if ( !isLogin ) { %>
+      <a href="/" onclick="alertBoard()"
+        ><i class="fa-regular fa-pen-to-square"></i
+      ></a>
+      <% } else { %>
+      <a href="/recipe/write"><i class="fa-regular fa-pen-to-square"></i></a>
+      <% } %>
+      <a href="#"><i class="fa-regular fa-bookmark"></i></a>
+    </div>
+
+    <button class="hamburger is-active">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 </nav>
