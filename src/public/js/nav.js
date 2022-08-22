@@ -21,7 +21,7 @@ function alertBoard() {
     cancelButtonText: "닫기",
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location = "localhost:8000/user";
+      window.location = "/user";
     }
   });
 }
