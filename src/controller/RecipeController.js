@@ -29,7 +29,7 @@ exports.post_write = (req, res) => {
     models.UserRecipe.create(recipe_obj)
     .then((result) => {
         console.log(result);
-        res.send("레시피가 성공적으로 등록되었습니다.");
+        res.render("recipe_detail", {data: result});
     });
 }
 
