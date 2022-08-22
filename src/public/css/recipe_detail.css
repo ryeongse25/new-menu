@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Average&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+
+:root {
+    --light: #E1DDDD;
+    --dark: #312D2D;
+    --green: #2E5543;
+}
+* {
+    box-sizing : border-box;
+    border : none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color : white;
+    text-align : center;
+    }
+.recipe_detail_font {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.recipe_detail{
+    background-color : white;
+    width : 800px;
+    padding : 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom : 50px;
+    position: relative;
+    top: 3%;
+}
+.txtb1{
+    background-color : rgb(245, 245, 245);
+    border-radius : 5px;
+    border : none;
+    width: 100%;
+    margin-top: 45px;
+}
+.txtb2{
+    background-color : rgb(245, 245, 245);
+    border-radius : 5px;
+    border : none;
+    width: 100%;
+    margin-top: 22px;
+}
+/* .txtb1, .txtb2, .txtb3{
+    white-space: pre-wrap;
+} */
+.txtb3{
+    background-color : rgb(245, 245, 245);
+    border-radius : 5px;
+    border : none;
+    width: 100%;
+    margin-top: 22px;
+}
+h2{
+    font-size : 30px;
+    font-weight : 1000;
+    color : rgb(46, 85, 67);
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align : center;
+}
+span{
+    font-size : 25px;
+    font-weight : 1000;
+    color :black; 
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align : center;
+}
+h3{
+    width : 100%;
+    margin-bottom : 5px;
+    font-size : 18px;
+    font-weight : 550;
+    /* color : rgb(81, 85, 85); */
+    color: black;
+    margin-top : 10px;
+    text-align : center;
+}
+h4{
+    width : 100%;
+    margin-bottom : 5px;
+    font-size : 14px;
+    font-weight : 500;
+    /* color : rgb(81, 85, 85); */
+    color: black;
+    margin-top : 10px;
+    text-align : left;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+}
+.modify_btn{
+            width : 20%;
+            padding : 17px;
+            margin-top: 40px;
+            margin-right: 20px;
+            border-radius : 5px;
+            cursor : pointer;
+            background-color : rgb(46, 85, 67);
+            font-size : 18px;
+            font-weight : 550;
+            color : white;
+            border : none;
+}
+.mypage_btn{
+        width : 115%;
+        padding : 17px;
+        /* margin-left: 5px; */
+        margin-top: 40px;
+        border-radius : 5px;
+        cursor : pointer;
+        background-color : rgb(186, 77, 47);
+        font-size : 18px;
+        font-weight : 550;
+        color : white;
+        border : none;
+}
