@@ -7,6 +7,15 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
         <script>
+            function next_step() {
+                let h4s = document.querySelectorAll("#steps > h4");
+                console.log(h4s);
+                let count = h4s.length;
+                console.log(count);
+                let html = `<h4>Step${count+1}</h4><textarea name="step_${count+1}" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요"></textarea>`;
+                $("#steps").append(html);
+            }
+
             function cancel() {
                 if (confirm("작성 중인 내용을 삭제하고 페이지를 떠나시겠습니까?")) {
                     location.href = "/recipe"
@@ -66,7 +75,7 @@
                 <option value="" selected>종류별</option>
                 <option value="grill">그릴</option>
             </select>
-            <select name="ct_ food" class="txtb3">
+            <select name="ct_food" class="txtb3">
                 <option value="" selected>재료별</option>
                 <option value="beef">소고기</option>
             </select>
@@ -74,17 +83,18 @@
             <h4>재료</h4> 
             <textarea name="material" cols="30" rows="10" class="txtb2" placeholder="요리에 들어갈 재료와 양념을 작성해 주세요."></textarea>
             <h4>요리 순서</h4>
-            <h4>Step1</h4>
-            <textarea name="step1" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요"></textarea>
-            <input type="file" class="imgb">
+            <div id="steps">
+                <h4>Step1</h4>
+                <textarea name="step_1" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요"></textarea>
+            </div>
+            <button type="button" onclick="next_step();">+ 순서 추가</button> <br>
             <h4>요리 완성 사진</h4>
-            <input type="file" class="imgb" name="usefile1">
+            <input type="file" class="imgb" name="userfile1">
             <input type="file" class="imgb" name="userfile2">
-            <input type="file" class="imgb" name="usefile3">
-            <input type="file" class="imgb" name="userfile4">
+            <input type="file" class="imgb" name="userfile3">
             <div class="btn">
-            <button onclick="posting();" class="posting_btn">레시피 등록</button>
-            <button type="button" onclick="cancel();" class="cancel_btn">취소</button>
+                <button onclick="posting();" class="posting_btn">레시피 등록</button>
+                <button type="button" onclick="cancel();" class="cancel_btn">취소</button>
             </div>
         </form>
     </body>
