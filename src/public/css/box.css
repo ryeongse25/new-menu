@@ -33,13 +33,63 @@
   text-align: center;
 }
 
-#boxInfo img {
+#boxInfo img:not(.upload-button) {
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
   border: 2px solid white;
   box-shadow: 2px 4px 8px var(--light);
   border-radius: 50%;
   background-color: white;
-  object-fit: cover;
 }
+
+/* 이미지 파일 올리기 */
+
+/* 카메라 */
+
+.p-image {
+  position: absolute;
+  z-index: 3;
+}
+.p-image:hover {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.upload-button {
+  font-size: 0.2em;
+  width: 20px;
+  height: 20px;
+  margin-bottom: -15px;
+  margin-left: 150px;
+}
+
+.upload-button:hover {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.file-upload {
+  display: none;
+}
+
+/* 큰 사진 */
+
+.profile-photo {
+  /* position: absolute; */
+  margin-left: 70px;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}
+
+.profile-photo img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  /* position: absolute; */
+}
+
+/* 끝 */
 
 #info-group {
   display: flex;

@@ -45,7 +45,13 @@
 
       <section id="information">
         <div id="boxInfo">
-          <img src="/img/people.png" width="100px" height="80px" />
+            <div class="p-image">
+              <img src="photo-camera.png" class="upload-button"></img>
+               <input class="file-upload" type="file" accept="image/*"/>
+            </div>
+            <div class="profile-photo">
+              <img src="/people.png" />
+            </div>          
           <div id="info-group">
             <p class="modify" onclick="update_btn();"">정보수정</p>
             <p class="delete" onclick="delete_user();"">회원탈퇴</p>
