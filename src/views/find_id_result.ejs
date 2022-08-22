@@ -2,6 +2,8 @@
     <head>
         <title>아이디 찾기</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/nav.css">
+        <script src="https://kit.fontawesome.com/c35f3dd7d0.js" crossorigin="anonymous"></script>
         <style>
             h2{
                 width : 100%;
@@ -53,6 +55,9 @@
         </style>
     </head>
     <body>
+        <%-include('nav.ejs') %>
+        <script src="/js/nav.js"></script>
+
         <h2>회원님의 아이디</h2>
         <h1><%=id%></h1>
         <div class="find_btn">
