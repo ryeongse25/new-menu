@@ -40,9 +40,9 @@ app.get("/logout", (req, res) => {
   req.session.destroy(function (err) {
     res.send(
       `<script>
-                location.href='/';
-                alert('로그아웃 성공');
-            </script>`
+          location.href='/';
+          alert('로그아웃 성공');
+      </script>`
     );
   });
 });

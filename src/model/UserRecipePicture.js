@@ -3,11 +3,17 @@ const UserRecipePicture = (Sequelize, DataTypes) => {
     const model = Sequelize.define(
         'user_recipe_picture',
         {
+            id : {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+                primaryKey: true,
+                autoIncrement: true
+            },
             food_id : {
                 type: DataTypes.INTEGER
             },
             filename : {
-                type: DataTypes.STRING(20)
+                type: DataTypes.STRING(100)
             }
         },
         {

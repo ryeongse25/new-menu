@@ -3,22 +3,48 @@
         <title>RECIPE of GOD에 오신 것을 환영합니다</title>
         <meta charset="utf-8">
 
-        <link rel="stylesheet" href="/css/menu_nav.css">
-        <link rel="stylesheet" href="/css/search_bar.css">
-        <link rel="stylesheet" href="/css/icon.css">
-        <link rel="stylesheet" href="/css/recipe.css">
+        <link rel="stylesheet" href="/css/nav.css">
+        <link rel="stylesheet" href="/css/menu.css">
         <link rel="stylesheet" href="/css/scroll.css">
 
         <script src="https://kit.fontawesome.com/c35f3dd7d0.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
+
         <%-include('nav.ejs') %>
         <script src="/js/nav.js"></script>
+        
+        <div class="container2">
+            <div class="menu_img"><img src="/img/menu_top.png" id="menu_img">
+                <div class="menu_txt">
+                    <p id="txt1">메뉴를 검색해보세요.</p>
+                    <p id="txt2">당신을 위한 메뉴가 여기 있습니다.</p>
+                </div>
+                <div class="search">
+                    <form action="" class="search-bar">
+                        <input type="text" class="search_box" placeholder="요리/재료명을 입력해주세요" name="q">
+                        <button type="submit" class="search_btn">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="option">
+                    <button type="button">간편식</button>
+                    <button type="button">국/찌개</button>
+                    <button type="button">면</button>
+                    <button type="button">고기</button>
+                    <button type="button">해산물</button>
+                    <button type="button">채소</button>
+                    <button type="button">소스</button>
+                    <button type="button">디저트</button>
+                    <button type="button">오븐</button>
+                    <button type="button">그릴</button>
+                </div>
+            </div>
+        </div>
 
-        <%-include('search.ejs') %>
-
-        <div class="container3">
+        <!-- <div class="container3">
             <div class="icon" data-name="p-1">
                 <img src="/img/clock.png">
                 <h5>간편식</h5>
@@ -59,7 +85,7 @@
                 <img src="/img/dessert.png">
                 <h5>디저트</h5>
             </div>    
-        </div>
+        </div> -->
 
         <div class="container5">
             <p class="total">총 <span class="count">0</span>개</p>

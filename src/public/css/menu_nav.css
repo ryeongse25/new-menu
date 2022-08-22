@@ -98,7 +98,7 @@ nav {
 }
 
 .menu a {
-    /* color: var(--dark);  */
+    color: white; 
     margin: 0 10px;
     text-decoration: none;
     transition: 0.4s;
@@ -108,7 +108,7 @@ nav {
     top: 5px;
     letter-spacing: 1px;
     font-size: 25px;
-    font-weight: 600;
+    font-weight: 500;
     word-break: keep-all;
 }
 
@@ -124,7 +124,7 @@ nav {
 
 .menu_left a {
     text-decoration: none;
-    /* color: var(--dark); */
+    color: white;
     padding: 8px 7px;
     word-break: keep-all;
     font-weight: 400;
@@ -140,7 +140,7 @@ nav {
     position: relative;
     top: 25px;
     font-size: 14px;
-    /* color: white; */
+    color: white;
 }
 
 .signup {

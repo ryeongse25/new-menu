@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR:wght@300;500&display=swap');
+
+:root {
+    --font: #515555;
+    --bar: #D9D9D9;
+    --red: #BC5539;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* search */
+
+.container2 {
+    position: relative;
+    top: 11%;
+}
+
+#menu_img {
+    width: 100%;
+}
+
+.menu_txt {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-weight: 200;
+}
+
+#txt1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+#txt2 {
+    font-size: 20px;
+}
+
+.search-bar {
+    width: 1500px;
+    max-width: 700px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding-left: 10px;
+    height: 50px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.search-bar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding-left: 10px;
+    padding-bottom: 3px;
+    font-size: 20px;
+    color: #cac7ff;
+}
+
+::placeholder {
+    color: var(--dark);
+    font-size: 18px;
+}
+
+.search_btn {
+    border: 0;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+form .fa-solid {
+    align-self: center;
+    padding: 12px 10px;
+    margin-right: 12px;
+    color: var(--green);
+    border-right: none;
+    height: 50px;
+    font-size: 20px;
+}
+
+/* button */
+
+.option {
+    margin: 30px;
+    text-align: center;
+}
+
+.option button {
+    border: none;
+    background-color: transparent;
+    border-radius: 20%;
+    color: var(--dark);
+    cursor: pointer;
+    padding: 5px 15px 5px;
+    margin: 0px 20px 0px;
+    font-size: 17px;
+}
+
+.option button:hover {
+    background-color: #2E5543;
+    color: white;
+}
+
+
+@media screen and (max-width: 1400px) {
+
+    #txt1 {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+    
+    #txt2 {
+        font-size: 15px;
+    }
+    
+    .search_bar {
+        top: 60%;
+    }
+}
+
+@media screen and (max-width: 1160px) {
+    .menu_txt {
+        top: 25%;
+    }
+    #txt1 {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+    
+    #txt2 {
+        display: none;
+    }
+    
+    .search-bar {
+        top: 48%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .menu_txt {
+        display: none;
+    }
+    
+    .search-bar {
+        top: 35%;
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .search-bar {
+        top: 55%;
+        width: 400px;
+    }
+
+    .option {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .container2 {
+        display: none;
+    }
+}
+
+/* menu */
+
+.container5 {
+    position: relative;
+    top: 15%;
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.total {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 700;
+    font-size: 23px;
+    margin-bottom: 20px;
+    width: 50%;
+
+    width: 90%;
+    font-weight: bold;
+}
+
+.container5_card {
+    margin: 0 auto;
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    grid-column-gap:30px;
+    grid-row-gap: 50px;
+}
+
+.main_card {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.main_card img {
+    width: 100%;
+    display: block;
+}
+
+.card_content {
+    line-height: 1.5;
+    font-size: 18px;
+    padding: 15px;
+    text-align: center;
+    color: var(--red);
+}
+
+.card_content h4 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+
+}
+
+.count {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 700;
+    color: var(--red);
+}
