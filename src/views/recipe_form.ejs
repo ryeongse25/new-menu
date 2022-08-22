@@ -13,55 +13,70 @@
                 }
             }
 
-            function posting() {
-                let form = document.getElementById("write_form");
+            // function posting() {
+            //     let form = document.getElementById("write_form");
 
-                let result = form.checkValidity();
+            //     let result = form.checkValidity();
 
-                if ( !result ) {
-                    form.reportValidity();
-                    return false;
-                }
+            //     if ( !result ) {
+            //         form.reportValidity();
+            //         return false;
+            //     }
 
-                axios({
-                    method: "post",
-                    url: "http://localhost:8000/recipe/detail",
-                    data: {
-                        id: "<%=user%>"
-                    }
-                }).then((response) => {
-                    return response.data;
-                }).then((data) => {
-                    alert(data);
-                    location.href = "/";
-                })
-            }
+            //     axios({
+            //         method: "post",
+            //         url: "http://localhost:8000/recipe/detail",
+            //         data: {
+            //             user_id: "<%=user%>",
+            //             title: form.title.value,
+            //             comment: form.comment.value,
+            //             video_link: form.link.value,
+            //             category_kind: $("#ct_kind").val(),
+            //             category_food: $("#ct_food").val(),
+            //             material: form.material.value,
+            //             img1: form.userfile1.value,
+            //             img2: form.userfile2.value,
+            //             img3: form.userfile3.value,
+            //         }
+            //     }).then((response) => {
+            //         return response.data;
+            //     }).then((data) => {
+            //         alert(data);
+            //         location.href = "/recipe/detail";
+            //     })
+            // }
         </script>
 
     </head>
 
     <body>
-        <form id="write_form">
+        <form id="write_form" enctype="multipart/form-data">
             <h3>레시피 제목</h3>
             <input type="text" name="title" placeholder="레시피 제목을 적어주세요" required> <br>
-            <h3>요리 소개</h3> <textarea name="comment" cols="30" rows="10">레시피에 대해 간단히 소개해주세요.</textarea> <br>
-            <h3>동영상</h3> <input type="text" name="link" placeholder="동영상이 있으면 주소를 입력하세요"> <br>
+            <h3>요리 소개</h3> 
+            <textarea name="comment" cols="30" rows="10" placeholder="레시피에 대해 간단히 소개해주세요."></textarea> <br>
+            <h3>동영상</h3> 
+            <input type="text" name="link" placeholder="동영상이 있으면 주소를 입력하세요"> <br>
             <h3>카테고리</h3>
-            <select name="category_kind">
+            <select name="ct_kind" id="ct_kind">
                 <option value="" selected>종류별</option>
                 <option value="grill">그릴</option>
             </select>
-            <select name="category_ food">
+            <select name="ct_food" id="ct_ food">
                 <option value="" selected>재료별</option>
                 <option value="beef">소고기</option>
             </select>
             <p>분류를 바르게 설정해주시면, 사용자들이 쉽게 레시피를 검색할 수 있어요.</p>
-            <h3>재료</h3> <textarea name="material" cols="30" rows="10">요리에 들어갈 재료와 양념을 작성해 주세요. </textarea>
+            <h3>재료</h3> 
+            <textarea name="material" cols="30" rows="10" placeholder="요리에 들어갈 재료와 양념을 작성해 주세요."></textarea>
             <h3>요리 순서</h3>
             <h4>Step1</h4>
-            <textarea name="step1" cols="30" rows="10">요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요<br>예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요</textarea>
+            <textarea name="step1" cols="30" rows="10" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요"></textarea>
             <input type="file">
             <h3>요리 완성 사진</h3>
+            <input type="file" name="userfile1">
+            <input type="file" name="userfile2">
+            <input type="file" name="userfile3">
             <button type="button" onclick="posting();">레시피 등록</button>
             <button type="button" onclick="cancel();">취소</button>
         </form>

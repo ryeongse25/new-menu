@@ -9,6 +9,9 @@ const UserRecipePicture = (Sequelize, DataTypes) => {
             food_id : {
                 type: DataTypes.INTEGER
             },
+            filename : {
+                type: DataTypes.STRING(20)
+            }
         },
         {
             timestamps: false,

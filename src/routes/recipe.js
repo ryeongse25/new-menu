@@ -7,8 +7,9 @@ router.get("/", recipe.main);
 
 // write page
 router.get("/write", recipe.write_recipe_page);
+router.post("/detail", upload.fields([{name: 'userfile1'}, {name: 'userfile2'}, {name: 'userfile3'}]), recipe.post_write);
 
 // detail page
-router.post("/detail", recipe.post_write);
+router.get("/detail", recipe.detail_page);
 
 module.exports = router;
