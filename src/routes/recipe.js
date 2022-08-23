@@ -28,4 +28,6 @@ router.post("/detail", upload.array("userfile"), recipe.post_write);
 // detail page
 router.get("/detail", recipe.detail_page);
 
+router.get("/mealkit", recipe.mealkit_page);
+
 module.exports = router;
