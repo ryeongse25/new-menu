@@ -27,7 +27,7 @@
 
 .menu_txt {
     position: absolute;
-    top: 30%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
@@ -54,7 +54,7 @@
     padding-left: 10px;
     height: 50px;
     position: absolute;
-    top: 60%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -67,11 +67,11 @@
     padding-left: 10px;
     padding-bottom: 3px;
     font-size: 20px;
-    color: #cac7ff;
+    color: var(--font);
 }
 
 ::placeholder {
-    color: var(--dark);
+    color: var(--font);
     font-size: 18px;
 }
 
@@ -136,7 +136,7 @@ form .fa-solid {
 
 @media screen and (max-width: 1160px) {
     .menu_txt {
-        top: 25%;
+        top: 30%;
     }
     #txt1 {
         font-size: 40px;
@@ -184,34 +184,45 @@ form .fa-solid {
 
 .container5 {
     position: relative;
-    top: 15%;
-    width: 1300px;
-    margin-left: auto;
-    margin-right: auto;
+    top: 20%;
+    max-width: 100%;
+    margin: 0 auto 250px;
+}
+
+.container5_txt {
+    max-width: 1300px;
+    margin: 0 auto 30px;
 }
 
 .total {
     font-family: 'Nanum Gothic', sans-serif;
     font-weight: 700;
     font-size: 23px;
-    margin-bottom: 20px;
-    width: 50%;
-
-    width: 90%;
     font-weight: bold;
+}
+
+.count {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 700;
+    color: var(--red);
 }
 
 .container5_card {
     margin: 0 auto;
     max-width: 1300px;
     display: grid;
-    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-column-gap:30px;
-    grid-row-gap: 50px;
+    grid-row-gap: 100px;
 }
 
-.main_card {
+/* .main_card {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+} */
+
+
+.main_card a {
+    text-decoration: none;
 }
 
 .main_card img {
@@ -221,20 +232,34 @@ form .fa-solid {
 
 .card_content {
     line-height: 1.5;
-    font-size: 18px;
+    font-size: 20px;
     padding: 15px;
-    text-align: center;
-    color: var(--red);
+    text-align: left;
+    color: var(--font);
+    padding-top: 20px;
+    padding-left: 2px;
 }
 
 .card_content h4 {
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 400;
-
 }
 
-.count {
-    font-family: 'Nanum Gothic', sans-serif;
-    font-weight: 700;
+.card_content p {
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.menu_more {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.menu_more button {
+    border: 1px solid var(--red);
+    background-color: white;
     color: var(--red);
-}
+    padding: 10px 10px;
+    font-size: 15px;
+    cursor: pointer;
+  }
