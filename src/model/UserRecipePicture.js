@@ -13,7 +13,7 @@ const UserRecipePicture = (Sequelize, DataTypes) => {
                 type: DataTypes.INTEGER
             },
             filename : {
-                type: DataTypes.STRING(100)
+                type: DataTypes.STRING(200)
             }
         },
         {

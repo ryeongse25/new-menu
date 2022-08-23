@@ -31,6 +31,9 @@ const UserRecipe = (Sequelize, DataTypes) => {
             },
             material: {
                 type: DataTypes.TEXT('medium')
+            },
+            step: {
+                type: DataTypes.TEXT('medium')
             }
         },
         {
