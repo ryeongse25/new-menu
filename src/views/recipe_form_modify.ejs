@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>글쓰기</title>
+        <meta charset = "UTF-8">
+        <link rel = "stylesheet" href = "/css/recipe_form.css">
+        <link rel="stylesheet" href="/css/nav.css">
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <script src="https://kit.fontawesome.com/c35f3dd7d0.js" crossorigin="anonymous"></script>
+
+        <script>
+            function next_step() {
+                let h4s = document.querySelectorAll("#steps > h4");
+                console.log(h4s);
+                let count = h4s.length;
+                console.log(count);
+                let html = `<h4>Step${count+1}</h4><textarea name="step_${count+1}" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요"></textarea>`;
+                $("#steps").append(html);
+            }
+
+            function cancel() {
+                if (confirm("작성 중인 내용을 삭제하고 페이지를 떠나시겠습니까?")) {
+                    location.href = "/recipe"
+                } else {
+                    return false;
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <%-include('nav.ejs') %>
+        <script src="/js/nav.js"></script>
+
+        <form id="write_form" action="/recipe/detail" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="user_id" value="<%=user%>">
+            <h3>레시피 등록</h3>
+            <h4>레시피 제목</h4>
+            <input type="text" name="title" class="txtb1" placeholder="레시피 제목을 적어주세요" required> <br>
+            <h4>요리 소개</h4> 
+            <textarea name="comment" cols="30" rows="10" class="txtb2" placeholder="레시피에 대해 간단히 소개해주세요."></textarea> <br>
+            <h4>동영상</h4> <input type="text" name="link" class="txtb1" placeholder="동영상이 있으면 주소를 입력하세요"> <br>
+            <h4>카테고리</h4>
+            <select name="ct_kind" class="txtb3">
+                <option value="" selected>종류별</option>
+                <option value="grill">그릴</option>
+            </select>
+            <select name="ct_food" class="txtb3">
+                <option value="" selected>재료별</option>
+                <option value="beef">소고기</option>
+            </select>
+            <p>분류를 바르게 설정해주시면, 사용자들이 쉽게 레시피를 검색할 수 있어요.</p>
+            <h4>재료</h4> 
+            <textarea name="material" cols="30" rows="10" class="txtb2" placeholder="요리에 들어갈 재료와 양념을 작성해 주세요."></textarea>
+            <h4>요리 순서</h4>
+            <div id="steps">
+                <h4>Step1</h4>
+                <textarea name="step_1" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요"></textarea>
+            </div>
+            <button type="button" onclick="next_step();" class="add_btn">+ 순서 추가</button> <br>
+            <h4>요리 완성 사진</h4>
+            <input type="file" class="imgb" name="userfile" multiple>
+            <div class="btn">
+                <button onclick="posting();" class="posting_btn">레시피 등록</button>
+                <button type="button" onclick="cancel();" class="cancel_btn">취소</button>
+            </div>
+        </form>
+    </body>
+</html>

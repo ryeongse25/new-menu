@@ -54,13 +54,13 @@ body {
 /* .txtb1, .txtb2, .txtb3{
     white-space: pre-wrap;
 } */
-.txtb3{
+/* .txtb3{
     background-color : rgb(245, 245, 245);
     border-radius : 5px;
     border : none;
     width: 100%;
     margin-top: 22px;
-}
+} */
 h2{
     font-size : 30px;
     font-weight : 1000;
@@ -69,30 +69,37 @@ h2{
     margin-bottom: 30px;
     text-align : center;
 }
-span{
+/* span{
     font-size : 25px;
     font-weight : 1000;
     color :black; 
     margin-top: 30px;
     margin-bottom: 50px;
     text-align : center;
-}
-h3{
+} */
+/* h3{
     width : 100%;
     margin-bottom : 5px;
     font-size : 18px;
     font-weight : 550;
-    /* color : rgb(81, 85, 85); */
     color: black;
     margin-top : 10px;
     text-align : center;
-}
+} */
 h4{
+    width : 100%;
+    margin-bottom : 5px;
+    font-size : 18px;
+    font-weight : 700;
+    color : rgb(81, 85, 85);
+    margin-top : 10px;
+    text-align: left;
+}
+h5{
     width : 100%;
     margin-bottom : 5px;
     font-size : 14px;
     font-weight : 500;
-    /* color : rgb(81, 85, 85); */
     color: black;
     margin-top : 10px;
     text-align : left;
