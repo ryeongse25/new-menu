@@ -10,6 +10,11 @@ CREATE TABLE user (
     email varchar(30) not null
 );
 
+DROP TABLE user_recipe_like;
+DROP TABLE user_recipe_picture;
+DROP TABLE user_recipe_step;
+DROP TABLE user_recipe;
+
 CREATE TABLE user_recipe (
 	id int not null primary key auto_increment,
     user_id varchar(15) not null,
@@ -19,7 +24,7 @@ CREATE TABLE user_recipe (
     category_kind varchar(20),
     category_food varchar(20),
     material mediumtext,
-    FOREIGN KEY ( user_id ) REFERENCES user(id)
+    FOREIGN KEY ( user_id ) REFERENCES user(id) ON DELETE CASCADE
 );
 
 CREATE TABLE user_recipe_step (
@@ -33,7 +38,7 @@ CREATE TABLE user_recipe_step (
 
 CREATE TABLE user_recipe_picture (
 	food_id int,
-    FOREIGN KEY ( food_id ) REFERENCES user_recipe(id),
+    FOREIGN KEY ( food_id ) REFERENCES user_recipe(id) ON DELETE CASCADE,
     filename varchar(200)
 );
 
