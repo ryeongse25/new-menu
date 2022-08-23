@@ -53,3 +53,13 @@ exports.post_write = (req, res) => {
 exports.detail_page = (req, res) => {
     res.render("recipe_detail");
 }
+
+exports.mealkit_page = (req, res) => {
+    const user = req.session.user;
+
+    if ( user != undefined ) {
+        res.render("mealkit", {isLogin: true, user: user});
+    } else {
+        res.render("mealkit", {isLogin: false});
+    }
+}
