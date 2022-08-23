@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Average&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+
+:root {
+    --light: #E1DDDD;
+    --dark: #312D2D;
+    --green: #2E5543;
+}
+
+* {
+    box-sizing : border-box;
+    border : none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color : white;
+    text-align : center;
+    }
+
+h3{
+    font-size : 27px;
+    font-weight : 1000;
+    color : rgb(46, 85, 67);
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.write_font {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#write_form {
+    background-color : white;
+    width : 800px;
+    padding : 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom : 50px;
+    position: relative;
+    top: 15%;
+}
+
+    h4{
+        width : 100%;
+        margin-bottom : 5px;
+        font-size : 18px;
+        font-weight : 700;
+        color : rgb(81, 85, 85);
+        margin-top : 10px;
+        text-align: left;
+    }
+    .txtb1{
+        width : 100%;
+        font-size : 13px;
+        border-radius : 5px;
+        border : none;
+        padding : 12px;
+        margin-bottom : 0;
+        background-color : rgb(245, 245, 245);
+    }
+    .txtb2{
+        width : 100%;
+        font-size : 13px;
+        border-radius : 5px;
+        border : none;
+        padding : 12px;
+        margin-bottom : 0;
+        background-color : rgb(245, 245, 245);
+    }
+    .txtb3{
+        width : 15%;
+        padding : 5px;
+        margin-right: 10px;
+        margin-top : 20px;
+        border-radius : 5px;
+        cursor : pointer;
+        /* background-color : rgb(108, 110, 110); */
+        background-color : white;
+        font-size : 13px;
+        color : rgb(108, 110, 110);
+        font-weight : 550;
+        /* color : white; */
+        border : 1px;
+        border-color: rgb(81, 85, 85);
+        /* border-style: dashed; */
+        border-style: solid;
+        text-align : center;
+
+    }
+    p{
+        color : rgb(108, 110, 110);
+        font-size: 12px;
+        margin-top: 20px;
+        margin-bottom: 0px;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-weight: 400;
+    }
+    .txtb4{
+        width : 70%;
+        font-size : 13px;
+        border-radius : 5px;
+        border : none;
+        padding : 15px;
+        margin-bottom : 0;
+        background-color : rgb(245, 245, 245);
+    }
+    /* #steps{
+
+    } */
+    .add_btn{
+        width : 12%;
+        padding : 5px;
+        margin-right: 10px;
+        margin-top : 25px;
+        border-radius : 5px;
+        cursor : pointer;
+        /* background-color : rgb(108, 110, 110); */
+        font-size : 13px;
+        font-weight : 550;
+        /* color : white; */
+        border : none;
+        background-color : white;
+        color : rgb(108, 110, 110);
+        border : 1px;
+        border-color: rgb(81, 85, 85);
+        border-style: solid;
+    }
+    .imgb{
+        width : 32%;
+        border-radius : 5px;
+        border : none;
+        margin-bottom : 0;
+        margin-top: 15px;
+        background-color : rgb(245, 245, 245);
+        color : rgb(108, 110, 110);
+        font-size : 13px;
+        padding : 5px;
+    }
+    .btn{
+        display: flex;
+        justify-content: center;
+    }
+    .posting_btn{
+                width : 50%;
+                padding : 20px;
+                margin-right: 10px;
+                margin-top : 40px;
+                margin-bottom: 30px;
+                border-radius : 5px;
+                cursor : pointer;
+                background-color : rgb(46, 85, 67);
+                font-size : 18px;
+                font-weight : 550;
+                color : white;
+                border : none;
+    }
+    .cancel_btn{
+        width : 50%;
+        padding : 20px;
+        margin-top : 40px;
+        margin-bottom: 30px;
+        margin-left: 10px;
+        border-radius : 5px;
+        cursor : pointer;
+        background-color : rgb(186, 77, 47);
+        font-size : 18px;
+        font-weight : 550;
+        color : white;
+        border : none;
+}
