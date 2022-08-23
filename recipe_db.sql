@@ -34,7 +34,7 @@ CREATE TABLE user_recipe_step (
 CREATE TABLE user_recipe_picture (
 	food_id int,
     FOREIGN KEY ( food_id ) REFERENCES user_recipe(id),
-    filename varchar(20)
+    filename varchar(200)
 );
 
 CREATE TABLE user_recipe_like (
