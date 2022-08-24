@@ -14,33 +14,51 @@
         <div class="recipe_detail">
             <h2><%=data.title%></h2>
 
-            <h4>작성자</h4>
-            <div class="txtb1">
-                <h5><%=data.user_id%></h5>
+            <hr class="line1">
+            <hr class="line2">
+
+            <div class="detail_img">
+                <% for (let i=0; i<picture.length; i++) { %>
+                    <img src='/img/user_recipe/<%=picture[i].filename%>' style="width: 300px; height: 300px">
+                <% } %>
             </div>
 
-            <h4>요리 소개</h4>
-            <div class="txtb2">
-                <h5><%=data.comment%></h5>
+            <div class="txt1">
+                <%=data.comment%>
             </div>
 
-            <h4>재료</h4>
-            <div class="txtb2">
-                <h5><%=data.material%></h5>
+            <hr class="line1">
+
+            <p class="ing">INGREDIENTS</p>
+            <div class="txt2">
+                <%=data.material%>
             </div>
 
-            <h4>요리 순서</h4>
-            <% for (let i=0; i<step.length; i++) { %>
-                <div class="txtb2">
-                    <h6>Step<%=i+1%></h6>
-                    <%=step[i].description%> <br>
-                </div>
-            <% } %>
+            <hr class="line1">
 
-            <h4>요리 완성 사진</h4>
-            <% for (let i=0; i<picture.length; i++) { %>
-                <img src='/img/user_recipe/<%=picture[i].filename%>' style="width: 300px; height: 300px">
-            <% } %>
+            <p class="ing">HOW TO COOK</p>
+            <div class="htc">
+                <% for (let i=0; i<step.length; i++) { %>
+                    <div class="txt3">
+                        <span class="step">Step<%=i+1%></span>
+                        <%=step[i].description%> <br>
+                    </div>
+                <% } %>
+            </div>
+
+            <hr class="line3">
+            
+
+            <p class="writer">레시피 작성자</9>
+            <div class="txt4">
+                <p><%=data.user_id%></p>
+            </div>
+
+            <hr class="line4">
+
+            <p class="writer">요리 후기</9>
+            
+            <hr class="line4">
 
             <div class="btn">
                 <form action="get">
