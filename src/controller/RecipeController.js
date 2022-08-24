@@ -56,26 +56,27 @@ exports.post_write = (req, res) => {
                 steps.push(req.body[`step_${i}`]);
             }
 
-            console.log("steps", steps);
-
             for (let i=1; i<count+1; i++) {
                 step_obj.push({food_id: result.id, stage: i, description: steps[i-1]});
             }
 
-            console.log("step_obj", step_obj);
-
             models.UserRecipeStep.bulkCreate(step_obj)
             .then((result_step) => {
-                console.log("result_step", result_step);
                 res.render("recipe_detail", {isLogin: true, user: req.body.user_id, data: result, picture: result_pic, step: result_step});
             })
         })
     });
 }
 
-// exports.detail_page = (req, res) => {
-//     res.render("recipe_detail");
-// }
+exports.update = (req, res) => {
+
+
+    res.render("recipe_update");
+}
+
+exports.detail_page = (req, res) => {
+    res.render("recipe_detail");
+}
 
 // 밀키트 페이지
 exports.mealkit_page = (req, res) => {
