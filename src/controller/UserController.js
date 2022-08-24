@@ -154,6 +154,6 @@ exports.update = (req, res) => {
     email: req.body.email,
   };
   models.User.update(obj, { where: { id: req.body.id } }).then((result) => {
-    res.send(alertChange());
+    res.send(true);
   });
 };
