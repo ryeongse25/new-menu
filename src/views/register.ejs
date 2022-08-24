@@ -1,150 +1,104 @@
 <html>
-  <head>
-    <title>회원가입</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/css/register.css" />
-    <link rel="stylesheet" href="/css/nav.css" />
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
+<head>
+	<title>회원가입</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="/css/register.css" />
+	<link rel="stylesheet" href="/css/nav.css" />
+	<script src="/js/sweeetalert.js"></script>
 
-    <script
-      src="https://kit.fontawesome.com/c35f3dd7d0.js"
-      crossorigin="anonymous"
-    ></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/c35f3dd7d0.js" crossorigin="anonymous"></script>
 
-    <script>
-      function check_duplicate() {
-        let form = document.getElementById("register_form");
+	<script>
+		function check_duplicate() {
+			let form = document.getElementById("register_form");
 
-        axios({
-          method: "post",
-          url: "http://localhost:8000/user/id_check",
-          data: {
-            id: form.id.value,
-          },
-        })
-          .then((response) => {
-            return response.data;
-          })
-          .then((data) => {
-            if (data) {
-              $("p").text("사용할 수 있는 아이디입니다.");
-              $(".register_btn").attr("disabled", false);
-              $(".register_btn").removeClass("disabled_btn");
-            } else {
-              $("p").text("이미 사용 중인 아이디입니다.");
-              $(".register_btn").attr("disabled", true);
-              $(".register_btn").addClass("disabled_btn");
-            }
-          });
-      }
+			axios({
+				method: "post",
+				url: "http://localhost:8000/user/id_check",
+				data: {
+					id: form.id.value,
+				},
+			})
+			.then((response) => {
+				return response.data;
+			})
+			.then((data) => {
+				if (data) {
+					$("p").text("사용할 수 있는 아이디입니다.");
+					$(".register_btn").attr("disabled", false);
+					$(".register_btn").removeClass("disabled_btn");
+				} else {
+					$("p").text("이미 사용 중인 아이디입니다.");
+					$(".register_btn").attr("disabled", true);
+					$(".register_btn").addClass("disabled_btn");
+				}
+			});
+		}
 
-      function register() {
-        let form = document.getElementById("register_form");
+		function register() {
+			let form = document.getElementById("register_form");
 
-        let result = form.checkValidity();
+			let result = form.checkValidity();
 
-        if (!result) {
-          form.reportValidity();
-          return false;
-        }
+			if (!result) {
+				form.reportValidity();
+				return false;
+			}
 
-        axios({
-          method: "post",
-          url: "http://localhost:8000/user/register",
-          data: {
-            id: form.id.value,
-            pw: form.pw.value,
-            name: form.name.value,
-            tel: form.tel.value,
-            email: form.email.value,
-          },
-        })
-          .then((response) => {
-            return response.data;
-          })
-          .then((data) => {
-            alert(data);
-            document.location.href = "/user";
-          });
-      }
-    </script>
-  </head>
-  <body>
-    <%-include('nav.ejs') %>
-    <script src="/js/nav.js"></script>
+			axios({
+				method: "post",
+				url: "http://localhost:8000/user/register",
+				data: {
+					id: form.id.value,
+					pw: form.pw.value,
+					name: form.name.value,
+					tel: form.tel.value,
+					email: form.email.value,
+				},
+			})
+			.then((response) => {
+				return response.data;
+			})
+			.then((data) => {
+				alertRegister();
+			});
+		}
+	</script>
+</head>
 
-    <form id="register_form">
-      <h1 class="register_font">회원가입</h1>
-      <h3>ID</h3>
-      <input
-        type="text"
-        name="id"
-        class="txtb1"
-        placeholder="아이디를 입력하세요"
-        required
-      />
-      <button type="button" onclick="check_duplicate()" class="btn">
-        중복확인
-      </button>
-      <!-- 아이디 중복확인 결과 메세지 보여줄 곳-->
-      <p
-        style="
-          height: 30px;
-          padding: 10px 0 0 10px;
-          color: rgb(46, 85, 67);
-          font-weight: bolder;
-          text-align: left;
-        "
-      ></p>
-      <h3>Password</h3>
-      <input
-        type="password"
-        name="pw"
-        class="txtb"
-        placeholder="비밀번호를 입력하세요"
-        required
-      />
-      <br />
-      <h3>Name</h3>
-      <input
-        type="text"
-        name="name"
-        class="txtb"
-        placeholder="이름을 입력하세요"
-        required
-      />
-      <br />
-      <h3>Phone Number</h3>
-      <input
-        type="tel"
-        name="tel"
-        class="txtb"
-        placeholder="전화번호를 입력하세요"
-      />
-      <br />
-      <h3>Email</h3>
-      <input
-        type="email"
-        name="email"
-        class="txtb"
-        placeholder="이메일을 입력하세요"
-        required
-      />
-      <br />
-      <button
-        type="button"
-        onclick="alertRegister()"
-        class="register_btn disabled_btn"
-        disabled="true"
-      >
-        회원가입
-      </button>
-    </form>
-  </body>
+<body>
+	<%-include('nav.ejs') %>
+	<script src="/js/nav.js"></script>
+
+	<form id="register_form">
+		<h1 class="register_font">회원가입</h1>
+		<h3>ID</h3>
+		<input type="text" name="id" class="txtb1" placeholder="아이디를 입력하세요" required />
+		<button type="button" onclick="check_duplicate()" class="btn">
+			중복확인
+		</button>
+
+		<!-- 아이디 중복확인 결과 메세지 보여줄 곳-->
+		<p style="height: 30px; padding: 10px 0 0 10px; color: rgb(46, 85, 67); font-weight: bolder; text-align: left;"></p>
+		<h3>Password</h3>
+		<input type="password" name="pw" class="txtb" placeholder="비밀번호를 입력하세요" required />
+		<br />
+		<h3>Name</h3>
+		<input type="text" name="name" class="txtb" placeholder="이름을 입력하세요" required />
+		<br />
+		<h3>Phone Number</h3>
+		<input type="tel" name="tel" class="txtb" placeholder="전화번호를 입력하세요" />
+		<br />
+		<h3>Email</h3>
+		<input type="email" name="email" class="txtb" placeholder="이메일을 입력하세요" required />
+		<br />
+		<button type="button" onclick="register()" class="register_btn disabled_btn" disabled="true">회원가입</button>
+	</form>
+</body>
+
 </html>
