@@ -105,3 +105,13 @@ $(document).ready(function () {
     $(".file-upload").click();
   });
 });
+
+function alertDelete() {
+  Swal.fire({
+    position: "top-center",
+    icon: "success",
+    title: "회원 탈퇴가 성공되었습니다.",
+    showConfirmButton: false,
+    timer: 1500,
+  });
+}
