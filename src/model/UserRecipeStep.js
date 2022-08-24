@@ -3,6 +3,12 @@ const UserRecipeStep = (Sequelize, DataTypes) => {
     const model = Sequelize.define(
         'user_recipe_step',
         {
+            id : {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+                primaryKey: true,
+                autoIncrement: true
+            },
             food_id : {
                 type: DataTypes.INTEGER
             },
@@ -11,9 +17,6 @@ const UserRecipeStep = (Sequelize, DataTypes) => {
             },
             description: {
                 type: DataTypes.TEXT('medium')
-            },
-            filename: {
-                type: DataTypes.STRING(20)
             }
         },
         {

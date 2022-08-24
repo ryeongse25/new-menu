@@ -30,13 +30,13 @@ CREATE TABLE user_recipe (
 CREATE TABLE user_recipe_step (
     id int not null primary key auto_increment,
 	food_id int,
-    FOREIGN KEY ( food_id ) REFERENCES user_recipe(id),
+    FOREIGN KEY ( food_id ) REFERENCES user_recipe(id) ON DELETE CASCADE,
     stage int unsigned,
-    description mediumtext,
-    filename varchar(20)
+    description mediumtext
 );
 
 CREATE TABLE user_recipe_picture (
+    id int not null primary key auto_increment,
 	food_id int,
     FOREIGN KEY ( food_id ) REFERENCES user_recipe(id) ON DELETE CASCADE,
     filename varchar(200)
