@@ -30,6 +30,7 @@ function alertBoard() {
     });
 }
 
+// 로그아웃
 function alertLogout() {
     Swal.fire({
       position: "top-center",
@@ -39,7 +40,8 @@ function alertLogout() {
       timer: 1500,
     });
 }
-  
+
+// 정보 수정
 function alertChange() {
     Swal.fire({
         position: "top-center",
