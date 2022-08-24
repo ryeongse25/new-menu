@@ -16,30 +16,6 @@
                 let html = `<h4>Step${count+1}</h4><textarea name="step_${count+1}" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요"></textarea>`;
                 $("#steps").append(html);
             }
-
-            function alertCancel() {
-                Swal.fire({
-                    text: "작성 중인 내용을 삭제하고 페이지를 떠나시겠습니까?",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#2E5543",
-                    cancelButtonColor: "#BC5539",
-                    confirmButtonText: "네",
-                    cancelButtonText: "아니요",
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                    window.location = "/main";
-                    }
-                });
-                }
-
-            // function cancel() {
-            //     if (confirm("작성 중인 내용을 삭제하고 페이지를 떠나시겠습니까?")) {
-            //         location.href = "/recipe"
-            //     } else {
-            //         return false;
-            //     }
-            // }
         </script>
     </head>
 
