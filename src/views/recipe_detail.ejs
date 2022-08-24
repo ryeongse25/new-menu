@@ -13,31 +13,35 @@
         
         <div class="recipe_detail">
             <h2><%=data.title%></h2>
+
             <h4>작성자</h4>
             <div class="txtb1">
                 <h5><%=data.user_id%></h5>
             </div>
+
             <h4>요리 소개</h4>
             <div class="txtb2">
                 <h5><%=data.comment%></h5>
             </div>
-            <% if (data.video_link != "") { %>
-                <h4>동영상</h4>
-                <div class="txtb3">
-                    <h4><%=data.video_link%></h4>
-                </div>
-            <% } %>
+
             <h4>재료</h4>
             <div class="txtb2">
                 <h5><%=data.material%></h5>
             </div>
+
             <h4>요리 순서</h4>
-            <div class="txtb4">
-                <h4><%=data.step%></h4>
-            </div>
-            <% for (let i=0; i<picture.length; i++) { %>
-                <img src='/img/user_recipe/<%=picture[i].filename%>' style="width: 100px;">
+            <% for (let i=0; i<step.length; i++) { %>
+                <div class="txtb2">
+                    <h6>Step<%=i+1%></h6>
+                    <%=step[i].description%> <br>
+                </div>
             <% } %>
+
+            <h4>요리 완성 사진</h4>
+            <% for (let i=0; i<picture.length; i++) { %>
+                <img src='/img/user_recipe/<%=picture[i].filename%>' style="width: 300px; height: 300px">
+            <% } %>
+
             <div class="btn">
                 <button class="modify_btn">수정하기</button></a> <br>
                 <a href="/user/profile"><button class="mypage_btn">마이페이지</button></a> <br>

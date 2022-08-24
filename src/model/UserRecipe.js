@@ -20,9 +20,6 @@ const UserRecipe = (Sequelize, DataTypes) => {
             comment: {
                 type: DataTypes.TEXT('medium')
             },
-            video_link: {
-                type: DataTypes.STRING(100)
-            },
             category_kind: {
                 type: DataTypes.STRING(20)
             },
@@ -30,9 +27,6 @@ const UserRecipe = (Sequelize, DataTypes) => {
                 type: DataTypes.STRING(20)
             },
             material: {
-                type: DataTypes.TEXT('medium')
-            },
-            step: {
                 type: DataTypes.TEXT('medium')
             }
         },
