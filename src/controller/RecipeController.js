@@ -1,30 +1,24 @@
 const models = require("../model");
 
 // 레시피 페이지 get
-exports.main = (req, res) => {
+exports.main = async (req, res) => {
     const user = req.session.user;
 
-    models.UserRecipe.findAll()
-    .then((result) => {
+    let result = await models.UserRecipe.findAll();
+    console.log(result);
+    
+    let pictures = [];
 
-        let pictures = [];
+    for (let i=0; i<result.length; i++) {
+        let result_pic = await models.UserRecipePicture.findOne({where: {food_id: result[i].id}});
+        pictures.push(result_pic.filename);
+    }
 
-        for (let i=0; i<result.length; i++) {
-
-            models.UserRecipePicture.findOne({where: {food_id: result[i].id}})
-            .then((result_pic) => {
-                pictures.push(result_pic.filename);
-            });
-            console.log("pictures", pictures);
-        }
-
-        if ( user != undefined ) {
-            res.render("recipe", {isLogin: true, user: user, result: result});
-        } else {
-            res.render("recipe", {isLogin: false, result: result});
-        }
-
-    })
+    if ( user != undefined ) {
+        res.render("recipe", {isLogin: true, user: user, result: result, picture: pictures});
+    } else {
+        res.render("recipe", {isLogin: false, result: result, picture: pictures});
+    }
 }
 
 // 레시피 작성 페이지 get
@@ -84,6 +78,7 @@ exports.post_write = (req, res) => {
     });
 }
 
+// 레시피 정보 수정 get
 exports.update = (req, res) => {
     const user = req.session.user;
 
@@ -131,3 +126,4 @@ exports.mealkit_page = (req, res) => {
         res.render("mealkit", {isLogin: false});
     }
 }
+

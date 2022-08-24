@@ -15,6 +15,7 @@
         <form id="write_form" action="/recipe/detail" method="POST" enctype="multipart/form-data">
             <h3>레시피 수정</h3>
             <h4>레시피 제목</h4>
+            <% console.log("result", result); %>
             <input type="text" name="title" class="txtb1" value="<%=result.title%>" required>
             <h4>요리 소개</h4> 
             <textarea name="comment" cols="30" rows="10" class="txtb2" value="<%=result.comment%>"></textarea>
@@ -31,10 +32,10 @@
             <h4>재료</h4> 
             <textarea name="material" cols="30" rows="10" class="txtb2" value="<%=result.material%>"></textarea>
             <h4>요리 순서</h4>
-            <div id="steps">
-                <h4>Step1</h4>
-                <textarea name="step_1" cols="30" rows="10" class="txtb4"></textarea>
-            </div>
+            <% for (let i=0; i<step.length; i++) { %>
+                <h4>Step<%=i+1%></h4>
+                <textarea name="step_<%=i+1%>" cols="30" rows="10" class="txtb4"><%=step[i]%></textarea>
+            <% } %>
             <h4>요리 완성 사진</h4>
             <input type="file" class="imgb" name="userfile" multiple>
             <div class="btn">
