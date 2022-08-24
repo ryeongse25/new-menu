@@ -69,14 +69,19 @@ exports.post_write = (req, res) => {
 }
 
 exports.update = (req, res) => {
+    const user = req.session.user;
 
+    models.UserRecipe.findOne({where: {id: req.query.food_id}})
+    .then((result) => {
+        console.log(result);
+    })
 
-    res.render("recipe_update");
+    res.render("recipe_form_modify", {isLogin: true, user: user});
 }
 
-exports.detail_page = (req, res) => {
-    res.render("recipe_detail");
-}
+// exports.detail_page = (req, res) => {
+//     res.render("recipe_form_modify");
+// }
 
 // 밀키트 페이지
 exports.mealkit_page = (req, res) => {
