@@ -47,10 +47,14 @@
 
         <div class="container5">
             <div class="container5_txt">
-            <p class="total">총 <span class="count">0</span>개</p>
+            <p class="total">총 <span class="count"><%=result.length%></span>개</p>
             </div>
             <div class="container5_card">
-                <div class="main_card">
+                <% for (let i=0; i<result.length; i++) { %>
+                    <img src="/img/menu13.png" class="main_card_image">
+                    <h4><%=result[i].title%></h4>
+                <% } %>
+                <!-- <div class="main_card">
                     <a href="#">
                         <img src="/img/menu13.png" class="main_card_image">
                         <div class="card_content">
@@ -62,8 +66,8 @@
                             </p>
                         </div>
                     </a>
-                </div>
-                <div class="main_card">
+                </div> -->
+                <!-- <div class="main_card">
                     <a href="#">
                         <img src="/img/menu14.png" class="main_card_image">
                         <div class="card_content">
@@ -257,7 +261,7 @@
                             </p>
                         </div>
                     </a>
-                </div>
+                </div> -->
             </div>
 
             <div class="menu_more">

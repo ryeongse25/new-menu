@@ -4,11 +4,27 @@ const models = require("../model");
 exports.main = (req, res) => {
     const user = req.session.user;
 
-    if ( user != undefined ) {
-        res.render("recipe", {isLogin: true, user: user});
-    } else {
-        res.render("recipe", {isLogin: false});
-    }
+    models.UserRecipe.findAll()
+    .then((result) => {
+
+        let pictures = [];
+
+        for (let i=0; i<result.length; i++) {
+
+            models.UserRecipePicture.findOne({where: {food_id: result[i].id}})
+            .then((result_pic) => {
+                pictures.push(result_pic.filename);
+            });
+            console.log("pictures", pictures);
+        }
+
+        if ( user != undefined ) {
+            res.render("recipe", {isLogin: true, user: user, result: result});
+        } else {
+            res.render("recipe", {isLogin: false, result: result});
+        }
+
+    })
 }
 
 // 레시피 작성 페이지 get
@@ -73,15 +89,37 @@ exports.update = (req, res) => {
 
     models.UserRecipe.findOne({where: {id: req.query.food_id}})
     .then((result) => {
-        console.log(result);
+        console.log("UserRecipe: ", result);
+        
+        models.UserRecipeStep.findAll({where: {food_id: result.id}})
+        .then((result_step) => {
+            console.log("UserRecipeStep: ", result_step.length);
+
+            let steps = [];
+
+            for (let i=0; i<result_step.length; i++) {
+                steps.push(result_step[i].description);
+            }
+
+            console.log("steps", steps);
+
+            models.UserRecipePicture.findAll({where: {food_id: result.id}})
+            .then((result_pic) => {
+                console.log("RecipePicture: ", result_pic.length);
+
+                let pictures = [];
+
+                for (let i=0; i<result_pic.length; i++) {
+                    steps.push(result_pic[i].filename);
+                }
+
+                console.log(pictures);
+
+                res.render("recipe_form_modify", {isLogin: true, user: user, result: result, step: steps, picture: pictures});
+            })
+        })
     })
-
-    res.render("recipe_form_modify", {isLogin: true, user: user});
 }
-
-// exports.detail_page = (req, res) => {
-//     res.render("recipe_form_modify");
-// }
 
 // 밀키트 페이지
 exports.mealkit_page = (req, res) => {
