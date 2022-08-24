@@ -76,3 +76,13 @@ function alertFindPw() {
   })
 }
 
+// 탈퇴
+function alertDelete() {
+  Swal.fire({
+    position: "top-center",
+    icon: "success",
+    title: "탈퇴되었습니다.",
+    showConfirmButton: false,
+    timer: 1500,
+  });
+}
