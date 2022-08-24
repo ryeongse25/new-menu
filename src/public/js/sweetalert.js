@@ -84,7 +84,22 @@ function alertDelete() {
     title: "탈퇴되었습니다.",
     showConfirmButton: false,
     timer: 1500,
-  }).then((result) => {
-    location.href ="/";
-  })
+  });
 }
+
+// 레시피 작성 중 취소
+function alertCancel() {
+  Swal.fire({
+      text: "작성 중인 내용을 삭제하고 페이지를 떠나시겠습니까?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#2E5543",
+      cancelButtonColor: "#BC5539",
+      confirmButtonText: "네",
+      cancelButtonText: "아니요",
+  }).then((result) => {
+      if (result.isConfirmed) {
+      window.location = "/main";
+      }
+  });
+ }
