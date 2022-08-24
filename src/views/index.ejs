@@ -8,10 +8,9 @@
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/scroll.css">
         <link rel="stylesheet" href="/css/bottom_bar.css">
-        
+        <link rel="stylesheet" href="/css/slide.css">
 
         <%-include('script.ejs') %>
-
         
     </head>
 
@@ -39,11 +38,25 @@
         
         <div class="container6">
             <div class="gallery-column1">
+
                 <div class="gallery-item">
-                    <a href="#" class="gallery-link">
-                        <img src="/img/pineapple-fried-rice.jpg" class="first_img">
-                    </a>
+                    <div class="mySlides fade">
+                        <img src="/img/slide1.jpg" style="width:100%" class="first_img">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="/img/slide2.png" style="width:100%" class="first_img">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="/img/slide3.png" style="width:100%" class="first_img">
+                    </div>
+                    
+                    <div class="dot_con" style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1)">1</span>
+                        <span class="dot" onclick="currentSlide(2)">2</span>
+                        <span class="dot" onclick="currentSlide(3)">3</span>
+                    </div>
                 </div>
+
                 <div class="gallery-item">
                     <div><img src="/img/meal.png" class="first_img">
                         <a href="#">
@@ -241,6 +254,7 @@
                 </div>
             </div>
         </div>
+        <script src="/js/slide.js"></script>
 
         <%-include('bottom_bar.ejs') %>
 

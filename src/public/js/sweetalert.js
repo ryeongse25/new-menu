@@ -1,7 +1,7 @@
 // 회원가입 성공 메세지
 function alertRegister() {
     Swal.fire({
-        text: "성공적으로 회원가입 되었습니다.<br>가입하신 정보로 다시 로그인해주세요.",
+        html: "성공적으로 회원가입 되었습니다.<br><br>가입하신 정보로 다시 로그인해주세요.",
         icon: "success",
         showCancelButton: true,
         confirmButtonColor: "#2E5543",
@@ -18,13 +18,13 @@ function alertRegister() {
 // 로그아웃 상태에서 글쓰기 버튼 클릭시
 function alertBoard() {
     Swal.fire({
-        text: "해당 기능은 로그인이 필요합니다.",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#2E5543",
-        cancelButtonColor: "#BC5539",
-        confirmButtonText: "로그인",
-        cancelButtonText: "닫기"
+      html: "<b>해당 기능은 로그인이 필요합니다.</b>",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#2E5543",
+      cancelButtonColor: "#BC5539",
+      confirmButtonText: "로그인",
+      cancelButtonText: "닫기",
     }).then((result) => {
         if (result.isConfirmed) {
             window.location = "/user";
@@ -83,12 +83,11 @@ function alertDelete() {
         icon: "success",
         title: "탈퇴되었습니다.",
         showConfirmButton: false,
-        timer: 1500,
-    }).then((result) => {
-        location.href ="/";
-    })
+        timer: 1500
+    });
 }
 
+// 레시피 작성 중 취소
 function alertCancel() {
     Swal.fire({
         text: "작성 중인 내용을 삭제하고 페이지를 떠나시겠습니까?",
@@ -100,7 +99,7 @@ function alertCancel() {
         cancelButtonText: "아니요",
     }).then((result) => {
         if (result.isConfirmed) {
-        window.location = "/";
+          window.location = "/";
         }
     });
 }
