@@ -21,6 +21,7 @@ app.use(
 
 const userRouter = require("./routes/user");
 const recipeRouter = require("./routes/recipe");
+const { Script } = require("vm");
 
 // 메인 페이지
 app.get("/", function (req, res) {
@@ -32,6 +33,16 @@ app.get("/", function (req, res) {
     res.render("index", { isLogin: false });
   }
 });
+
+function alertLogout() {
+  Swal.fire({
+    position: "top-center",
+    icon: "success",
+    title: "로그아웃 성공",
+    showConfirmButton: false,
+    timer: 1500,
+  });
+}
 
 // 로그아웃
 app.get("/logout", (req, res) => {
