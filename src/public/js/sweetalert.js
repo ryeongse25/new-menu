@@ -1,7 +1,7 @@
 // 회원가입 성공 메세지
 function alertRegister() {
     Swal.fire({
-        text: "성공적으로 회원가입 되었습니다.<br>가입하신 정보로 다시 로그인해주세요.",
+        html: "성공적으로 회원가입 되었습니다.<br><br>가입하신 정보로 다시 로그인해주세요.",
         icon: "success",
         showCancelButton: true,
         confirmButtonColor: "#2E5543",
@@ -18,7 +18,7 @@ function alertRegister() {
 // 로그아웃 상태에서 글쓰기 버튼 클릭시
 function alertBoard() {
     Swal.fire({
-      text: "해당 기능은 로그인이 필요합니다.",
+      html: "<b>해당 기능은 로그인이 필요합니다.</b>",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#2E5543",
