@@ -42,6 +42,7 @@
     margin: 0.7rem;
     box-shadow: 0 0 4px rgb(195, 190, 190);
     position: relative;
+    overflow: hidden;
 }
 
 .gallery-link {
@@ -85,7 +86,13 @@
 .first_img {
     max-width: 100%;
     height: auto;
+    object-fit: cover;
+    display: block;
+}
 
+.second_img {
+    max-width: 100%;
+    height: auto;
     object-fit: cover;
     display: block;
 }
@@ -106,6 +113,12 @@
     height: auto;
 }
 
+.first_img:hover,
+.top_img:hover,
+.plus_img:hover {
+    transform: scale(1.01);
+}
+
 /*  */
 
 .gallery-overlay {
@@ -123,6 +136,10 @@
     background: rgb(0, 0, 0, 0.4);
     color: #fff;
     text-transform: uppercase;
+}
+
+.gallery-overlay:hover {
+    transform: scale(1.01);
 }
 
 .gallery-overlay span {

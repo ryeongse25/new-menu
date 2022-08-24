@@ -216,9 +216,9 @@ form .fa-solid {
     grid-row-gap: 100px;
 }
 
-/* .main_card {
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-} */
+.main_card {
+    overflow: hidden;
+}
 
 
 .main_card a {
@@ -228,6 +228,10 @@ form .fa-solid {
 .main_card img {
     width: 100%;
     display: block;
+}
+
+.main_card img:hover {
+    scale: (1.01);
 }
 
 .card_content {
