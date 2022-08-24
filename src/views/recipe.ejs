@@ -48,10 +48,14 @@
             <p class="total">총 <span class="count"><%=result.length%></span>개</p>
             </div>
             <div class="container5_card">
-                <% for (let i=0; i<result.length; i++) { %>
-                    <img src="/img/menu13.png" class="main_card_image">
-                    <h4><%=result[i].title%></h4>
-                <% } %>
+                    <% for (let i=0; i<result.length; i++) { %>
+                        <div class="main_card">
+                            <a href="/recipe/detail?=<%=recipe.id%>">
+                                <img src="/img/user_recipe/<%=picture[i]%>" class="main_card_image">
+                                <h4><%=result[i].title%></h4>
+                            </a>
+                        </div>
+                    <% } %>
                 <!-- <div class="main_card">
                     <a href="#">
                         <img src="/img/menu13.png" class="main_card_image">
