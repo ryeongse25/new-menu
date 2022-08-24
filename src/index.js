@@ -34,23 +34,12 @@ app.get("/", function (req, res) {
   }
 });
 
-function alertLogout() {
-  Swal.fire({
-    position: "top-center",
-    icon: "success",
-    title: "로그아웃 성공",
-    showConfirmButton: false,
-    timer: 1500,
-  });
-}
-
 // 로그아웃
 app.get("/logout", (req, res) => {
   const user = req.session.user;
   req.session.destroy(function (err) {
     res.send(
       `<script>
-          location.href='/';
           alertLogout();
       </script>`
     );

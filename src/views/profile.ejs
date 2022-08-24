@@ -1,16 +1,14 @@
 <html>
     <head>
         <title>프로필</title>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <%-include('script.ejs') %>
 
         <link rel="stylesheet" href="/css/box.css">
         <link rel="stylesheet" href="/css/nav.css">
         <link rel="stylesheet" href="/css/profile_tab.css">
         <link rel="stylesheet" href="/css/profile_content.css">
         <script src="/js/profile_1.js"></script>
-
-        <script src="https://kit.fontawesome.com/c35f3dd7d0.js" crossorigin="anonymous"></script>
 
         <script>
             function update_btn() {
@@ -27,7 +25,6 @@
                     return response.data;
                 }).then((data) => {
                     alertDelete();
-                    location.href = "/";
                 })
             }
         </script>
