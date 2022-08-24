@@ -114,29 +114,29 @@
 }
 
 .modify_btn{
-            width : 20%;
-            padding : 17px;
-            margin-top: 40px;
-            margin-right: 20px;
-            border-radius : 5px;
-            cursor : pointer;
-            background-color : rgb(46, 85, 67);
-            font-size : 18px;
-            font-weight : 550;
-            color : white;
-            border : none;
+    width : 20%;
+    padding : 17px;
+    margin-top: 40px;
+    margin-right: 20px;
+    border-radius : 5px;
+    cursor : pointer;
+    background-color : rgb(46, 85, 67);
+    font-size : 18px;
+    font-weight : 550;
+    color : white;
+    border : none;
 }
 
 .mypage_btn{
-        width : 115%;
-        padding : 17px;
-        /* margin-left: 5px; */
-        margin-top: 40px;
-        border-radius : 5px;
-        cursor : pointer;
-        background-color : rgb(186, 77, 47);
-        font-size : 18px;
-        font-weight : 550;
-        color : white;
-        border : none;
+    width : 115%;
+    padding : 17px;
+    /* margin-left: 5px; */
+    margin-top: 40px;
+    border-radius : 5px;
+    cursor : pointer;
+    background-color : rgb(186, 77, 47);
+    font-size : 18px;
+    font-weight : 550;
+    color : white;
+    border : none;
 }
