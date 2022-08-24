@@ -71,23 +71,28 @@
         <form id="write_form" action="/recipe/detail" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="user_id" value="<%=user%>">
             <h3>레시피 등록</h3>
-            <h4>레시피 제목 *</h4>
+            <h4>레시피 제목</h4>
             <input type="text" name="title" class="txtb1" placeholder="레시피 제목을 적어주세요" required> <br>
-            <h4>요리 소개 *</h4> 
-            <textarea name="comment" cols="30" rows="10" class="txtb2" placeholder="레시피에 대해 간단히 소개해주세요."></textarea> <br>
+            <h4>요리 소개</h4> 
+            <textarea name="comment" cols="30" rows="10" class="txtb2" placeholder="레시피에 대해 간단히 소개해주세요." required></textarea> <br>
             <h4>카테고리</h4>
-            <select name="ct_kind" class="txtb3">
+            <select name="ct_kind" class="txtb3" required>
                 <option value="" selected>종류별</option>
-                <option value="grill">그릴</option>
+                <option value="kit">간편식</option>
+                <option value="soup">국/찌개</option>
+                <option value="noodle">면</option>
+                <option value="meat">고기</option>
+                <option value="seafood">해산물</option>
+                <option value="dessert">디저트</option>
             </select>
-            <select name="ct_food" class="txtb3">
+            <select name="ct_food" class="txtb3" required>
                 <option value="" selected>재료별</option>
                 <option value="beef">소고기</option>
             </select>
             <p>분류를 바르게 설정해주시면, 사용자들이 쉽게 레시피를 검색할 수 있어요.</p>
-            <h4>재료 *</h4> 
-            <textarea name="material" cols="30" rows="10" class="txtb2" placeholder="요리에 들어갈 재료와 양념을 작성해 주세요."></textarea>
-            <h4>요리 순서 *</h4>
+            <h4>재료</h4> 
+            <textarea name="material" cols="30" rows="10" class="txtb2" placeholder="요리에 들어갈 재료와 양념을 작성해 주세요." required></textarea>
+            <h4>요리 순서</h4>
             <div id="steps">
                 <h4>Step1</h4>
                 <textarea name="step_1" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요"></textarea>
