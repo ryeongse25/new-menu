@@ -18,8 +18,9 @@
     width : 800px;
     display: block;
     margin: 0 auto;
+    margin-bottom: 15%;
     position: relative;
-    top: 20%;
+    top: 30%;
 }
 
 .recipe_detail h2 {
