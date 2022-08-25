@@ -23,11 +23,11 @@ router.get("/", recipe.main);
 
 // write page
 router.get("/write", recipe.write_recipe_page);
-router.post("/detail", upload.array("userfile"), recipe.post_write);
-router.get("/update", recipe.update);
+router.post("/post_write", upload.array("userfile"), recipe.post_write);
+router.get("/detail", recipe.detail_page);
 
-// detail page
-// router.get("/detail", recipe.detail_page);
+
+router.get("/update", recipe.update);
 
 router.get("/mealkit", recipe.mealkit_page);
 
