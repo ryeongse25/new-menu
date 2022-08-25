@@ -9,10 +9,10 @@ exports.main = async (req, res) => {
     
     let pictures = [];
 
-    for (let i=0; i<result.length; i++) {
-        let result_pic = await models.UserRecipePicture.findOne({where: {food_id: result[i].id}});
-        pictures.push(result_pic.filename);
-    }
+    // for (let i=0; i<result.length; i++) {
+    //     let result_pic = await models.UserRecipePicture.findOne({where: {food_id: result[i].id}});
+    //     pictures.push(result_pic.filename);
+    // }
 
     if ( user != undefined ) {
         res.render("recipe", {isLogin: true, user: user, result: result, picture: pictures});
@@ -29,53 +29,67 @@ exports.write_recipe_page = (req, res) => {
 }
 
 // 레시피 폼 전송 post
-exports.post_write = (req, res) => {
+exports.post_write = async (req, res) => {
 
-    let count = Object.keys(req.body).length - 6;
+    let count = Object.keys(req.body.data).length - 7;
+
+    const data = req.body.data;
 
     let recipe_obj = {
-        user_id: req.body.user_id,
-        title: req.body.title,
-        comment: req.body.comment,
-        category_kind: req.body.ct_kind,
-        category_food: req.body.ct_food,
-        material: req.body.material
+        user_id: data.user_id,
+        title: data.title,
+        comment: data.comment,
+        category_kind: data.ct_kind,
+        category_food: data.ct_food,
+        material: data.material
     };
 
-    models.UserRecipe.create(recipe_obj)
-    .then((result) => {
+    let result = await models.UserRecipe.create(recipe_obj);
 
-        let file_lst = [];
-        let file_obj = [];
+    // let file_lst = [];
+    // let file_obj = [];
 
-        for (let i=0; i<req.files.length; i++) {
-            file_lst.push(req.files[i].filename);
-        }
-        
-        for (let i=0; i<req.files.length; i++) {
-            file_obj.push({food_id: result.id, filename: req.files[i].filename});
-        }
-        
-        models.UserRecipePicture.bulkCreate(file_obj)
-        .then((result_pic) => {
+    // 파일명 리스트에 저장
+    // for (let i=0; i<req.files.length; i++) {
+    //     file_lst.push(req.files[i].filename);
+    // }
+    
+    // 데이터베이스에 추가할 obj
+    // for (let i=0; i<req.files.length; i++) {
+    //     file_obj.push({food_id: result.id, filename: req.files[i].filename});
+    // }
 
-            let steps = [];
-            let step_obj = [];
+    // let result_pic = await models.UserRecipePicture.bulkCreate(file_obj);
 
-            for (let i=1; i<count+1; i++) {
-                steps.push(req.body[`step_${i}`]);
-            }
+    let steps = [];
+    let step_obj = [];
 
-            for (let i=1; i<count+1; i++) {
-                step_obj.push({food_id: result.id, stage: i, description: steps[i-1]});
-            }
+    for (let i=1; i<count+1; i++) {
+        steps.push(data[`step_${i}`]);
+    }
 
-            models.UserRecipeStep.bulkCreate(step_obj)
-            .then((result_step) => {
-                res.render("recipe_detail", {isLogin: true, user: req.body.user_id, data: result, picture: result_pic, step: result_step});
-            })
-        })
-    });
+    for (let i=1; i<count+1; i++) {
+        step_obj.push({food_id: result.id, stage: i, description: steps[i-1]});
+    }
+
+    let result_step = await models.UserRecipeStep.bulkCreate(step_obj);
+
+    res.send({result: result.id});
+    // res.render("recipe_detail", {isLogin: true, user: req.body.user_id, data: result, picture: result_pic, step: result_step});
+}
+
+// 레시피 디테일 페이지 get
+exports.detail_page = async (req, res) => {
+    const user = req.session.user;
+    console.log(req.query);
+    let result = await models.UserRecipe.findOne({where: {id: req.query.food_id}});
+
+    let result_step = await models.UserRecipeStep.findAll({where: {food_id: req.query.food_id}});
+
+    console.log("result", result);
+    console.log("result", result_step);
+
+    res.render("recipe_detail", {isLogin: true, user: user, data: result, step: result_step});
 }
 
 // 레시피 정보 수정 get
