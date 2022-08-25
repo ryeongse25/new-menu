@@ -12,7 +12,8 @@
         <script src="/js/nav.js"></script>
         
         <div class="recipe_detail">
-            <h2><%=data.title%></h2>
+            <h2 style="text-align: center; margin: 0; color: #2E5543"><%=data.title%></h2>
+            <p style="text-align: right; margin: 10px 0 20px 0;">작성자: <%=data.user_id%></p>
 
             <hr class="line1">
             <hr class="line2">
@@ -34,32 +35,26 @@
             <div class="htc">
                 <% for (let i=0; i<step.length; i++) { %>
                     <div class="txt3">
-                        <span class="step">Step<%=i+1%></span>
+                        <span class="step">[Step<%=i+1%>]</span>
                         <%=step[i].description%> <br>
                     </div>
                 <% } %>
             </div>
 
             <hr class="line3">
-            
 
-            <p class="writer">레시피 작성자</9>
-            <div class="txt4">
-                <p><%=data.user_id%></p>
-            </div>
-
-            <hr class="line4">
-
-            <p class="writer">요리 후기</9>
+            <p class="writer" style="color: #2E5543;">요리 후기</9>
             
             <hr class="line4">
 
             <div class="btn">
+                <% if (user == data.user_id) { %>
                 <form action="/recipe/update" method="get">
                     <input type="hidden" name="food_id" value="<%=data.id%>">
                     <button class="modify_btn">수정하기</button>
                 </form>
-                <a href="/user/profile"><button class="mypage_btn">마이페이지</button></a> <br>
+                <% } %>
+                <a href="/recipe"><button class="mypage_btn">목록</button></a> <br>
             </div>
         </div>
     </body>

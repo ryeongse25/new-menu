@@ -1,6 +1,6 @@
 const models = require("../model");
 
-// 레시피 페이지 get
+// 레시피 메인 페이지 get
 exports.main = async (req, res) => {
     const user = req.session.user;
 
@@ -75,13 +75,12 @@ exports.post_write = async (req, res) => {
     let result_step = await models.UserRecipeStep.bulkCreate(step_obj);
 
     res.send({result: result.id});
-    // res.render("recipe_detail", {isLogin: true, user: req.body.user_id, data: result, picture: result_pic, step: result_step});
 }
 
 // 레시피 디테일 페이지 get
 exports.detail_page = async (req, res) => {
     const user = req.session.user;
-    console.log(req.query);
+
     let result = await models.UserRecipe.findOne({where: {id: req.query.food_id}});
 
     let result_step = await models.UserRecipeStep.findAll({where: {food_id: req.query.food_id}});
@@ -89,7 +88,11 @@ exports.detail_page = async (req, res) => {
     console.log("result", result);
     console.log("result", result_step);
 
-    res.render("recipe_detail", {isLogin: true, user: user, data: result, step: result_step});
+    if ( user != undefined ) {
+        res.render("recipe_detail", {isLogin: true, user: user, data: result, step: result_step});
+    } else {
+        res.render("recipe_detail", {isLogin: false, user: undefined, data: result, step: result_step});
+    }
 }
 
 // 레시피 정보 수정 get
