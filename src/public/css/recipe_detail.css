@@ -55,7 +55,8 @@
 .ing {
     margin-top: 70px;
     font-size: 25px;
-    font-weight: 100px;
+    font-weight: bolder;
+    color:#2E5543;
     font-family: 'Aboreto', cursive;
 }
 
@@ -71,8 +72,9 @@
 }
 
 .step {
-    font-size: 23px;
+    font-size: 18px;
     margin-right: 15px;
+    color: rgb(186, 77, 47)
 }
 
 .txt3 {
@@ -84,15 +86,15 @@
     margin: 70px 0 40px;
     border: 0;
     height: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(32, 32, 32, 0.3);
+    /* border-top: 1px solid rgba(0, 0, 0, 0.1); */
+    border-bottom: 1px solid rgba(32, 32, 32);
 }
 
 .writer {
     font-size: 22px;
     font-weight: 100px;
     margin-bottom: 30px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
 }
 
 
