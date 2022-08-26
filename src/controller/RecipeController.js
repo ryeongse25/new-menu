@@ -30,13 +30,13 @@ exports.write_recipe_page = (req, res) => {
 
 // 레시피 폼 전송 post
 exports.post_write = async (req, res) => {
+    console.log("req.body", req.body);
+    // let count = Object.keys(req.body.data).length - 7;
 
-    let count = Object.keys(req.body.data).length - 7;
-
-    const data = req.body.data;
+    // const data = req.body.data;
 
     let recipe_obj = {
-        user_id: data.user_id,
+        // user_id: req.body.formData.get("user_id"),
         title: data.title,
         comment: data.comment,
         category_kind: data.ct_kind,
@@ -82,11 +82,10 @@ exports.detail_page = async (req, res) => {
     const user = req.session.user;
 
     let result = await models.UserRecipe.findOne({where: {id: req.query.food_id}});
-
     let result_step = await models.UserRecipeStep.findAll({where: {food_id: req.query.food_id}});
 
-    console.log("result", result);
-    console.log("result", result_step);
+    // console.log("result", result);
+    // console.log("result", result_step);
 
     if ( user != undefined ) {
         res.render("recipe_detail", {isLogin: true, user: user, data: result, step: result_step});

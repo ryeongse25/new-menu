@@ -4,6 +4,7 @@ const port = 8000;
 const bodyParser = require("body-parser");
 const path = require("path");
 const session = require("express-session");
+const Swal = require('sweetalert2');
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -28,9 +29,9 @@ app.get("/", function (req, res) {
   const user = req.session.user;
 
   if (user != undefined) {
-    res.render("index", { isLogin: true, user: user });
+    res.render("index", { isLogin: true, user: user, isLogout: false });
   } else {
-    res.render("index", { isLogin: false });
+    res.render("index", { isLogin: false, isLogout: false });
   }
 });
 
@@ -38,11 +39,7 @@ app.get("/", function (req, res) {
 app.get("/logout", (req, res) => {
   const user = req.session.user;
   req.session.destroy(function (err) {
-    res.send(
-      `<script>
-          alertLogout();
-      </script>`
-    );
+    res.render("index", {isLogout: true, isLogin: false});
   });
 });
 

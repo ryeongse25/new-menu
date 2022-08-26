@@ -29,24 +29,30 @@
                 let h4s = document.querySelectorAll("#steps h4");
                 let count = h4s.length;
 
-                let data = {};
+                let formData = new FormData();
 
-                for (let i=1; i<count+1; i++) {
-                    data[`step_${i}`] = $(`#step_${i}`).val();
+                let fileUpload = document.getElementById("fileUpload");
+
+                for (let i=0; i<fileUpload.files.length; i++) {
+                    formData.append("userfile", fileUpload.files[i].name);
                 }
 
-                data["user_id"] = "<%=user%>";
-                data["title"] = form.title.value;
-                data["comment"] = form.comment.value;
-                data["category_kind"] = $("#ct_kind").val();
-                data["category_food"] = $("#ct_food").val();
-                data["material"] = form.material.value;
-                data["img"] = form.userfile.value;
+                for (let i=1; i<count+1; i++) {
+                    formData.append(`step_${i}`, $(`#step_${i}`).val());
+                }
+
+                formData.append("user_id", "<%=user%>");
+                formData.append("title", form.title.value);
+                formData.append("comment", form.comment.value);
+                formData.append("category_kind", $("#ct_kind").val());
+                formData.append("category_food", $("#ct_food").val());
+                formData.append("material", form.material.value);
+                formData.append("comment", form.comment.value);
 
                 axios({
                     method: "post",
                     url: "http://localhost:8000/recipe/post_write",
-                    data: {data}
+                    data: {formData}
                 }).then((response) => {
                     return response.data;
                 }).then((data) => {
@@ -97,12 +103,12 @@
             <div id="steps">
                 <div class="flex-box">
                     <h4>Step1</h4>
-                    <textarea id="step_1" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요"></textarea>
+                    <textarea id="step_1" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요" required></textarea>
                 </div>
             </div>
             <button type="button" onclick="next_step();" class="add_btn">+ 순서 추가</button>
             <h4>사진</h4>
-            <input type="file" class="imgb" name="userfile" multiple>
+            <input type="file" class="imgb" name="userfile" id="fileUpload" multiple required>
             <div class="btn">
                 <button type="button" onclick="posting();" class="posting_btn">레시피 등록</button>
                 <button type="button" onclick="alertCancel();" class="cancel_btn">취소</button>
