@@ -3,11 +3,9 @@ function alertRegister() {
     Swal.fire({
         html: "성공적으로 회원가입 되었습니다.<br><br>가입하신 정보로 다시 로그인해주세요.",
         icon: "success",
-        showCancelButton: true,
+        showCancelButton: false,
         confirmButtonColor: "#2E5543",
-        cancleButtonColor: '#BC5539',
         confirmButtonText: "로그인",
-        cancleButtonText: "닫기",
     }).then((result) => {
         if (result.isConfirmed) {
             window.location = "/user";

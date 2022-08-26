@@ -1,5 +1,5 @@
 .cards-main {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
 }
 
@@ -10,6 +10,7 @@ img {
 }
 
 .cards {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
