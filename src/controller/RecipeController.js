@@ -31,6 +31,8 @@ exports.write_recipe_page = (req, res) => {
 // 레시피 폼 전송 post
 exports.post_write = async (req, res) => {
     console.log("req.body", req.body);
+    console.log("req.body", req.body.formData);
+    console.log("req.body", req.body.formData.get("user_id"));
     // let count = Object.keys(req.body.data).length - 7;
 
     // const data = req.body.data;

@@ -49,10 +49,12 @@
                 formData.append("material", form.material.value);
                 formData.append("comment", form.comment.value);
 
-                axios({
+                fetch("http://localhost:8000/recipe/post_write", {
                     method: "post",
-                    url: "http://localhost:8000/recipe/post_write",
-                    data: {formData}
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({formData}),
                 }).then((response) => {
                     return response.data;
                 }).then((data) => {
@@ -61,6 +63,19 @@
                     submit_form.food_id.value = data.result;
                     submit_form.submit();
                 })
+
+                // axios({
+                //     method: "post",
+                //     url: "http://localhost:8000/recipe/post_write",
+                //     data: {formData}
+                // }).then((response) => {
+                //     return response.data;
+                // }).then((data) => {
+                //     console.log(data);
+                //     let submit_form = document.getElementById("submit_form");
+                //     submit_form.food_id.value = data.result;
+                //     submit_form.submit();
+                // })
             }
         </script>
 
