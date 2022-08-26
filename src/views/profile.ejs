@@ -82,17 +82,27 @@
           <div id="tab1_content">
             <div class="main">
               <ul class="cards">
-                <li class="cards_item">
+                <% for (let i=0; i<recipe.length; i++) { %>
+                  <a href="/recipe/detail?user_id=<%=recipe[i].user_id%>&food_id=<%=recipe[i].id%>">
+                    <li class="cards_item">
+                      <div class="card">
+                        <div class="card_image">
+                          <img src="/img/card1.jpeg" />
+                        </div>
+                        <div class="card_content">
+                          <h2 class="card_title"><%=recipe[i].title%></h2>
+                        </div>
+                      </div>
+                    </li>
+                  </a>
+                <% } %>
+                <!-- <li class="cards_item">
                   <div class="card">
                     <div class="card_image">
                       <img src="/img/card1.jpeg" />
                     </div>
                     <div class="card_content">
                       <h2 class="card_title">미역줄기볶음</h2>
-                      <br />
-                      <!-- <p class="card_text">
-                        쉬운반찬/가성비반찬 "미역줄기볶음"
-                      </p> -->
                     </div>
                   </div>
                 </li>
@@ -103,8 +113,6 @@
                     </div>
                     <div class="card_content">
                       <h2 class="card_title">갈릭버터새우</h2>
-                      <br />
-                      <!-- <p class="card_text">갈릭버터새우구이 너무 간편해요</p> -->
                     </div>
                   </div>
                 </li>
@@ -115,11 +123,9 @@
                     </div>
                     <div class="card_content">
                       <h2 class="card_title">차돌박이찜</h2>
-                      <br />
-                      <!-- <p class="card_text">된장마요소스와 함께!!</p> -->
                     </div>
                   </div>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>

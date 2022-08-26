@@ -104,19 +104,24 @@ exports.post_register = (req, res) => {
 };
 
 // 프로필
-exports.profile = (req, res) => {
+exports.profile = async (req, res) => {
   const user = req.session.user;
 
   if (user != undefined) {
-    models.User.findOne({ where: { id: user } }).then((result) => {
-      res.render("profile", {
-        isLogin: true,
-        user: user,
-        name: result.name,
-        tel: result.tel,
-        email: result.email,
-      });
-    });
+    let result = await models.User.findOne({where: {id: user}});
+    let recipe_result = await models.UserRecipe.findAll({where: {user_id: user}});
+    res.render("profile", {isLogin: true, user: user, name: result.name, tel: result.tel, email: result.email, recipe: recipe_result});
+    
+
+    // models.User.findOne({ where: { id: user } }).then((result) => {
+    //   res.render("profile", {
+    //     isLogin: true,
+    //     user: user,
+    //     name: result.name,
+    //     tel: result.tel,
+    //     email: result.email,
+    //   });
+    // });
   } else {
     res.redirect("/user");
   }
