@@ -30,20 +30,16 @@ exports.write_recipe_page = (req, res) => {
 
 // 레시피 폼 전송 post
 exports.post_write = async (req, res) => {
-    console.log("req.body", req.body);
-    console.log("req.body", req.body.formData);
-    console.log("req.body", req.body.formData.get("user_id"));
-    // let count = Object.keys(req.body.data).length - 7;
 
-    // const data = req.body.data;
+    let count = Object.keys(req.body).length - 7;
 
     let recipe_obj = {
-        // user_id: req.body.formData.get("user_id"),
-        title: data.title,
-        comment: data.comment,
-        category_kind: data.ct_kind,
-        category_food: data.ct_food,
-        material: data.material
+        user_id: req.body.user_id,
+        title: req.body.title,
+        comment: req.body.comment,
+        category_kind: req.body.category_kind,
+        category_food: req.body.category_food,
+        material: req.body.material
     };
 
     let result = await models.UserRecipe.create(recipe_obj);
@@ -67,7 +63,7 @@ exports.post_write = async (req, res) => {
     let step_obj = [];
 
     for (let i=1; i<count+1; i++) {
-        steps.push(data[`step_${i}`]);
+        steps.push(req.body[`step_${i}`]);
     }
 
     for (let i=1; i<count+1; i++) {
