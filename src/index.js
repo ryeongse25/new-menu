@@ -4,7 +4,6 @@ const port = 8000;
 const bodyParser = require("body-parser");
 const path = require("path");
 const session = require("express-session");
-const Swal = require('sweetalert2');
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
