@@ -18,6 +18,10 @@ img {
   padding: 0;
 }
 
+.cards a {
+  text-decoration: none;
+}
+
 .cards_item {
   display: flex;
   padding: 1rem;

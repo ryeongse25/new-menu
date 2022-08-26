@@ -110,18 +110,15 @@ exports.profile = async (req, res) => {
   if (user != undefined) {
     let result = await models.User.findOne({where: {id: user}});
     let recipe_result = await models.UserRecipe.findAll({where: {user_id: user}});
-    res.render("profile", {isLogin: true, user: user, name: result.name, tel: result.tel, email: result.email, recipe: recipe_result});
-    
 
-    // models.User.findOne({ where: { id: user } }).then((result) => {
-    //   res.render("profile", {
-    //     isLogin: true,
-    //     user: user,
-    //     name: result.name,
-    //     tel: result.tel,
-    //     email: result.email,
-    //   });
-    // });
+    let pictures = [];
+
+    for (let i=0; i<recipe_result.length; i++) {
+        let recipe_pic = await models.UserRecipePicture.findOne({where: {food_id: recipe_result[i].id}});
+        pictures.push(recipe_pic.filename);
+    }
+
+    res.render("profile", {isLogin: true, user: user, name: result.name, tel: result.tel, email: result.email, recipe: recipe_result, picture: pictures});
   } else {
     res.redirect("/user");
   }

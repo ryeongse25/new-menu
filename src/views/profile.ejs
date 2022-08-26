@@ -83,11 +83,11 @@
               <table class="memberInfo" border="0">
                 <tr class="phoneNumber">
                   <td><i class="fa-solid fa-phone"></i></td>
-                  <td><%=tel%></td>
+                  <td style="padding-left: 10px;"><%=tel%></td>
                 </tr>
                 <tr class="email">
                   <td><i class="fa-solid fa-envelope"></i></td>
-                  <td><%=email%></td>
+                  <td style="padding-left: 10px;"><%=email%></td>
                 </tr>
               </table>
             </div>
@@ -122,20 +122,20 @@
           </ul> -->
           <div class="cards-main">
             <ul class="cards">
-              <% for (let i=0; i<recipe.length; i++) { %>
-              <a href="/recipe/detail?user_id=<%=recipe[i].user_id%>&food_id=<%=recipe[i].id%>">
-              <li class="cards_item">
-                <div class="card">
-                  <div class="card_image">
-                    <img src="/img/card1.jpeg" />
-                  </div>
-                  <div class="card_content">
-                  <h2 class="card_title"><%=recipe[i].title%></h2>
-                  </div>
-                </div>
-              </li>
-              </a>
-            <% } %>
+                <% for (let i=0; i<recipe.length; i++) { %>
+                    <a href="/recipe/detail?user_id=<%=recipe[i].user_id%>&food_id=<%=recipe[i].id%>">
+                        <li class="cards_item" style="border: none;">
+                            <div class="card">
+                                <div class="card_image">
+                                    <img src="/img/user_recipe/<%=picture[i]%>">
+                                </div>
+                                <div class="card_content">
+                                    <h2 class="card_title"><%=recipe[i].title%></h2>
+                                </div>
+                            </div>
+                        </li>
+                    </a>
+                <% } %>
             </ul>
           </div>
                 

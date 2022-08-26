@@ -5,14 +5,15 @@ exports.main = async (req, res) => {
     const user = req.session.user;
 
     let result = await models.UserRecipe.findAll();
-    console.log(result);
-    
+
     let pictures = [];
 
-    // for (let i=0; i<result.length; i++) {
-    //     let result_pic = await models.UserRecipePicture.findOne({where: {food_id: result[i].id}});
-    //     pictures.push(result_pic.filename);
-    // }
+    for (let i=0; i<result.length; i++) {
+        let result_pic = await models.UserRecipePicture.findOne({where: {food_id: result[i].id}});
+        console.log(result_pic);
+        console.log(result_pic.filename);
+        pictures.push(result_pic.filename);
+    }
 
     if ( user != undefined ) {
         res.render("recipe", {isLogin: true, user: user, result: result, picture: pictures});
@@ -44,20 +45,22 @@ exports.post_write = async (req, res) => {
 
     let result = await models.UserRecipe.create(recipe_obj);
 
-    // let file_lst = [];
-    // let file_obj = [];
+    let file_lst = [];
+    let file_obj = [];
 
-    // 파일명 리스트에 저장
-    // for (let i=0; i<req.files.length; i++) {
-    //     file_lst.push(req.files[i].filename);
-    // }
-    
-    // 데이터베이스에 추가할 obj
-    // for (let i=0; i<req.files.length; i++) {
-    //     file_obj.push({food_id: result.id, filename: req.files[i].filename});
-    // }
+    if (typeof req.body.userfile == "string") {
+        file_lst.push(req.body.userfile);
+    } else {
+        for (let i=0; i<req.body.userfile.length; i++) {
+            file_lst.push(req.body.userfile[i])
+        }
+    }
 
-    // let result_pic = await models.UserRecipePicture.bulkCreate(file_obj);
+    for (let i=0; i<file_lst.length; i++) {
+        file_obj.push({food_id: result.id, filename: file_lst[i]});
+    }
+
+    let result_pic = await models.UserRecipePicture.bulkCreate(file_obj);
 
     let steps = [];
     let step_obj = [];
@@ -81,14 +84,12 @@ exports.detail_page = async (req, res) => {
 
     let result = await models.UserRecipe.findOne({where: {id: req.query.food_id}});
     let result_step = await models.UserRecipeStep.findAll({where: {food_id: req.query.food_id}});
-
-    // console.log("result", result);
-    // console.log("result", result_step);
+    let result_pic = await models.UserRecipePicture.findAll({where: {food_id: req.query.food_id}});
 
     if ( user != undefined ) {
-        res.render("recipe_detail", {isLogin: true, user: user, data: result, step: result_step});
+        res.render("recipe_detail", {isLogin: true, user: user, data: result, step: result_step, picture: result_pic});
     } else {
-        res.render("recipe_detail", {isLogin: false, user: undefined, data: result, step: result_step});
+        res.render("recipe_detail", {isLogin: false, user: undefined, data: result, step: result_step, picture: result_pic});
     }
 }
 

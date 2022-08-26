@@ -79,7 +79,12 @@
 }
 
 #like-info li p {
-  margin: 0.5rem 0;
+  /* margin: 0.5rem 0; */
+  margin: 20px 0 0 0;
+}
+
+#like-info li p:last-child {
+  margin-top: 10px;
 }
 
 .number {
