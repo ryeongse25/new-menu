@@ -1,0 +1,88 @@
+#profile {
+  display: flex;
+}
+
+#profile-box {
+  width: 100%;
+  height: 100%;
+  padding: 0 2.38rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  border: 0.1rem solid #ddd;
+}
+
+#profile-photo {
+  margin: 0 0;
+  padding: 0.6rem 0.6rem;
+  display: flex;
+  align-items: center;
+}
+
+#profile-photo p {
+  margin: 0.6rem;
+  font-size: 18px;
+}
+
+#profile-photo img {
+  width: 80px;
+  height: 80px;
+  border: 3px solid white;
+  border-radius: 100%;
+}
+
+#profile-photo p {
+  margin-left: 1.25rem;
+}
+
+#profile-name {
+  justify-content: space-between;
+  padding-left: 1.25rem;
+}
+
+#profile-name tr {
+  font-size: 13px;
+  margin: 0.3rem 0;
+  color: black;
+}
+
+#like-info {
+  text-align: center;
+  padding: 0.6rem;
+  margin-left: 0.4rem;
+}
+
+#like-info ul {
+  margin: 0 auto;
+  padding: 0 0;
+  display: flex;
+  list-style: none;
+}
+
+#like-info li:not(.like-info-heart) {
+  margin-top: 1.2rem;
+  width: 6.25rem;
+  height: 70%;
+  border-right: 1px solid #eee;
+  font-size: 14px;
+}
+
+.like-info-heart {
+  margin-top: 1.2rem;
+  width: 6.25rem;
+  height: 70%;
+  font-size: 14px;
+}
+
+#like-info li i {
+  padding-top: 0.6rem;
+}
+
+#like-info li p {
+  margin: 0.5rem 0;
+}
+
+.number {
+  font-size: 20px;
+  font-weight: bold;
+}

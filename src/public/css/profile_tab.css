@@ -1,34 +1,66 @@
-/* tab menu 부분 */
-#tab_div {
-  display: flex;
-  margin: 0px auto;
-  margin-top: 150px;
-  padding: 20px;
-  width: 1300px;
+#main {
+  display: grid;
+  width: 70%;
+  height: 90%;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 6fr;
+  margin: 0 auto;
+  gap: 1.25rem;
+  margin-top: 10rem;
 }
 
-#tabs_menu {
-  background-color: white;
-  padding: 10px;
-  margin: 32px auto;
-  width: 185px;
-  border-radius: 8px;
+#tab {
+  grid-row-start: 1;
+  grid-row-end: 3;
 }
 
-.tabs {
+#tab-box {
+  margin: 0 auto;
+  margin-top: 1.25rem;
+  width: 70%;
   list-style: none;
+  text-align: left;
 }
 
-.tabs li {
-  background-color: var(--light);
-  border-radius: 5px;
-  color: black;
-  padding: 15px;
-  margin: 5px 0px 5px 0px;
-  text-align: center;
-  font-weight: 400;
+#recipe-box,
+#food-box,
+#comment-box,
+#like-box,
+#info-box {
+  margin-bottom: 1.88rem;
 }
 
-.tabs li:hover {
+#tab-box h4 {
+  margin: 0 0;
+  padding: 0.5rem 0;
+  border-bottom: 0.1rem solid #eee;
+}
+
+#tab-box a {
+  color: gray;
+  text-decoration: none;
+}
+
+#tab-box a:hover {
+  color: gray;
+  text-decoration: none;
+}
+
+#tab-box ul {
+  margin: 0 0;
+  margin-bottom: 0.5rem;
+  padding: 0 0;
+  list-style-type: none;
+  padding: 0.19rem;
+  border-bottom: 0.1rem solid gray;
+}
+
+#tab-box li {
+  margin: 0.5rem 0;
+  font-size: 13px;
+  color: gray;
+}
+
+#tab-box li:hover {
   cursor: pointer;
 }
