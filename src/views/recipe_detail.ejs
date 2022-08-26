@@ -5,6 +5,7 @@
         <link rel = "stylesheet" href = "/css/recipe_detail.css">
         <link rel="stylesheet" href="/css/nav.css">
         <link rel="stylesheet" href="/css/bottom_bar.css">
+        <script src="https://kit.fontawesome.com/3a4e397308.js" crossorigin="anonymous"></script>
 
         <%-include('script.ejs') %>
     </head>
@@ -14,23 +15,24 @@
         
         <div class="recipe_detail">
             <h2 style="text-align: center; margin: 0; color: #2E5543"><%=data.title%></h2>
-            <p style="text-align: right; margin: 10px 0 20px 0;">작성자: <%=data.user_id%></p>
+            <p style="text-align: right; margin: 10px 0 20px 0; margin-top: 50px;">작성자 : <%=data.user_id%>
+                <i class="fa-solid fa-heart fa-lg" style="color: rgb(190, 51, 13); margin-left :10px;"></i></p>
 
             <hr class="line1">
-            <hr class="line2">
+            <!-- <hr class="line2"> -->
 
             <div class="txt1">
                 <%=data.comment%>
             </div>
 
-            <hr class="line1">
+            <hr class="line3">
 
             <p class="ing">INGREDIENTS</p>
             <div class="txt2">
                 <%=data.material%>
             </div>
 
-            <hr class="line1">
+            <hr class="line3">
 
             <p class="ing">HOW TO COOK</p>
             <div class="htc">

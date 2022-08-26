@@ -20,7 +20,6 @@ CREATE TABLE user_recipe (
     user_id varchar(15) not null,
     title varchar(100) not null,
     comment mediumtext,
-    video_link varchar(100),
     category_kind varchar(20),
     category_food varchar(20),
     material mediumtext,
