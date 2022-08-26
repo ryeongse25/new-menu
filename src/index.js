@@ -4,13 +4,14 @@ const port = 8000;
 const bodyParser = require("body-parser");
 const path = require("path");
 const session = require("express-session");
-const Swal = require('sweetalert2');
+const cors = require('cors');
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors()); // 
 
 app.use(express.static(path.join(__dirname, "public")));
 
