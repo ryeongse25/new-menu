@@ -47,35 +47,17 @@
                 formData.append("category_kind", $("#ct_kind").val());
                 formData.append("category_food", $("#ct_food").val());
                 formData.append("material", form.material.value);
-                formData.append("comment", form.comment.value);
 
                 fetch("http://localhost:8000/recipe/post_write", {
                     method: "post",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
                     body: formData
-                }).then((response) => {
-                    return response.data;
-                }).then((data) => {
-                    console.log(data);
+                }).then((response) => response.json()
+                ).then((data) => {
+                    alert(data);
                     let submit_form = document.getElementById("submit_form");
                     submit_form.food_id.value = data.result;
                     submit_form.submit();
                 })
-
-                // axios({
-                //     method: "post",
-                //     url: "http://localhost:8000/recipe/post_write",
-                //     data: {formData}
-                // }).then((response) => {
-                //     return response.data;
-                // }).then((data) => {
-                //     console.log(data);
-                //     let submit_form = document.getElementById("submit_form");
-                //     submit_form.food_id.value = data.result;
-                //     submit_form.submit();
-                // })
             }
         </script>
 
