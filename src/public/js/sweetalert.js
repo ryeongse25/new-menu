@@ -30,6 +30,23 @@ function alertBoard() {
     });
 }
 
+// 로그아웃 상태에서 좋아요 버튼 눌렀을 때
+function alertLike() {
+    Swal.fire({
+      html: "<b>좋아요 기능은 로그인 후 이용하실 수 있습니다.</b>",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#2E5543",
+      cancelButtonColor: "#BC5539",
+      confirmButtonText: "로그인",
+      cancelButtonText: "닫기",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location = "/user";
+        }
+    });
+}
+
 // 로그아웃
 function alertLogout() {
     Swal.fire({
