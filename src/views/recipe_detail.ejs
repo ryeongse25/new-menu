@@ -14,9 +14,8 @@
 
                 axios({
                     method: "post",
-                    url: "http://localhost:8000/user/register",
+                    url: "http://localhost:8000/recipe/like",
                     data: {
-                        user_id: "<%=user%>",
                         food_id: "<%=data.id%>"
                     },
 			    }).then((response) => {
@@ -40,14 +39,22 @@
             <h2 style="text-align: center; margin: 0; color: #2E5543">- <%=data.title%> -</h2>
             <p style="text-align: right; margin-top: 50px;">작성자 : <%=data.user_id%></p>
             <div class="wrapper">
-                <div class="flex-container">
-                    <div class="flex-child">
-                        <div id="heart-like" onclick="like();"></div>
-                        <div id="heart-unlike" onclick="dislike();"></div>
+                <% if (isLogin) { %>
+                    <div class="flex-container">
+                        <div class="flex-child">
+                            <div id="heart-like" onclick="like();"></div>
+                            <div id="heart-unlike" onclick="dislike();"></div>
+                        </div>
                     </div>
-                </div>
+                <% } else { %>
+                    <div class="flex-container">
+                        <div class="flex-child" onclick="alertLike();">
+                            <div id="heart-like"></div>
+                            <div id="heart-unlike"></div>
+                        </div>
+                    </div>
+                <% } %>
             </div>
-
             <hr class="line1">
             
             <div class="detail_img">
