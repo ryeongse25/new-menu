@@ -36,5 +36,6 @@ router.get("/mealkit", recipe.mealkit_page);
 
 // like
 router.post("/like", recipe.like);
+router.post("/dislike", recipe.dislike);
 
 module.exports = router;
