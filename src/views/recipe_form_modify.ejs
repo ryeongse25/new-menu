@@ -6,13 +6,70 @@
         <link rel="stylesheet" href="/css/nav.css">
 
         <%-include('script.ejs') %>
+
+        <script>
+            function next_step() {
+                let h4s = document.querySelectorAll("#steps h4");
+                let count = h4s.length;
+                let html = `<div class="flex-box"><h4>Step${count+1}</h4><textarea id="step_${count+1}" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요"></textarea></div>`;
+                $("#steps").append(html);
+            }
+
+            function posting() {
+                let form = document.getElementById("write_form");
+
+                let result = form.checkValidity();
+
+                if ( !result ) {
+                    form.reportValidity();
+                    return false;
+                }
+
+                let h4s = document.querySelectorAll("#steps h4");
+                let count = h4s.length;
+
+                let formData = new FormData();
+
+                let fileUpload = document.getElementById("fileUpload");
+
+                for (let i=0; i<fileUpload.files.length; i++) {
+                    formData.append("userfile", fileUpload.files[i].name);
+                }
+
+                for (let i=1; i<count+1; i++) {
+                    formData.append(`step_${i}`, $(`#step_${i}`).val());
+                }
+
+                formData.append("user_id", "<%=user%>");
+                formData.append("title", form.title.value);
+                formData.append("comment", form.comment.value);
+                formData.append("category_kind", $("#ct_kind").val());
+                formData.append("category_food", $("#ct_food").val());
+                formData.append("material", form.material.value);
+
+                fetch("http://localhost:8000/recipe/post_write", {
+                    method: "post",
+                    body: formData
+                }).then((response) => response.json()
+                ).then((data) => {
+                    let submit_form = document.getElementById("submit_form");
+                    submit_form.food_id.value = data.result;
+                    submit_form.submit();
+                })
+            }
+        </script>
     </head>
 
     <body>
         <%-include('nav.ejs') %>
         <script src="/js/nav.js"></script>
 
-        <form id="write_form" action="/recipe/detail" method="POST" enctype="multipart/form-data">
+        <form id="submit_form" action="/recipe/detail" method="get">
+            <input type="hidden" name="user_id" value="<%=user%>">
+            <input type="hidden" name="food_id">
+        </form>
+
+        <form id="write_form" enctype="multipart/form-data">
             <h3>레시피 수정</h3>
             <h4>레시피 제목</h4>
             <input type="text" name="title" class="txtb1" value="<%=result.title%>" required>
@@ -20,7 +77,6 @@
             <textarea name="comment" cols="30" rows="10" class="txtb2"><%=result.comment%></textarea>
             <h4>카테고리</h4>
             <select name="ct_kind" class="txtb3">
-                <option value="" selected>종류별</option>
                 <option value="kit">간편식</option>
                 <option value="soup">국/찌개</option>
                 <option value="noodle">면</option>
@@ -31,7 +87,6 @@
                 <option value="dessert">디저트</option>
             </select>
             <select name="ct_food" class="txtb3">
-                <option value="" selected>재료별</option>
                 <option value="beef">소고기</option>
                 <option value="meaf">돼지고기</option>
                 <option value="chicken">닭고기</option>
@@ -41,16 +96,28 @@
             <h4>재료</h4> 
             <textarea name="material" cols="30" rows="10" class="txtb2"><%=result.material%></textarea>
             <h4>요리 순서</h4>
-            <% for (let i=0; i<step.length; i++) { %>
-                <h4>Step<%=i+1%></h4>
-                <textarea name="step_<%=i+1%>" cols="30" rows="10" class="txtb4"><%=step[i]%></textarea>
-            <% } %>
+            <div id="steps">
+                <% for (let i=0; i<step.length; i++) { %>
+                    <div class="flex-box">
+                        <h4>Step<%=i+1%></h4>
+                        <textarea name="step_<%=i+1%>" cols="30" rows="10" class="txtb4"><%=step[i]%></textarea>
+                    </div>
+                <% } %>
+            </div>
+            <button type="button" onclick="next_step();" class="add_btn">+ 순서 추가</button>
             <h4>요리 완성 사진</h4>
             <input type="file" class="imgb" name="userfile" multiple>
             <div class="btn">
-                <button class="posting_btn">레시피 수정</button>
+                <button type="button" onclick="posting();" class="posting_btn">레시피 수정</button>
                 <button type="button" onclick="alertCancel();" class="cancel_btn">취소</button>
             </div>
         </form>
+
+        <script>
+            window.onload = function(){
+                let form = document.getElementById('write_form');
+                $(form.ct_kind[option="<%=result.category_kind%>"]).attr('selected', true);
+            }
+        </script>
     </body>
 </html>
