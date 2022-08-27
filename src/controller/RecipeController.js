@@ -124,10 +124,24 @@ exports.update = async (req, res) => {
 
 exports.like = async (req, res) => {
     const user = req.session.user;
-    console.log(req.body);
+    // console.log(req.body);
 
-    let result = await models.UserRecipeLike
+    let obj = {
+        user_id: user,
+        food_id: req.body.food_id
+    }
 
+    let result = await models.UserRecipeLike.create(obj);
+    res.send(true);
+}
+
+exports.dislike = async (req, res) => {
+    const user = req.session.user;
+    // console.log(req.body);
+
+    let result = await models.UserRecipeLike.destroy({
+        where: {user_id: user, food_id: req.body.food_id}
+    });
     res.send(true);
 }
 
