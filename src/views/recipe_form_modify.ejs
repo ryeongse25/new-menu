@@ -15,22 +15,31 @@
         <form id="write_form" action="/recipe/detail" method="POST" enctype="multipart/form-data">
             <h3>레시피 수정</h3>
             <h4>레시피 제목</h4>
-            <% console.log("result", result); %>
             <input type="text" name="title" class="txtb1" value="<%=result.title%>" required>
             <h4>요리 소개</h4> 
-            <textarea name="comment" cols="30" rows="10" class="txtb2" value="<%=result.comment%>"></textarea>
+            <textarea name="comment" cols="30" rows="10" class="txtb2"><%=result.comment%></textarea>
             <h4>카테고리</h4>
             <select name="ct_kind" class="txtb3">
                 <option value="" selected>종류별</option>
-                <option value="grill">그릴</option>
+                <option value="kit">간편식</option>
+                <option value="soup">국/찌개</option>
+                <option value="noodle">면</option>
+                <option value="meat">고기</option>
+                <option value="seafood">해산물</option>
+                <option value="vegetables">채소</option>
+                <option value="sauce">소스</option>
+                <option value="dessert">디저트</option>
             </select>
             <select name="ct_food" class="txtb3">
                 <option value="" selected>재료별</option>
                 <option value="beef">소고기</option>
+                <option value="meaf">돼지고기</option>
+                <option value="chicken">닭고기</option>
+                <option value="potato">감자</option>
             </select>
             <p>분류를 바르게 설정해주시면, 사용자들이 쉽게 레시피를 검색할 수 있어요.</p>
             <h4>재료</h4> 
-            <textarea name="material" cols="30" rows="10" class="txtb2" value="<%=result.material%>"></textarea>
+            <textarea name="material" cols="30" rows="10" class="txtb2"><%=result.material%></textarea>
             <h4>요리 순서</h4>
             <% for (let i=0; i<step.length; i++) { %>
                 <h4>Step<%=i+1%></h4>
@@ -39,7 +48,7 @@
             <h4>요리 완성 사진</h4>
             <input type="file" class="imgb" name="userfile" multiple>
             <div class="btn">
-                <button class="posting_btn">레시피 등록</button>
+                <button class="posting_btn">레시피 수정</button>
                 <button type="button" onclick="alertCancel();" class="cancel_btn">취소</button>
             </div>
         </form>
