@@ -80,6 +80,9 @@ exports.post_write = async (req, res) => {
 
 // 레시피 디테일 페이지 get
 exports.detail_page = async (req, res) => {
+
+    console.log(req.query);
+
     const user = req.session.user;
 
     let result = await models.UserRecipe.findOne({where: {id: req.query.food_id}});
@@ -94,41 +97,36 @@ exports.detail_page = async (req, res) => {
 }
 
 // 레시피 정보 수정 get
-exports.update = (req, res) => {
+exports.update = async (req, res) => {
+    console.log(req.query);
     const user = req.session.user;
 
-    models.UserRecipe.findOne({where: {id: req.query.food_id}})
-    .then((result) => {
-        console.log("UserRecipe: ", result);
+    let result = await models.UserRecipe.findOne({where: {id: req.query.food_id}});
+    console.log("UserRecipe: ", result);
         
-        models.UserRecipeStep.findAll({where: {food_id: result.id}})
-        .then((result_step) => {
-            console.log("UserRecipeStep: ", result_step.length);
+    let result_step = await models.UserRecipeStep.findAll({where: {food_id: req.query.food_id}});
+    console.log("UserRecipeStep: ", result_step.length);
 
-            let steps = [];
+    let steps = [];
 
-            for (let i=0; i<result_step.length; i++) {
-                steps.push(result_step[i].description);
-            }
+    for (let i=0; i<result_step.length; i++) {
+        steps.push(result_step[i].description);
+    }
 
-            console.log("steps", steps);
+    console.log("steps", steps);
 
-            models.UserRecipePicture.findAll({where: {food_id: result.id}})
-            .then((result_pic) => {
-                console.log("RecipePicture: ", result_pic.length);
+    let result_pic = await models.UserRecipePicture.findAll({where: {food_id: req.query.food_id}});
+    console.log("RecipePicture: ", result_pic.length);
 
-                let pictures = [];
+    let pictures = [];
 
-                for (let i=0; i<result_pic.length; i++) {
-                    steps.push(result_pic[i].filename);
-                }
+    for (let i=0; i<result_pic.length; i++) {
+        steps.push(result_pic[i].filename);
+    }
 
-                console.log(pictures);
+    console.log(pictures);
 
-                res.render("recipe_form_modify", {isLogin: true, user: user, result: result, step: steps, picture: pictures});
-            })
-        })
-    })
+    res.render("recipe_form_modify", {isLogin: true, user: user, result: result, step: steps, picture: pictures});
 }
 
 // 밀키트 페이지

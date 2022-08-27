@@ -82,7 +82,9 @@ function alertDelete() {
         title: "탈퇴되었습니다.",
         showConfirmButton: false,
         timer: 1500
-    });
+    }).then((result) => {
+        location.href = "/";
+    })
 }
 
 // 레시피 작성 중 취소
@@ -97,7 +99,7 @@ function alertCancel() {
         cancelButtonText: "아니요",
     }).then((result) => {
         if (result.isConfirmed) {
-          window.location = "/";
+          window.location = "/recipe";
         }
     });
 }
