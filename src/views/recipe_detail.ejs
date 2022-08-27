@@ -30,6 +30,14 @@
             function dislike() {
                 console.log("dislike");
             }
+
+            $(function(){
+	            $(document).one('click', '.like-review', function(e) {
+		        $(this).html('<i class="fa fa-heart" aria-hidden="true"></i> You liked this');
+		        $(this).children('.fa-heart').addClass('animate-like');
+	            });
+            });
+
         </script>
     </head>
     <body>
@@ -38,17 +46,69 @@
         
         <div class="recipe_detail">
             <h2 style="text-align: center; margin: 0; color: #2E5543">- <%=data.title%> -</h2>
-            <p style="text-align: right; margin-top: 50px;">작성자 : <%=data.user_id%></p>
-            <div class="wrapper">
+            <!-- <p style="text-align: right; margin-top: 40px;">작성자 : <%=data.user_id%></p> -->
+
+            <div style="display:flex;">
+                <p style="text-align: right; margin-top: 40px; margin-left: 585px;">작성자 : <%=data.user_id%></p>
+            <div class="like-content">
+                <button class="btn-secondary like-review">
+                  <i class="fa fa-heart" aria-hidden="true"></i> Like
+                </button>
+            </div>
+            </div>
+
+            <!-- <div class="wrapper">
                 <div class="flex-container">
                     <div class="flex-child">
                         <div id="heart-like" onclick="like();"></div>
                         <div id="heart-unlike" onclick="dislike();"></div>
                     </div>
+                </div> -->
+
+            
+                <hr class="line1">
+            
+                <div class="detail_img">
+                    <% for (let i=0; i<picture.length; i++) { %>
+                        <img src='/img/user_recipe/<%=picture[i].filename%>' style="width: 300px; height: 300px">
+                    <% } %>
                 </div>
+    
+                <hr class="line1" style="margin-top: 35px;">
+    
+                <div class="txt1">
+                    <%=data.comment%>
+                </div>
+    
+                <hr class="line3">
+    
+                <p class="ing">INGREDIENTS</p>
+                <div class="txt2">
+                    <%=data.material%>
+                </div>
+    
+                <hr class="line3">
+    
+                <p class="ing">HOW TO COOK</p>
+                <div class="htc">
+                    <% for (let i=0; i<step.length; i++) { %>
+                        <div class="txt3">
+                            <span class="step">[Step<%=i+1%>]</span>
+                            <%=step[i].description%> <br>
+                        </div>
+                    <% } %>
+                </div>
+    
+                <hr class="line3" style="margin-top: 70px;">
+    
+                <p class="writer" style="color: #2E5543;">요리 후기</9>
+                
+                <hr class="line4">
+            
+        
             </div>
 
-            <hr class="line1">
+            <!-- <hr class="line1">
             
             <div class="detail_img">
                 <% for (let i=0; i<picture.length; i++) { %>
@@ -56,10 +116,10 @@
                 <% } %>
             </div>
 
-            <hr class="line1" style="margin-top: 35px;">
+            <hr class="line1" style="margin-top: 35px;"> -->
             <!-- <hr class="line2"> -->
 
-            <div class="txt1">
+            <!-- <div class="txt1">
                 <%=data.comment%>
             </div>
 
@@ -86,7 +146,7 @@
 
             <p class="writer" style="color: #2E5543;">요리 후기</9>
             
-            <hr class="line4">
+            <hr class="line4"> -->
 
             <div class="btn">
                 <% if (user == data.user_id) { %>
