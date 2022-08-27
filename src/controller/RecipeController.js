@@ -31,8 +31,10 @@ exports.write_recipe_page = (req, res) => {
 
 // 레시피 폼 전송 post
 exports.post_write = async (req, res) => {
+    // console.log("req.files 결과", req.files);
+    // console.log("req.body 결과", req.body);
 
-    let count = Object.keys(req.body).length - 7;
+    let count = Object.keys(req.body).length - 6;
 
     let recipe_obj = {
         user_id: req.body.user_id,
@@ -48,12 +50,8 @@ exports.post_write = async (req, res) => {
     let file_lst = [];
     let file_obj = [];
 
-    if (typeof req.body.userfile == "string") {
-        file_lst.push(req.body.userfile);
-    } else {
-        for (let i=0; i<req.body.userfile.length; i++) {
-            file_lst.push(req.body.userfile[i])
-        }
+    for (let i=0; i<req.files.length; i++) {
+        file_lst.push(req.files[i].filename);
     }
 
     for (let i=0; i<file_lst.length; i++) {

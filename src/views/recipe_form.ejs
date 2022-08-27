@@ -33,8 +33,10 @@
 
                 let fileUpload = document.getElementById("fileUpload");
 
+                console.log(fileUpload.files);
+
                 for (let i=0; i<fileUpload.files.length; i++) {
-                    formData.append("userfile", fileUpload.files[i].name);
+                    formData.append("userfile", fileUpload.files[i]);
                 }
 
                 for (let i=1; i<count+1; i++) {
