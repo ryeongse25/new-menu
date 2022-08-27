@@ -7,25 +7,46 @@
         <link rel="stylesheet" href="/css/bottom_bar.css">
 
         <%-include('script.ejs') %>
+
+        <script>
+            function like() {
+                console.log("like");
+
+                axios({
+                    method: "post",
+                    url: "http://localhost:8000/user/register",
+                    data: {
+                        user_id: "<%=user%>",
+                        food_id: "<%=data.id%>"
+                    },
+			    }).then((response) => {
+				return response.data;
+                })
+                .then((data) => {
+                    alert(data);
+                });
+            }
+
+            function dislike() {
+                console.log("dislike");
+            }
+        </script>
     </head>
     <body>
         <%-include('nav.ejs') %>
         <script src="/js/nav.js"></script>
         
         <div class="recipe_detail">
-            <h2 style="text-align: center; margin: 0; color: #2E5543"><%=data.title%></h2>
-            <p style="text-align: right; margin: 10px 0 20px 0; margin-top: 50px;">작성자 : <%=data.user_id%></p>
-            <!-- <div style="display: flex;">
-                <p style="text-align: right; margin: 10px 0 20px 0; margin-top: 50px;">작성자 : <%=data.user_id%></p> -->
-                <div class="wrapper">
-                    <div class="flex-container">
-                        <div class="flex-child">
-                            <div id="heart-like"></div>
-                            <div id="heart-unlike"></div>
-                        </div>
+            <h2 style="text-align: center; margin: 0; color: #2E5543">- <%=data.title%> -</h2>
+            <p style="text-align: right; margin-top: 50px;">작성자 : <%=data.user_id%></p>
+            <div class="wrapper">
+                <div class="flex-container">
+                    <div class="flex-child">
+                        <div id="heart-like" onclick="like();"></div>
+                        <div id="heart-unlike" onclick="dislike();"></div>
                     </div>
                 </div>
-            <!-- </div> -->
+            </div>
 
             <hr class="line1">
             
@@ -35,7 +56,7 @@
                 <% } %>
             </div>
 
-            <hr class="line1">
+            <hr class="line1" style="margin-top: 35px;">
             <!-- <hr class="line2"> -->
 
             <div class="txt1">
@@ -61,7 +82,7 @@
                 <% } %>
             </div>
 
-            <hr class="line3">
+            <hr class="line3" style="margin-top: 70px;">
 
             <p class="writer" style="color: #2E5543;">요리 후기</9>
             
