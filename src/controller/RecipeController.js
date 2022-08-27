@@ -10,8 +10,8 @@ exports.main = async (req, res) => {
 
     for (let i=0; i<result.length; i++) {
         let result_pic = await models.UserRecipePicture.findOne({where: {food_id: result[i].id}});
-        console.log(result_pic);
-        console.log(result_pic.filename);
+        // console.log(result_pic);
+        // console.log(result_pic.filename);
         pictures.push(result_pic.filename);
     }
 
@@ -79,7 +79,7 @@ exports.post_write = async (req, res) => {
 // 레시피 디테일 페이지 get
 exports.detail_page = async (req, res) => {
 
-    console.log(req.query);
+    // console.log(req.query);
 
     const user = req.session.user;
 
@@ -96,14 +96,14 @@ exports.detail_page = async (req, res) => {
 
 // 레시피 정보 수정 get
 exports.update = async (req, res) => {
-    console.log(req.query);
+    // console.log(req.query);
     const user = req.session.user;
 
     let result = await models.UserRecipe.findOne({where: {id: req.query.food_id}});
-    console.log("UserRecipe: ", result);
+    // console.log("UserRecipe: ", result);
         
     let result_step = await models.UserRecipeStep.findAll({where: {food_id: req.query.food_id}});
-    console.log("UserRecipeStep: ", result_step.length);
+    // console.log("UserRecipeStep: ", result_step.length);
 
     let steps = [];
 
@@ -111,10 +111,7 @@ exports.update = async (req, res) => {
         steps.push(result_step[i].description);
     }
 
-    console.log("steps", steps);
-
     let result_pic = await models.UserRecipePicture.findAll({where: {food_id: req.query.food_id}});
-    console.log("RecipePicture: ", result_pic.length);
 
     let pictures = [];
 
@@ -122,9 +119,16 @@ exports.update = async (req, res) => {
         steps.push(result_pic[i].filename);
     }
 
-    console.log(pictures);
-
     res.render("recipe_form_modify", {isLogin: true, user: user, result: result, step: steps, picture: pictures});
+}
+
+exports.like = async (req, res) => {
+    const user = req.session.user;
+    console.log(req.body);
+
+    let result = await models.UserRecipeLike
+
+    res.send(true);
 }
 
 // 밀키트 페이지

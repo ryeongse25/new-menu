@@ -14,9 +14,8 @@
 
                 axios({
                     method: "post",
-                    url: "http://localhost:8000/user/register",
+                    url: "http://localhost:8000/recipe/like",
                     data: {
-                        user_id: "<%=user%>",
                         food_id: "<%=data.id%>"
                     },
 			    }).then((response) => {

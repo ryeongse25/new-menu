@@ -24,11 +24,17 @@ router.get("/", recipe.main);
 // write page
 router.get("/write", recipe.write_recipe_page);
 router.post("/post_write", upload.array("userfile"), recipe.post_write);
+
+// detail page
 router.get("/detail", recipe.detail_page);
 
-
+// update page
 router.get("/update", recipe.update);
 
+// mealkit page
 router.get("/mealkit", recipe.mealkit_page);
+
+// like
+router.post("/like", recipe.like);
 
 module.exports = router;
