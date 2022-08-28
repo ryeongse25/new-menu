@@ -172,3 +172,22 @@ exports.deleteReview = async (req, res) => {
     let result = await models.Review.destroy({where: {id: req.body.id}});
     res.send(true);
 }
+
+exports.getReview = async (req, res) => {
+    let result = await models.Review.findOne({where: {id: req.query.id}});
+    
+    res.send({review: result.comment});
+}
+
+exports.updateReview = async (req, res) => {
+    const user = req.session.user;
+
+    let new_obj = {
+        user_id: user,
+        food_id: req.body.food_id,
+        comment: req.body.comment
+    }
+    let result = await models.Review.update(new_obj, {where: {id: req.body.id}});
+    
+    res.send(true);
+}
