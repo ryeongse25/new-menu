@@ -86,9 +86,15 @@ exports.detail_page = async (req, res) => {
     let review = await models.Review.findAll({where: {food_id: req.query.food_id}});
 
     if ( user != undefined ) {
-        res.render("recipe_detail", {isLogin: true, user: user, data: result, step: result_step, picture: result_pic, review: review});
+        let like = await models.UserRecipeLike.findAll({where: {user_id: user, food_id: req.query.food_id}});
+
+        if (like.length == 0){
+            res.render("recipe_detail", {isLogin: true, user: user, data: result, step: result_step, picture: result_pic, review: review, isLike: false});
+        } else {
+            res.render("recipe_detail", {isLogin: true, user: user, data: result, step: result_step, picture: result_pic, review: review, isLike: true});
+        }
     } else {
-        res.render("recipe_detail", {isLogin: false, user: undefined, data: result, step: result_step, picture: result_pic, review: review});
+        res.render("recipe_detail", {isLogin: false, user: undefined, data: result, step: result_step, picture: result_pic, review: review, isLike: false});
     }
 }
 
@@ -135,7 +141,6 @@ exports.like = async (req, res) => {
 
 exports.dislike = async (req, res) => {
     const user = req.session.user;
-    // console.log(req.body);
 
     let result = await models.UserRecipeLike.destroy({
         where: {user_id: user, food_id: req.body.food_id}
@@ -154,6 +159,7 @@ exports.mealkit_page = (req, res) => {
     }
 }
 
+// 후기 기능
 exports.review = async (req, res) => {
     const user = req.session.user;
 
