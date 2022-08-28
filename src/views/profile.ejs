@@ -51,13 +51,13 @@
               <li id="give-food">받은 요리 후기</li>
             </ul>
           </div>
-          <div id="comment-box">
+          <!-- <div id="comment-box">
             <h4>댓글</h4>
             <ul>
               <li id="write-comment">내가 쓴 댓글</li>
               <li id="give-comment">받은 댓글</li>
             </ul>
-          </div>
+          </div> -->
           <div id="like-box">
             <h4>찜</h4>
             <ul>
@@ -102,7 +102,7 @@
               <li class="like-info-comment">
                 <i class="fa-solid fa-comment fa-lg"></i>
                 <p>댓글</p>
-                <p class="number">0</p>
+                <p class="number"><%=review.length%></p>
               </li>
               <li class="like-info-heart">
                 <i class="fa-solid fa-heart fa-lg"></i>
@@ -115,7 +115,7 @@
       </div>
       <div id="comment">
         <div id="write-recipe-content">
-            <h2>내가 쓴 레시피</h2>
+            <h2 style="color: #2E5543">내가 쓴 레시피</h2>
             <% if (recipe.length == 0) { %>
                 <ul>
                     <li class="message">Message</li>
@@ -144,11 +144,26 @@
         </div>
 
         <div id="write-food-content">
-            <h2>내가 쓴 요리 후기</h2>
-            <ul>
-                <li class="message">Message</li>
-                <li class="message-content">작성한 요리 후기가 없습니다.</li>
-            </ul>
+            <h2 style="color: #2E5543">내가 쓴 요리 후기</h2>
+            <% if (review.length == 0) { %>
+              <ul>
+                  <li class="message">Message</li>
+                  <li class="message-content">작성한 요리 후기가 없습니다.</li>
+              </ul>
+            <% } else { %>
+              <table cellspacing="0">
+                <tr style="background-color: #E1DDDD;">
+                  <th width="200">게시물 제목</th>
+                  <th width="700">후기</th>
+                </tr>
+                <% for(let i=0; i<review.length; i++) { %>
+                  <tr>
+                    <th><%=titles[i]%></th>
+                    <th><%=review[i].comment%></th>
+                  </tr>
+                <% } %>
+              </table>
+            <% } %>
         </div>
         <div id="give-food-content">
             <h2>받은 요리 후기</h2>
