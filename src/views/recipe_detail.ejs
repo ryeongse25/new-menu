@@ -5,124 +5,49 @@
         <link rel = "stylesheet" href = "/css/recipe_detail.css">
         <link rel="stylesheet" href="/css/nav.css">
         <link rel="stylesheet" href="/css/bottom_bar.css">
-        <script src="review_function.js"></script>
 
         <%-include('script.ejs') %>
 
+        <%-include('review_function.ejs') %>
+
         <script>
-            function postComment() {
-                let form = document.getElementById("review_form");
-                let comment = form.review.value;
-
-                axios({
-                    method: "post",
-                    url: "http://localhost:8000/recipe/review",
-                    data: {
-                        food_id: "<%=data.id%>",
-                        comment: comment
-                    },
-			    }).then((response) => {
-                    return response.data;
-                }).then((data) => {
-                    form.reset();
-                    console.log(data);
-                    let html = "<tr id='review_" + data.id + "'><th><%=user%></th><th>" + comment + "</th><th id='deleteComment' onclick='deleteComment(" + data.id + ")'>x</th></tr>";
-                    $("table").append(html);
-                })
-            }
-
-            function deleteComment(id) {
-                axios({
-                    method: "delete",
-                    url: "http://localhost:8000/recipe/deletereview",
-                    data: { id : id }
-                }).then((response) => {
-                    return response.data;
-                }).then((data) => {
-                    $("#review_" + id).remove();
-                })
-            }
-
-            function getReview(id) {
-                let form = document.getElementById("review_form");
-
-                axios({
-                    method: "get",
-                    url: "http://localhost:8000/recipe/getreview",
-                    params: { id : id }
-                }).then((response) => {
-                    return response.data;
-                }).then((data) => {
-                    console.log(data);
-                    form.review.value = data.review;
-                    $("#review_form div").html("<button type='button' onclick='editComment(" + id + ");'>수정</button><button type='button' onclick='cancle();'>취소</button>");
-                })
-            }
-
-            function editComment(id) {
-                let form = document.getElementById("review_form");
-
-                axios({
-                    method: "patch",
-                    url: "http://localhost:8000/recipe/updatereview",
-                    data: { 
-                        id : id,
-                        food_id: "<%=data.id%>",
-                        comment: form.review.value
-                    }
-                }).then((response) => {
-                    return response.data;
-                }).then((data) => {
-                    console.log(data);
-
-                    let tr = document.getElementById("review_" + id);
-                    let children = tr.children;
-                    $(children[1]).text(form.review.value);
-
-                    form.reset();
-
-                    $("#review_form div").html('<button type="button" onclick="postComment();">등록</button>');
-                })
-            }
-
-            function cancle() {
-                let form = document.getElementById("review_form");
-
-                form.reset();
-
-                $("#review_form div").html('<button type="button" onclick="postComment();">등록</button>');
-            }
+            let like_status = false;
 
             function like() {
-                console.log("like");
+                if (like_status == false) {
+                    $(".like-content .btn-secondary").css("background-color", "rgb(190, 51, 13)");
+                    $(".like-content .btn-secondary").css("color", "white");
+                    like_status = true;
 
-                axios({
+                    axios({
                     method: "post",
                     url: "http://localhost:8000/recipe/like",
                     data: {
                         food_id: "<%=data.id%>"
                     },
-			    }).then((response) => {console.log(response);})
-            }
+			        }).then((response) => {console.log(response);})
 
-            function dislike() {
-                console.log("dislike");
+                } else {
+                    $(".like-content .btn-secondary").css("background-color", "white");
+                    $(".like-content .btn-secondary").css("color", "rgb(190, 51, 13)");
+                    like_status = false;
 
-                axios({
+                    axios({
                     method: "post",
                     url: "http://localhost:8000/recipe/dislike",
                     data: {
                         food_id: "<%=data.id%>"
                     },
-			    }).then((response) => {console.log(response);})
+			        }).then((response) => {console.log(response);})
+                }
             }
 
-            $(function(){
-	            $(document).one('click', '.like-review', function(e) {
-                    $(this).html('<i class="fa fa-heart" aria-hidden="true"></i> You liked this');
-                    $(this).children('.fa-heart').addClass('animate-like');
-	            });
-            });
+            // $(function(){
+	        //     $(document).one('click', '.like-review', function(e) {
+            //         $(this).html('<i class="fa fa-heart" aria-hidden="true"></i> You liked this');
+            //         $(this).children('.fa-heart').addClass('animate-like');
+	        //     });
+            // });
 
         </script>
     </head>
@@ -136,11 +61,19 @@
 
             <div style="display:flex;">
                 <p style="text-align: right; margin-top: 40px; margin-left: 585px;">작성자 : <%=data.user_id%></p>
-                <div class="like-content">
-                    <button class="btn-secondary like-review">
-                    <i class="fa fa-heart" aria-hidden="true"></i> Like
-                    </button>
-                </div>
+                <% if (isLogin) { %>
+                    <div class="like-content">
+                        <button id="like" class="btn-secondary like-review" onclick="like();">
+                        <i class="fa fa-heart" aria-hidden="true"></i> Like
+                        </button>
+                    </div>
+                <% } else { %>
+                    <div class="like-content">
+                        <button id="like" class="btn-secondary like-review" onclick="alertLike();">
+                        <i class="fa fa-heart" aria-hidden="true"></i> Like
+                        </button>
+                    </div>
+                <% } %>
             </div>
             
             <hr class="line1">
@@ -178,8 +111,8 @@
 
             <% if (isLogin) { %>
             <form id="review_form">
-                <textarea name="review" cols="112" rows="3" class="txtb"></textarea>
-                <div>
+                <textarea name="review" cols="107" rows="3" class="txtb" required></textarea>
+                <div style="margin-left: 90%;">
                     <button type="button" class="register_btn" onclick="postComment();">등록</button>
                 </div>
             </form>
@@ -227,5 +160,16 @@
 
         <%-include('footer.ejs') %>
 
+        <script>
+            window.onload = function() {
+                console.log("<%=isLike%>");
+                if ("<%=isLike%>") {
+                    console.log(true);
+                    $(".like-content .btn-secondary").css("background-color", "rgb(190, 51, 13)");
+                    $(".like-content .btn-secondary").css("color", "white");
+                    like_status = true;
+                }
+            }
+        </script>
     </body>
 </html>

@@ -1,0 +1,99 @@
+<script>
+    function postComment() {
+        let form = document.getElementById("review_form");
+        let comment = form.review.value;
+
+        let result = form.checkValidity();
+
+        if ( !result ) {
+            form.reportValidity();
+            return false;
+        }
+
+        axios({
+            method: "post",
+            url: "http://localhost:8000/recipe/review",
+            data: {
+                food_id: "<%=data.id%>",
+                comment: comment
+            },
+        }).then((response) => {
+            return response.data;
+        }).then((data) => {
+            form.reset();
+            console.log(data);
+            let html = "<tr id='review_" + data.id + "'><th><%=user%></th><th>" + comment + "</th><th><i onclick='getReview(" + data.id + ")' class='bi bi-pencil-fill'></i></th><th id='deleteComment' onclick='deleteComment(" + data.id + ")'>x</th></tr>";
+            $("table").append(html);
+        })
+    }
+
+    function deleteComment(id) {
+        axios({
+            method: "delete",
+            url: "http://localhost:8000/recipe/deletereview",
+            data: { id : id }
+        }).then((response) => {
+            return response.data;
+        }).then((data) => {
+            $("#review_" + id).remove();
+        })
+    }
+
+    function getReview(id) {
+        let form = document.getElementById("review_form");
+
+        axios({
+            method: "get",
+            url: "http://localhost:8000/recipe/getreview",
+            params: { id : id }
+        }).then((response) => {
+            return response.data;
+        }).then((data) => {
+            console.log(data);
+            form.review.value = data.review;
+            $("#review_form div").css("margin-left", "82%");
+            $("#review_form div").html("<button class='register_btn' type='button' onclick='editComment(" + id + ");' style='margin-right: 10px;'>수정</button><button type='button' class='register_btn' onclick='cancle();' style='background-color: rgb(186, 77, 47);'>취소</button>");
+        })
+    }
+
+    function editComment(id) {
+        let form = document.getElementById("review_form");
+
+        let result = form.checkValidity();
+
+        if ( !result ) {
+            form.reportValidity();
+            return false;
+        }
+
+        axios({
+            method: "patch",
+            url: "http://localhost:8000/recipe/updatereview",
+            data: { 
+                id : id,
+                food_id: "<%=data.id%>",
+                comment: form.review.value
+            }
+        }).then((response) => {
+            return response.data;
+        }).then((data) => {
+            console.log(data);
+
+            let tr = document.getElementById("review_" + id);
+            let children = tr.children;
+            $(children[1]).text(form.review.value);
+
+            form.reset();
+
+            $("#review_form div").html('<button type="button" class="register_btn" onclick="postComment();">등록</button>');
+        })
+    }
+
+    function cancle() {
+        let form = document.getElementById("review_form");
+
+        form.reset();
+
+        $("#review_form div").html('<button type="button" class="register_btn" onclick="postComment();">등록</button>');
+    }
+</script>
