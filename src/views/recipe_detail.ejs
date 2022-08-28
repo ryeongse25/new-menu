@@ -174,13 +174,13 @@
     
             <hr class="line3" style="margin-top: 70px;">
 
-            <p class="writer" style="color: #2E5543;">요리 후기</p>
+            <p class="writer">요리 후기</p>
 
             <% if (isLogin) { %>
             <form id="review_form">
-                <textarea name="review" cols="112" rows="3" style="padding: 10px 0 0 10px;"></textarea>
+                <textarea name="review" cols="112" rows="3" class="txtb"></textarea>
                 <div>
-                    <button type="button" onclick="postComment();">등록</button>
+                    <button type="button" class="register_btn" onclick="postComment();">등록</button>
                 </div>
             </form>
             <% } else { %>
