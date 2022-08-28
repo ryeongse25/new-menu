@@ -156,7 +156,6 @@ exports.mealkit_page = (req, res) => {
 
 exports.review = async (req, res) => {
     const user = req.session.user;
-    // console.log(req.body);
 
     let obj = {
         user_id: user,
@@ -165,5 +164,11 @@ exports.review = async (req, res) => {
     }
 
     let result = await models.Review.create(obj);
+    res.send({id: result.id});
+}
+
+exports.deleteReview = async (req, res) => {
+    console.log(req.body);
+    let result = await models.Review.destroy({where: {id: req.body.id}});
     res.send(true);
 }

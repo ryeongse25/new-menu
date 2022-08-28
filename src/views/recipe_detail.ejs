@@ -24,10 +24,23 @@
                     return response.data;
                 }).then((data) => {
                     form.reset();
-                    let html = `<tr><th><%=user%></th><th>${comment}</th></tr>`;
+                    console.log(data);
+                    let html = "<tr id='review_" + data.id + "'><th><%=user%></th><th>" + comment + "</th><th id='deleteComment' onclick='deleteComment(" + data.id + ")'>x</th></tr>";
                     $("table").append(html);
                 })
+            }
 
+            function deleteComment(id) {
+                console.log("delete");
+                axios({
+                    method: "delete",
+                    url: "http://localhost:8000/recipe/deletereview",
+                    data: { id : id }
+                }).then((response) => {
+                    return response.data;
+                }).then((data) => {
+                    $("#review_" + id).remove();
+                })
             }
 
             function like() {
@@ -127,11 +140,19 @@
                 <tr id="th">
                     <th width="200">작성자</th>
                     <th width="750">후기</th>
+                    <th></th>
                 </tr>
                 <% for(let i=0; i<review.length; i++) { %>
-                    <tr>
+                    <tr id="review_<%=review[i].id%>">
                         <th><%=review[i].user_id%></th>
                         <th><%=review[i].comment%></th>
+                        <% if (review[i].user_id == user) { %>
+                            <th><i class="bi bi-pencil-fill"></i></th>
+                            <th id="deleteComment" onclick="deleteComment('<%=review[i].id%>');">x</th>
+                        <% } else { %>
+                            <th></th>
+                            <th></th>
+                        <% } %>
                     </tr>
                 <% } %>
             </table>
