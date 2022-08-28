@@ -78,19 +78,17 @@ exports.post_write = async (req, res) => {
 
 // 레시피 디테일 페이지 get
 exports.detail_page = async (req, res) => {
-
-    // console.log(req.query);
-
     const user = req.session.user;
 
     let result = await models.UserRecipe.findOne({where: {id: req.query.food_id}});
     let result_step = await models.UserRecipeStep.findAll({where: {food_id: req.query.food_id}});
     let result_pic = await models.UserRecipePicture.findAll({where: {food_id: req.query.food_id}});
+    let review = await models.Review.findAll({where: {food_id: req.query.food_id}});
 
     if ( user != undefined ) {
-        res.render("recipe_detail", {isLogin: true, user: user, data: result, step: result_step, picture: result_pic});
+        res.render("recipe_detail", {isLogin: true, user: user, data: result, step: result_step, picture: result_pic, review: review});
     } else {
-        res.render("recipe_detail", {isLogin: false, user: undefined, data: result, step: result_step, picture: result_pic});
+        res.render("recipe_detail", {isLogin: false, user: undefined, data: result, step: result_step, picture: result_pic, review: review});
     }
 }
 
@@ -156,3 +154,16 @@ exports.mealkit_page = (req, res) => {
     }
 }
 
+exports.review = async (req, res) => {
+    const user = req.session.user;
+    // console.log(req.body);
+
+    let obj = {
+        user_id: user,
+        food_id: req.body.food_id,
+        comment: req.body.comment
+    }
+
+    let result = await models.Review.create(obj);
+    res.send(true);
+}

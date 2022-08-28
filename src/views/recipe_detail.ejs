@@ -9,6 +9,27 @@
         <%-include('script.ejs') %>
 
         <script>
+            function postComment() {
+                let form = document.getElementById("review_form");
+                let comment = form.review.value;
+
+                axios({
+                    method: "post",
+                    url: "http://localhost:8000/recipe/review",
+                    data: {
+                        food_id: "<%=data.id%>",
+                        comment: comment
+                    },
+			    }).then((response) => {
+                    return response.data;
+                }).then((data) => {
+                    form.reset();
+                    let html = `<tr><th><%=user%></th><th>${comment}</th></tr>`;
+                    $("table").append(html);
+                })
+
+            }
+
             function like() {
                 console.log("like");
 
@@ -47,6 +68,7 @@
         <script src="/js/nav.js"></script>
         
         <div class="recipe_detail">
+
             <h2 style="text-align: center; margin: 0; color: #2E5543">- <%=data.title%> -</h2>
 
             <div style="display:flex;">
@@ -57,7 +79,6 @@
                     </button>
                 </div>
             </div>
-
             
             <hr class="line1">
             
@@ -91,7 +112,30 @@
             <hr class="line3" style="margin-top: 70px;">
 
             <p class="writer" style="color: #2E5543;">요리 후기</p>
-        
+
+            <% if (isLogin) { %>
+            <form id="review_form">
+                <textarea name="review" cols="112" rows="3" style="padding: 10px 0 0 10px;"></textarea> <br>
+                <button type="button" onclick="postComment();">등록</button>
+            </form>
+            <% } else { %>
+                <i class='bi bi-lock' style="position: relative; top: 29px; left: 10px;"></i>
+                <textarea id="unactivated" cols="109" rows="3" readonly style="padding: 10px 0 0 30px;">댓글 기능은 로그인 후 이용 가능합니다.</textarea>
+            <% } %>
+
+            <table id="reviewTable" cellspacing="0">
+                <tr id="th">
+                    <th width="200">작성자</th>
+                    <th width="750">후기</th>
+                </tr>
+                <% for(let i=0; i<review.length; i++) { %>
+                    <tr>
+                        <th><%=review[i].user_id%></th>
+                        <th><%=review[i].comment%></th>
+                    </tr>
+                <% } %>
+            </table>
+
             <hr class="line4">
 
             <div class="btn">
@@ -100,11 +144,15 @@
                         <input type="hidden" name="food_id" value="<%=data.id%>">
                         <button class="modify_btn">수정하기</button>
                     </form>
-                <% } %>
-                <a href="/recipe"><button class="mypage_btn">목록</button></a> <br>
+                    <a href="/recipe"><button class="mypage_btn">목록</button></a> <br>
+                <% } else { %>
+                    <a href="/recipe"><button class="mypage_btn" style="margin: auto;">목록</button></a> <br>
+                <% }%>
             </div>
+
         </div>
 
         <%-include('footer.ejs') %>
+
     </body>
 </html>

@@ -38,4 +38,7 @@ router.get("/mealkit", recipe.mealkit_page);
 router.post("/like", recipe.like);
 router.post("/dislike", recipe.dislike);
 
+// review
+router.post("/review", recipe.review);
+
 module.exports = router;
