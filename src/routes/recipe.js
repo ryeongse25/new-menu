@@ -40,5 +40,8 @@ router.post("/dislike", recipe.dislike);
 
 // review
 router.post("/review", recipe.review);
+router.delete("/deletereview", recipe.deleteReview);
+router.get("/getreview", recipe.getReview);
+router.patch("/updatereview", recipe.updateReview);
 
 module.exports = router;

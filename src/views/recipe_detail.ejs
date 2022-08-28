@@ -5,6 +5,7 @@
         <link rel = "stylesheet" href = "/css/recipe_detail.css">
         <link rel="stylesheet" href="/css/nav.css">
         <link rel="stylesheet" href="/css/bottom_bar.css">
+        <script src="review_function.js"></script>
 
         <%-include('script.ejs') %>
 
@@ -24,10 +25,72 @@
                     return response.data;
                 }).then((data) => {
                     form.reset();
-                    let html = `<tr><th><%=user%></th><th>${comment}</th></tr>`;
+                    console.log(data);
+                    let html = "<tr id='review_" + data.id + "'><th><%=user%></th><th>" + comment + "</th><th id='deleteComment' onclick='deleteComment(" + data.id + ")'>x</th></tr>";
                     $("table").append(html);
                 })
+            }
 
+            function deleteComment(id) {
+                axios({
+                    method: "delete",
+                    url: "http://localhost:8000/recipe/deletereview",
+                    data: { id : id }
+                }).then((response) => {
+                    return response.data;
+                }).then((data) => {
+                    $("#review_" + id).remove();
+                })
+            }
+
+            function getReview(id) {
+                let form = document.getElementById("review_form");
+
+                axios({
+                    method: "get",
+                    url: "http://localhost:8000/recipe/getreview",
+                    params: { id : id }
+                }).then((response) => {
+                    return response.data;
+                }).then((data) => {
+                    console.log(data);
+                    form.review.value = data.review;
+                    $("#review_form div").html("<button type='button' onclick='editComment(" + id + ");'>수정</button><button type='button' onclick='cancle();'>취소</button>");
+                })
+            }
+
+            function editComment(id) {
+                let form = document.getElementById("review_form");
+
+                axios({
+                    method: "patch",
+                    url: "http://localhost:8000/recipe/updatereview",
+                    data: { 
+                        id : id,
+                        food_id: "<%=data.id%>",
+                        comment: form.review.value
+                    }
+                }).then((response) => {
+                    return response.data;
+                }).then((data) => {
+                    console.log(data);
+
+                    let tr = document.getElementById("review_" + id);
+                    let children = tr.children;
+                    $(children[1]).text(form.review.value);
+
+                    form.reset();
+
+                    $("#review_form div").html('<button type="button" onclick="postComment();">등록</button>');
+                })
+            }
+
+            function cancle() {
+                let form = document.getElementById("review_form");
+
+                form.reset();
+
+                $("#review_form div").html('<button type="button" onclick="postComment();">등록</button>');
             }
 
             function like() {
@@ -115,8 +178,10 @@
 
             <% if (isLogin) { %>
             <form id="review_form">
-                <textarea name="review" cols="112" rows="3" style="padding: 10px 0 0 10px;"></textarea> <br>
-                <button type="button" onclick="postComment();">등록</button>
+                <textarea name="review" cols="112" rows="3" style="padding: 10px 0 0 10px;"></textarea>
+                <div>
+                    <button type="button" onclick="postComment();">등록</button>
+                </div>
             </form>
             <% } else { %>
                 <i class='bi bi-lock' style="position: relative; top: 29px; left: 10px;"></i>
@@ -127,11 +192,19 @@
                 <tr id="th">
                     <th width="200">작성자</th>
                     <th width="750">후기</th>
+                    <th></th>
                 </tr>
                 <% for(let i=0; i<review.length; i++) { %>
-                    <tr>
+                    <tr id="review_<%=review[i].id%>">
                         <th><%=review[i].user_id%></th>
                         <th><%=review[i].comment%></th>
+                        <% if (review[i].user_id == user) { %>
+                            <th><i onclick="getReview('<%=review[i].id%>');" class="bi bi-pencil-fill"></i></th>
+                            <th id="deleteComment" onclick="deleteComment('<%=review[i].id%>');">x</th>
+                        <% } else { %>
+                            <th></th>
+                            <th></th>
+                        <% } %>
                     </tr>
                 <% } %>
             </table>

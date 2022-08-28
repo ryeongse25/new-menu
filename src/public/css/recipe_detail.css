@@ -239,3 +239,23 @@ table {
     color:#2E5543;
     margin-bottom: 10px;
 }
+
+#deleteComment {
+    position: relative;
+    left: -10px;
+}
+
+#deleteComment:hover {
+    cursor: pointer;
+}
+
+#reviewTable i {
+    position: relative;
+    top: 3px;
+    margin-right: 15px;
+    left: -10px;
+}
+
+#reviewTable i:hover {
+    cursor: pointer;
+}
