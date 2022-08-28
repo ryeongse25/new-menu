@@ -118,7 +118,18 @@ exports.profile = async (req, res) => {
         pictures.push(recipe_pic.filename);
     }
 
-    res.render("profile", {isLogin: true, user: user, name: result.name, tel: result.tel, email: result.email, recipe: recipe_result, picture: pictures});
+    let titles = []
+
+    let review = await models.Review.findAll({where: {user_id: user}});
+
+    for(let i=0; i<review.length; i++) {
+      let review_title = await models.UserRecipe.findOne({where: {id: review[i].food_id}});
+      titles.push(review_title.title);
+    }
+
+    console.log(titles);
+
+    res.render("profile", {isLogin: true, user: user, name: result.name, tel: result.tel, email: result.email, recipe: recipe_result, picture: pictures, review: review, titles: titles});
   } else {
     res.redirect("/user");
   }
