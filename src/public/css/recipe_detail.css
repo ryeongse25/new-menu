@@ -229,3 +229,13 @@
     color : white;
     border : none;
 }
+
+table {
+    margin-top: 20px;
+}
+
+#th {
+    background-color: #E1DDDD;
+    color:#2E5543;
+    margin-bottom: 10px;
+}

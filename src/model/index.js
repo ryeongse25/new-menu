@@ -17,6 +17,7 @@ db.UserRecipe = require("./UserRecipe")(sequelize, Sequelize);
 db.UserRecipeStep = require("./UserRecipeStep")(sequelize, Sequelize);
 db.UserRecipePicture = require("./UserRecipePicture")(sequelize, Sequelize);
 db.UserRecipeLike = require("./UserRecipeLike")(sequelize, Sequelize);
+db.Review = require("./Review")(sequelize, Sequelize);
 
 // user(id) -> user_recipe(user_id)
 db.User.hasMany(db.UserRecipe, {
@@ -73,6 +74,30 @@ db.UserRecipe.hasMany(db.UserRecipeLike, {
     onDelete: "cascade",
 });
 db.UserRecipeLike.belongsTo(db.UserRecipe, {
+    foreignKey: "food_id",
+    sourceKey: "id",
+    onDelete: "cascade",
+});
+
+// user(id) -> review(user_id)
+db.User.hasMany(db.Review, {
+    foreignKey: "user_id",
+    sourceKey: "id",
+    onDelete: "cascade",
+});
+db.UserRecipeLike.belongsTo(db.User, {
+    foreignKey: "user_id",
+    sourceKey: "id",
+    onDelete: "cascade",
+});
+
+// user_recipe(id) -> review(food_id)
+db.UserRecipe.hasMany(db.Review, {
+    foreignKey: "food_id",
+    sourceKey: "id",
+    onDelete: "cascade",
+});
+db.Review.belongsTo(db.UserRecipe, {
     foreignKey: "food_id",
     sourceKey: "id",
     onDelete: "cascade",
