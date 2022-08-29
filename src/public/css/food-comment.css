@@ -1,0 +1,31 @@
+.food-comments {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.food-comment {
+  border-bottom: 1px solid #ccc;
+  padding: 2rem;
+  display: flex;
+  align-items: flex-start;
+}
+.food-comment > img {
+  width: 80px;
+  height: 80px;
+  margin-right: 2rem;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  box-shadow: 3px 3px 10px #ccc;
+}
+
+.food-comment .food-people {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #777;
+  font-size: 20px;
+}
+.food-comment p {
+  margin: 1rem 0 1rem 0;
+}

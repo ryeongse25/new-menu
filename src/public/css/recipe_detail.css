@@ -164,7 +164,7 @@
     border-bottom: 1px solid rgb(224, 217, 214);
 }
 
-.review_form{
+#review_form{
     margin: 40px auto 0;
     position: relative;
 }
@@ -182,26 +182,57 @@
     border-color: rgb(224, 217, 214);
     border-radius : 5px;
     margin-right: 0;
+    width: 800px;
+    height: 74px;
 }
 
 #review_form {
     margin-top: 30px;
 }
 
-#review_form button{
-    padding : 23px 14px;
+.review_register {
+    padding : 8px 14px;
     border-radius : 5px;
     cursor : pointer;
     border: 1px solid rgba(186, 77, 47, 0.599);
     background-color: var(--red);
-    font-size : 18px;
+    font-size : 15px;
     font-weight : 550;
     color : white;
     font-family: 'Noto Sans KR', sans-serif;
-    /* position: relative;
-    bottom: 70px; */
-    float: right;
     letter-spacing: 2px;
+    margin-top: 10px;
+    float: right;
+}
+
+.review_modify_btn {
+    padding : 8px 14px;
+    border-radius : 5px;
+    cursor : pointer;
+    border: 1px solid rgba(186, 77, 47, 0.599);
+    background-color: var(--red);
+    font-size : 15px;
+    font-weight : 550;
+    color : white;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 2px;
+    margin: 10px 5px 0 0 ;
+    float: right;
+}
+
+.review_cancle_btn {
+    padding : 8px 14px;
+    border-radius : 5px;
+    cursor : pointer;
+    border: 1px solid rgba(186, 77, 47, 0.599);
+    background-color: var(--red);
+    font-size : 15px;
+    font-weight : 550;
+    color : white;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 2px;
+    margin: 10px 5px 0 0;
+    float: right;
 }
 
 .reviewTable {
