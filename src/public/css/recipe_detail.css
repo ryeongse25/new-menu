@@ -6,6 +6,7 @@
     --light: #E1DDDD;
     --dark: #312D2D;
     --green: #2E5543;
+    --red: rgb(186, 77, 47);
 }
 * {
     box-sizing : border-box;
@@ -164,9 +165,7 @@
 }
 
 #review_form{
-    width : 800px;
-    display: block;
-    margin: 0 auto;
+    margin: 40px auto 0;
     position: relative;
 }
 
@@ -182,22 +181,100 @@
     padding: 10px 0 0 10px;
     border-color: rgb(224, 217, 214);
     border-radius : 5px;
+    margin-right: 0;
+    width: 800px;
+    height: 74px;
 }
 
-.register_btn{
-    padding : 10px;
-    margin-top: 20px;
-    margin-left: 746px;
+#review_form {
+    margin-top: 30px;
+}
+
+.review_register {
+    padding : 8px 14px;
     border-radius : 5px;
     cursor : pointer;
-    background-color : rgb(186, 77, 47);
-    font-size : 18px;
+    border: 1px solid rgba(186, 77, 47, 0.599);
+    background-color: var(--red);
+    font-size : 15px;
     font-weight : 550;
     color : white;
-    border : 1px solid black;
     font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    float: right;
 }
 
+.review_modify_btn {
+    padding : 8px 14px;
+    border-radius : 5px;
+    cursor : pointer;
+    border: 1px solid rgba(186, 77, 47, 0.599);
+    background-color: var(--red);
+    font-size : 15px;
+    font-weight : 550;
+    color : white;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 2px;
+    margin: 10px 5px 0 0 ;
+    float: right;
+}
+
+.review_cancle_btn {
+    padding : 8px 14px;
+    border-radius : 5px;
+    cursor : pointer;
+    border: 1px solid rgba(186, 77, 47, 0.599);
+    background-color: var(--red);
+    font-size : 15px;
+    font-weight : 550;
+    color : white;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 2px;
+    margin: 10px 5px 0 0;
+    float: right;
+}
+
+.reviewTable {
+    margin-top: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+
+    width: 100%;
+    border-top: 1px solid rgb(224, 217, 214);
+    border-collapse: collapse;
+}
+
+
+.reviewTable td {
+    border-bottom: 1px solid rgb(224, 217, 214);
+}
+.review_txt {
+    text-align: left;
+    padding: 20px 0 20px 20px;
+}
+
+.review_id {
+    margin-bottom: 15px;
+    color: var(--red);
+}
+
+#getreview, #deleteComment {
+    cursor: pointer;
+    font-size: 14px;
+    color: gray;
+    text-align: center;
+}
+
+#reviewTable tr:nth-child(even) {
+    background-color: rgb(245, 245, 245);
+}
+
+#unactivated {
+    border: 1px solid black;
+    padding: 10px 0 10px 10px;
+}
+
+/* 수정하기, 목록 */
 .btn{
     display: flex;
     justify-content: center;
@@ -232,49 +309,3 @@
     border : none;
 }
 
-table {
-    margin-top: 20px;
-}
-
-#th{
-    background-color: rgb(46, 85, 67);
-    color:white;
-    margin-bottom: 10px;
-}
-
-#deleteComment {
-    position: relative;
-    left: -10px;
-}
-
-#deleteComment:hover {
-    cursor: pointer;
-}
-
-#reviewTable i {
-    position: relative;
-    top: 3px;
-    margin-right: 15px;
-    left: -10px;
-}
-
-.txt5{
-    font-size: 15px;
-    font-weight: lighter;
-    /* border-bottom: 0.1rem solid rgb(224, 217, 214);
-    border-left: 0.1rem solid rgb(224, 217, 214);
-    padding-bottom: 2px; */
-    
-}
-#reviewTable tr:nth-child(even) {
-    background-color: rgb(245, 245, 245);
-}
-
-#reviewTable i:hover {
-    cursor: pointer;
-}
-
-#unactivated {
-    border: 1px solid black;
-    padding: 10px 0 10px 10px;
-}
