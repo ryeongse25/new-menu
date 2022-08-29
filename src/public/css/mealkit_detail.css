@@ -208,9 +208,9 @@
     display: flex;
     flex: 1 1 0%;
     border-width: 1px 0px 0px 1px;
-    border-color: EEEEEE;
+    border-color: #EEEEEE;
     border-style: solid;
-    background-color: transparent;
+    background-color: #FAFAFA;
 }
 
 .btn1 a {
