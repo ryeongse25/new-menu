@@ -125,37 +125,39 @@
 
             <p class="review">요리 후기</p>
 
-            <% if (isLogin) { %>
-            <form id="review_form">
-                <textarea name="review" cols="96" rows="4" class="txtb" required></textarea>
-                <div>
-                    <button type="button" class="register_btn" onclick="postComment();">등록</button>
-                </div>
-            </form>
-            <% } else { %>
-                <div id="unactivated"><i class='bi bi-lock'></i> 댓글 기능은 로그인 후 이용 가능합니다.</div>
-            <% } %>
-
-            <table id="reviewTable" cellspacing="0" width="815">
-                <tr id="th">
+            <table class="reviewTable" cellspacing="0" width="805">
+                <!-- <tr id="th">
                     <th width="200">작성자</th>
                     <th width="750">후기</th>
                     <th></th>
-                </tr>
+                </tr> -->
                 <% for(let i=0; i<review.length; i++) { %>
                     <tr id="review_<%=review[i].id%>">
-                        <th class="txt5"><%=review[i].user_id%></th>
-                        <th class="txt5"><%=review[i].comment%></th>
+                        <td class="review_txt">
+                            <p class="review_id"><%=review[i].user_id%></p>
+                            <p class="review_cm"><%=review[i].comment%></p>
+                        </td>
+                        
+                        <!-- <th class="review_cm"><%=review[i].comment%></th> -->
                         <% if (review[i].user_id == user) { %>
-                            <th><i onclick="getReview('<%=review[i].id%>');" class="bi bi-pencil-fill"></i></th>
-                            <th id="deleteComment" onclick="deleteComment('<%=review[i].id%>');">x</th>
+                            <td><p onclick="getReview('<%=review[i].id%>');" id="getreview">수정</p></td>
+                            <td><p onclick="deleteComment('<%=review[i].id%>');" id="deleteComment">삭제</p></td>
                         <% } else { %>
-                            <th></th>
-                            <th></th>
+                            <td></td>
+                            <td></td>
                         <% } %>
                     </tr>
                 <% } %>
             </table>
+
+            <% if (isLogin) { %>
+            <form id="review_form">
+                <textarea name="review" cols="105" rows="4" class="txtb" required></textarea>
+                <button type="button" onclick="postComment();">등록</button>
+            </form>
+            <% } else { %>
+                <div id="unactivated"><i class='bi bi-lock'></i> 댓글 기능은 로그인 후 이용 가능합니다.</div>
+            <% } %>
 
             <hr class="line4">
 
