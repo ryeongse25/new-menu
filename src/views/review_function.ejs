@@ -51,8 +51,8 @@
         }).then((data) => {
             console.log(data);
             form.review.value = data.review;
-            $("#review_form div").css("margin-left", "82%");
-            $("#review_form div").html("<button class='register_btn' type='button' onclick='editComment(" + id + ");' style='margin-right: 10px;'>수정</button><button type='button' class='register_btn' onclick='cancle();' style='background-color: rgb(186, 77, 47);'>취소</button>");
+            // $("#review_form div").css("margin-left", "82%");
+            $("#review_form div").html("<button class='review_modify_btn' type='button' onclick='editComment(" + id + ");'>수정</button><button type='button' class='review_cancle_btn' onclick='cancle();' style='background-color: rgb(186, 77, 47);'>취소</button>");
         })
     }
 
@@ -85,7 +85,7 @@
 
             form.reset();
 
-            $("#review_form div").html('<button type="button" class="register_btn" onclick="postComment();">등록</button>');
+            $("#review_form div").html('<button type="button" onclick="postComment();" class="review_register">등록</button>');
         })
     }
 
@@ -93,7 +93,7 @@
         let form = document.getElementById("review_form");
 
         form.reset();
-        $("#review_form div").css("margin-left", "90%");
+        // $("#review_form div").css("margin-left", "90%");
         $("#review_form div").html('<button type="button" class="register_btn" onclick="postComment();">등록</button>');
     }
 </script>
