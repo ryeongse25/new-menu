@@ -31,7 +31,7 @@
                     </form>
                 </div>
                 <div class="option">
-                    <button type="button">간편식</button>
+                    <button type="button">밥</button>
                     <button type="button">국/찌개</button>
                     <button type="button">면</button>
                     <button type="button">고기</button>
@@ -52,7 +52,7 @@
                         <div class="main_card">
                             <a href="/recipe/detail?user_id=<%=result[i].user_id%>&food_id=<%=result[i].id%>">
                                 <img src="/img/user_recipe/<%=picture[i]%>" class="main_card_image">
-                                <h4 style="text-align: center;"><%=result[i].title%></h4>
+                                <h4><%=result[i].title%></h4>
                             </a>
                         </div>
                     <% } %>

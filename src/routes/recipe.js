@@ -33,6 +33,7 @@ router.get("/update", recipe.update);
 
 // mealkit page
 router.get("/mealkit", recipe.mealkit_page);
+router.get("/mealkit/id1", recipe.mealkit_detail);
 
 // like
 router.post("/like", recipe.like);

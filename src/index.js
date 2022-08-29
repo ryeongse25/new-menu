@@ -21,7 +21,9 @@ app.use(
 
 const userRouter = require("./routes/user");
 const recipeRouter = require("./routes/recipe");
-const { Script } = require("vm");
+const rankingRouter = require("./routes/ranking");
+
+// const { Script } = require("vm");
 
 // 메인 페이지
 app.get("/", function (req, res) {
@@ -44,6 +46,7 @@ app.get("/logout", (req, res) => {
 
 app.use("/user", userRouter);
 app.use("/recipe", recipeRouter);
+app.use("/ranking", rankingRouter);
 
 app.listen(port, () => {
   console.log("Server Port : ", port);

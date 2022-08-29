@@ -108,9 +108,13 @@ exports.profile = async (req, res) => {
   const user = req.session.user;
 
   if (user != undefined) {
+    // 유저 정보
     let result = await models.User.findOne({where: {id: user}});
+
+    // 작성한 레시피 정보
     let recipe_result = await models.UserRecipe.findAll({where: {user_id: user}});
 
+    // 작성한 레시피 사진
     let pictures = [];
 
     for (let i=0; i<recipe_result.length; i++) {
@@ -118,6 +122,7 @@ exports.profile = async (req, res) => {
         pictures.push(recipe_pic.filename);
     }
 
+    // 작성한 레시피 제목
     let titles = []
 
     let review = await models.Review.findAll({where: {user_id: user}});
@@ -127,9 +132,24 @@ exports.profile = async (req, res) => {
       titles.push(review_title.title);
     }
 
-    console.log(titles);
+    // 좋아요 누른 정보
+    let likes = await models.UserRecipeLike.findAll({where: {user_id: user}});
+    console.log(likes);
 
-    res.render("profile", {isLogin: true, user: user, name: result.name, tel: result.tel, email: result.email, recipe: recipe_result, picture: pictures, review: review, titles: titles});
+    // 좋아요 제목
+    let like_title = []
+    // 좋아요 사진
+    let like_picture = []
+
+    for(let i=0; i<likes.length; i++) {
+      let result_title = await models.UserRecipe.findOne({where: {id: likes[i].food_id}});
+      like_title.push(result_title);
+
+      let result_picture = await models.UserRecipePicture.findOne({where: {food_id: likes[i].food_id}});
+      like_picture.push(result_picture.filename);
+    }
+
+    res.render("profile", {isLogin: true, user: user, name: result.name, tel: result.tel, email: result.email, recipe: recipe_result, picture: pictures, review: review, titles: titles, like_title: like_title, like_picture: like_picture});
   } else {
     res.redirect("/user");
   }
