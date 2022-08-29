@@ -8,6 +8,7 @@
     --green: #2E5543;
     --red: rgb(186, 77, 47);
 }
+
 * {
     box-sizing : border-box;
     margin: 0;
