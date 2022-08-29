@@ -80,7 +80,7 @@
             console.log(data);
 
             let tr = document.getElementById("review_" + id);
-            let children = tr.children;
+            let children = tr.children[0].children;
             $(children[1]).text(form.review.value);
 
             form.reset();
