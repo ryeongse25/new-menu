@@ -161,6 +161,16 @@ exports.mealkit_page = (req, res) => {
     }
 }
 
+exports.mealkit_detail = (req, res) => {
+    const user = req.session.user;
+
+    if ( user != undefined ) {
+        res.render("mealkit_detail", {isLogin: true, user: user});
+    } else {
+        res.render("mealkit_detail", {isLogin: false});
+    }
+}
+
 // 후기 기능
 exports.review = async (req, res) => {
     const user = req.session.user;
