@@ -88,6 +88,8 @@ exports.detail_page = async (req, res) => {
     if ( user != undefined ) {
         let like = await models.UserRecipeLike.findAll({where: {user_id: user, food_id: req.query.food_id}});
 
+        console.log("like_length", like.length);
+
         if (like.length == 0){
             res.render("recipe_detail", {isLogin: true, user: user, data: result, step: result_step, picture: result_pic, review: review, isLike: false});
         } else {
@@ -100,14 +102,14 @@ exports.detail_page = async (req, res) => {
 
 // 레시피 정보 수정 get
 exports.update = async (req, res) => {
-    // console.log(req.query);
+    console.log("req.query", req.query);
     const user = req.session.user;
 
     let result = await models.UserRecipe.findOne({where: {id: req.query.food_id}});
-    // console.log("UserRecipe: ", result);
+    console.log("UserRecipe: ", result);
         
     let result_step = await models.UserRecipeStep.findAll({where: {food_id: req.query.food_id}});
-    // console.log("UserRecipeStep: ", result_step.length);
+    console.log("UserRecipeStep: ", result_step.length);
 
     let steps = [];
 
@@ -120,7 +122,7 @@ exports.update = async (req, res) => {
     let pictures = [];
 
     for (let i=0; i<result_pic.length; i++) {
-        steps.push(result_pic[i].filename);
+        pictures.push(result_pic[i].filename);
     }
 
     res.render("recipe_form_modify", {isLogin: true, user: user, result: result, step: steps, picture: pictures});
