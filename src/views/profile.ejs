@@ -48,7 +48,7 @@
             <h4>요리 후기</h4>
             <ul>
               <li id="write-food">내가 쓴 요리 후기</li>
-              <li id="give-food">받은 요리 후기</li>
+              <!-- <li id="give-food">받은 요리 후기</li> -->
             </ul>
           </div>
           <!-- <div id="comment-box">
@@ -62,7 +62,7 @@
             <h4>찜</h4>
             <ul>
               <li id="write-like">찜한 요리</li>
-              <li id="give-like">찜 받은 요리</li>
+              <!-- <li id="give-like">찜 받은 요리</li> -->
             </ul>
           </div>
           <div id="info-box">
@@ -92,7 +92,7 @@
               </table>
             </div>
           </div>
-          <div id="like-info">
+          <div id="like-info" style="margin-top: 20px;">
             <ul>
               <li class="like-info-recipe">
                 <i class="fa-solid fa-pen fa-lg"></i>
@@ -107,7 +107,7 @@
               <li class="like-info-heart">
                 <i class="fa-solid fa-heart fa-lg"></i>
                 <p class="heart">찜</p>
-                <p class="number">0</p>
+                <p class="number"><%=like_title.length%></p>
               </li>
             </ul>
           </div>
@@ -165,41 +165,62 @@
               </table>
             <% } %>
         </div>
-        <div id="give-food-content">
+        <!-- <div id="give-food-content">
             <h2>받은 요리 후기</h2>
             <ul>
                 <li class="message">Message</li>
                 <li class="message-content">받은 요리 후기가 없습니다.</li>
             </ul>
-        </div>
-        <div id="write-comment-content">
+        </div> -->
+        <!-- <div id="write-comment-content">
             <h2>내가 쓴 댓글</h2>
             <ul>
                 <li class="message">Message</li>
                 <li class="message-content">작성한 댓글이 없습니다.</li>
             </ul>
-        </div>
-        <div id="give-comment-content">
+        </div> -->
+        <!-- <div id="give-comment-content">
             <h2>받은 댓글</h2>
             <ul>
                 <li class="message">Message</li>
                 <li class="message-content">받은 댓글이 없습니다.</li>
             </ul>
-        </div>
+        </div> -->
         <div id="write-like-content">
             <h2>찜한 요리</h2>
-            <ul>
-                <li class="message">Message</li>
-                <li class="message-content">찜한 요리가 없습니다.</li>
-            </ul>
+            <% if (like_title.length == 0) { %>
+              <ul>
+                  <li class="message">Message</li>
+                  <li class="message-content">찜한 요리가 없습니다.</li>
+              </ul>
+            <% } else { %>
+              <div class="cards-main">
+                <ul class="cards">
+                    <% for (let i=0; i<like_title.length; i++) { %>
+                        <a href="/recipe/detail?user_id=<%=like_title[i].user_id%>&food_id=<%=like_title[i].id%>">
+                            <li class="cards_item" style="border: none;">
+                                <div class="card">
+                                    <div class="card_image">
+                                        <img src="/img/user_recipe/<%=like_picture[i]%>">
+                                    </div>
+                                    <div class="card_content">
+                                        <h2 class="card_title"><%=like_title[i].title%></h2>
+                                    </div>
+                                </div>
+                            </li>
+                        </a>
+                    <% } %>
+                </ul>
+            </div>
+            <% } %>
         </div>
-        <div id="give-like-content">
+        <!-- <div id="give-like-content">
             <h2>찜 받은 요리</h2>
             <ul>
                 <li class="message">Message</li>
                 <li class="message-content">찜 받은 요리가 없습니다.</li>
             </ul>
-        </div>
+        </div> -->
       </div>
     </div>
     </body>
