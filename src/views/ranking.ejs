@@ -21,7 +21,7 @@
                 </tr>
                 <% for(let i=0; i<like_num.length; i++) { %>
                     <tr>
-                        <th><a href="/"><%=title[i]%></a></th>
+                        <th><a href="recipe/detail?user_id=<%=user_id[i]%>&food_id=<%=like_num[i].food_id%>"><%=title[i]%></a></th>
                         <th><%=like_num[i].count%></th>
                     </tr>
                 <% } %>
