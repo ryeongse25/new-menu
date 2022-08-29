@@ -31,6 +31,7 @@
                     </form>
                 </div>
                 <div class="option">
+                    <button id="all_food_btn" type="button">전체</button>
                     <button type="button">밥</button>
                     <button type="button">국/찌개</button>
                     <button type="button">면</button>
@@ -47,7 +48,7 @@
             <div class="container5_txt">
             <p class="total">총 <span class="count"><%=result.length%></span>개</p>
             </div>
-            <div class="container5_card">
+            <div id="all_food" class="container5_card">
                     <% for (let i=0; i<result.length; i++) { %>
                         <div class="main_card">
                             <a href="/recipe/detail?user_id=<%=result[i].user_id%>&food_id=<%=result[i].id%>">
@@ -277,5 +278,12 @@
         <input class="upbtn" type="button" onclick="clickup()" value="&#xf106">
         <!-- <input class="downbtn" type="button" onclick="clickdown()" value="&#xf107"> -->
         <script src="js/scroll.js"></script>
+
+        <script>
+            window.onload = function() {
+                $("#all_food_btn").css("background-color", "#2E5543");
+                $("#all_food_btn").css("color", "white");
+            }
+        </script>
     </body>
 </html>

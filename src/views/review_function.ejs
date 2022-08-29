@@ -51,7 +51,7 @@
         }).then((data) => {
             console.log(data);
             form.review.value = data.review;
-            $("#review_form div").css("margin-left", "82%");
+            // $("#review_form div").css("margin-left", "82%");
             $("#review_form div").html("<button class='register_btn' type='button' onclick='editComment(" + id + ");' style='margin-right: 10px;'>수정</button><button type='button' class='register_btn' onclick='cancle();' style='background-color: rgb(186, 77, 47);'>취소</button>");
         })
     }
@@ -80,7 +80,7 @@
             console.log(data);
 
             let tr = document.getElementById("review_" + id);
-            let children = tr.children;
+            let children = tr.children[0].children;
             $(children[1]).text(form.review.value);
 
             form.reset();
