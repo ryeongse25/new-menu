@@ -12,6 +12,7 @@
   margin: 0 auto;
   margin-top: 2rem;
   list-style: none;
+  justify-content: space-around;
 }
 
 #comment li {
