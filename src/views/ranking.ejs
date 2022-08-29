@@ -12,20 +12,37 @@
         <script src="/js/nav.js"></script>
 
         <div id="ranking_container">
+            
             <h1>레시피 랭킹</h1>
 
-            <table border="1" cellspacing="0">
-                <tr>
+            <div class="txtb1">
+
+            </div>
+            <div class="txtb2">
+
+            </div>
+            <div class="txtb3">
+
+            </div>
+            <div class="txtb4">
+
+            </div>
+            <div class="txtb5">
+
+            </div>
+
+            <!-- <table frame=void class="txtb" border="1" cellspacing="0">
+                <tr class="txtb1">
                     <th width="300">제목</th>
                     <th width="300">좋아요 수</th>
                 </tr>
                 <% for(let i=0; i<like_num.length; i++) { %>
-                    <tr>
+                    <tr class="txtb2">
                         <th><a href="recipe/detail?user_id=<%=user_id[i]%>&food_id=<%=like_num[i].food_id%>"><%=title[i]%></a></th>
-                        <th><%=like_num[i].count%></th>
+                        <th class="like"><%=like_num[i].count%></th>
                     </tr>
                 <% } %>
-            </table>
+            </table> -->
         </div>
     </body>
 </html>
