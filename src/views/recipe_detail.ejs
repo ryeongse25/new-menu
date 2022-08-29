@@ -11,7 +11,15 @@
         <%-include('review_function.ejs') %>
 
         <script>
-            let like_status = false;
+            console.log("<%=isLike%>");
+            let like_status = "";
+            if ("<%=isLike%>" == "true") {
+                console.log("true");
+                like_status = true;
+            } else {
+                console.log("false");
+                like_status = false;
+            }
 
             function like() {
                 if (like_status == false) {
@@ -62,11 +70,19 @@
             <div style="display:flex;">
                 <p style="text-align: right; margin-top: 40px; margin-left: 585px;">작성자 : <%=data.user_id%></p>
                 <% if (isLogin) { %>
-                    <div class="like-content">
-                        <button id="like" class="btn-secondary like-review" onclick="like();">
-                        <i class="fa fa-heart" aria-hidden="true"></i> Like
-                        </button>
-                    </div>
+                    <% if (isLike) { %>
+                        <div class="like-content">
+                            <button id="like" class="btn-secondary like-review" style="background-color: rgb(190, 51, 13); color: white;" onclick="like();">
+                            <i class="fa fa-heart" aria-hidden="true"></i> Like
+                            </button>
+                        </div>
+                    <% } else { %>
+                        <div class="like-content">
+                            <button id="like" class="btn-secondary like-review" onclick="like();">
+                            <i class="fa fa-heart" aria-hidden="true"></i> Like
+                            </button>
+                        </div>
+                    <% } %>
                 <% } else { %>
                     <div class="like-content">
                         <button id="like" class="btn-secondary like-review" onclick="alertLike();">
@@ -111,14 +127,13 @@
 
             <% if (isLogin) { %>
             <form id="review_form">
-                <textarea name="review" cols="107" rows="3" class="txtb" required></textarea>
+                <textarea name="review" cols="112" rows="3" class="txtb" required></textarea>
                 <div style="margin-left: 90%;">
                     <button type="button" class="register_btn" onclick="postComment();">등록</button>
                 </div>
             </form>
             <% } else { %>
-                <i class='bi bi-lock' style="position: relative; top: 29px; left: 10px;"></i>
-                <textarea id="unactivated" cols="109" rows="3" readonly style="padding: 10px 0 0 30px;">댓글 기능은 로그인 후 이용 가능합니다.</textarea>
+                <div id="unactivated"><i class='bi bi-lock'></i> 댓글 기능은 로그인 후 이용 가능합니다.</div>
             <% } %>
 
             <table id="reviewTable" cellspacing="0">
@@ -159,17 +174,5 @@
         </div>
 
         <%-include('footer.ejs') %>
-
-        <script>
-            window.onload = function() {
-                console.log("<%=isLike%>");
-                if ("<%=isLike%>") {
-                    console.log(true);
-                    $(".like-content .btn-secondary").css("background-color", "rgb(190, 51, 13)");
-                    $(".like-content .btn-secondary").css("color", "white");
-                    like_status = true;
-                }
-            }
-        </script>
     </body>
 </html>

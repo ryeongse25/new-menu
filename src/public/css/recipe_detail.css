@@ -255,3 +255,8 @@ table {
 #reviewTable i:hover {
     cursor: pointer;
 }
+
+#unactivated {
+    border: 1px solid black;
+    padding: 10px 0 10px 10px;
+}
