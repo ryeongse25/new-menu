@@ -22,7 +22,7 @@
         }).then((data) => {
             form.reset();
             console.log(data);
-            let html = "<tr id='review_" + data.id + "'><th><%=user%></th><th>" + comment + "</th><th><i onclick='getReview(" + data.id + ")' class='bi bi-pencil-fill'></i></th><th id='deleteComment' onclick='deleteComment(" + data.id + ")'>x</th></tr>";
+            let html = "<tr id='review_" + data.id + "'><th class='txt5'><%=user%></th><th class='txt5'>" + comment + "</th><th><i onclick='getReview(" + data.id + ")' class='bi bi-pencil-fill'></i></th><th id='deleteComment' onclick='deleteComment(" + data.id + ")'>x</th></tr>";
             $("table").append(html);
         })
     }

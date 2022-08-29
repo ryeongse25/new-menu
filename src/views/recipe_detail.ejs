@@ -127,16 +127,16 @@
 
             <% if (isLogin) { %>
             <form id="review_form">
-                <textarea name="review" cols="112" rows="3" class="txtb" required></textarea>
-                <div style="margin-left: 90%;">
+                <textarea name="review" cols="111" rows="4" class="txtb" required></textarea>
+                <!-- <div style="margin-left: 90%;"> -->
                     <button type="button" class="register_btn" onclick="postComment();">등록</button>
-                </div>
+                <!-- </div> -->
             </form>
             <% } else { %>
                 <div id="unactivated"><i class='bi bi-lock'></i> 댓글 기능은 로그인 후 이용 가능합니다.</div>
             <% } %>
 
-            <table id="reviewTable" cellspacing="0">
+            <table id="reviewTable" cellspacing="0" width="815">
                 <tr id="th">
                     <th width="200">작성자</th>
                     <th width="750">후기</th>
@@ -144,8 +144,8 @@
                 </tr>
                 <% for(let i=0; i<review.length; i++) { %>
                     <tr id="review_<%=review[i].id%>">
-                        <th><%=review[i].user_id%></th>
-                        <th><%=review[i].comment%></th>
+                        <th class="txt5"><%=review[i].user_id%></th>
+                        <th class="txt5"><%=review[i].comment%></th>
                         <% if (review[i].user_id == user) { %>
                             <th><i onclick="getReview('<%=review[i].id%>');" class="bi bi-pencil-fill"></i></th>
                             <th id="deleteComment" onclick="deleteComment('<%=review[i].id%>');">x</th>
