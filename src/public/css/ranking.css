@@ -13,6 +13,7 @@
     padding: 0;
     font-family: 'Noto Sans KR', sans-serif;
 }
+
 #ranking_container {
     padding-top: 10%;
     text-align: center;
@@ -21,8 +22,29 @@ h1 {
     font-size : 30px;
     font-weight : 1000;
     color : rgb(46, 85, 67);
-    margin-top: 30px;
-    margin-bottom: 50px;
+    /* margin-top: 30px; */
+    margin-bottom: 10px;
 }
-
+#txtb{
+    background-color: rgb(224,217,214);
+    width: 30%;
+    height: 65%;
+    border-radius: 7px;
+    padding-bottom: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+#txtb1{
+    background-color: white;
+    width: 20%;
+    height: 5%;
+    padding: 50px;
+    margin: 20px 20px 20px 20px;
+    border-radius: 7px;
+    padding-bottom: 10px;
+    /* margin: 0 auto; */
+    display: flex;
+    justify-content: space-evenly;
+}
 
