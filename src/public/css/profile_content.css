@@ -1,23 +1,33 @@
+#comment {
+  width: 100%;
+  margin: 0 auto;
+}
+
 #comment h2 {
   margin: 1rem auto;
 }
-#comment ul {
+
+/* .card-box {
   width: 100%;
-  height: 10%;
+  height: 100%;
   text-align: center;
   padding: 0 0;
   margin: 0 auto;
   margin-top: 2rem;
   list-style: none;
-  justify-content: space-around;
+} */
 
-}
-
-#comment li {
-  padding: 12px 0;
+/* .container {
   width: 100%;
-  border: 1px solid #ddd;
-}
+  height: 90%;
+} */
+
+/* .cards {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+} */
 
 .message {
   background-color: #2e5543;

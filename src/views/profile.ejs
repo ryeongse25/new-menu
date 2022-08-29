@@ -121,27 +121,36 @@
                     <li class="message">Message</li>
                     <li class="message-content">작성한 레시피가 없습니다.</li>
                 </ul>
-            <% } else { %>
-                <div class="cards-main">
-                    <ul class="cards">
-                        <% for (let i=0; i<recipe.length; i++) { %>
-                            <a href="/recipe/detail?user_id=<%=recipe[i].user_id%>&food_id=<%=recipe[i].id%>">
-                                <li class="cards_item" style="border: none;">
-                                    <div class="card">
-                                        <div class="card_image">
-                                            <img src="/img/user_recipe/<%=picture[i]%>">
-                                        </div>
-                                        <div class="card_content">
-                                            <h2 class="card_title"><%=recipe[i].title%></h2>
-                                        </div>
-                                    </div>
-                                </li>
-                            </a>
-                        <% } %>
-                    </ul>
+               <% } else { %>
+    <section class="card-box">
+      <div class="container">
+        <div class="cards">
+            <% for (let i=0; i<recipe.length; i++) { %>
+                <!-- <a href="/recipe/detail?user_id=<%=recipe[i].user_id%>&food_id=<%=recipe[i].id%>"> -->
+          <div class="card">
+            <div class="card-img" style="background-image: url(/img/user_recipe/<%=picture[i]%>)">
+              <div class="overlay">
+                <div class="overlay-content">
+                  <a class="hover" href="/recipe/detail?user_id=<%=recipe[i].user_id%>&food_id=<%=recipe[i].id%>">자세히 보기</a>
                 </div>
-            <% } %>     
+              </div>
+            </div>
+            <div class="card-content">
+              <h2><%=recipe[i].title%></h2>
+            </div>
+          </div>
+        </a>
+        <% } %>
         </div>
+        <div class="pagination">
+          <div class="prev"><</div>
+          <div class="page">Page<sapn class="page"></sapn></div>
+          <div class="next">></div>
+        </div>
+      </div>
+      <% } %>
+    </section>
+
 
         <div id="write-food-content">
             <h2 style="color: #2E5543">내가 쓴 요리 후기</h2>
@@ -223,5 +232,7 @@
         </div> -->
       </div>
     </div>
+        <script src="/js/card.js"></script>
+
     </body>
 </html>
