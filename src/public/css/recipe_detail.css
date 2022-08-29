@@ -34,15 +34,17 @@
 
 
 .writer {
-    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
 }
 
-.writer p {
+.writer span {
     text-align: right; 
 
     font-size: 18px;
     color: var(--dark);
     font-weight: 500;
+    margin-top: 24px;
 }
 
 .btn-secondary {
@@ -51,7 +53,6 @@
 
     /* display: inline-block;  */
     margin: 10px 0 0;  
-    float: right;
 }
 
 .btn-secondary {    
@@ -68,7 +69,7 @@
     text-decoration: none;
     -webkit-transition: 0.3s ease;
     transition: 0.3s ease;
-    text-align: right;
+    margin-left: 12px;
 }
 
 .like-content .btn-secondary:hover {
