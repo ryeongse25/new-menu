@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>게시물 랭킹</title>
+
+        <link rel="stylesheet" href="/css/nav.css"/>
+        <link rel="stylesheet" href="/css/ranking.css">
+        <%-include('script.ejs') %>
+    </head>
+
+    <body>
+        <%-include('nav.ejs') %>
+        <script src="/js/nav.js"></script>
+
+        <div id="ranking_container">
+            <h1>레시피 랭킹</h1>
+
+            <table border="1" cellspacing="0">
+                <tr>
+                    <th width="300">제목</th>
+                    <th width="300">좋아요 수</th>
+                </tr>
+                <% for(let i=0; i<like_num.length; i++) { %>
+                    <tr>
+                        <th><a href="/"><%=title[i]%></a></th>
+                        <th><%=like_num[i].count%></th>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </body>
+</html>
