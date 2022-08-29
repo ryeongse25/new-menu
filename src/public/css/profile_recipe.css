@@ -1,76 +1,156 @@
-.cards-main {
-  /* max-width: 1200px; */
-  margin: 0 auto;
-}
-
-img {
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
-}
+/* .cards-main {
+  justify-content: center;
+  align-items: center;
+} */
 
 .cards {
-  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.cards a {
-  text-decoration: none;
-}
-
-.cards_item {
-  display: flex;
-  padding: 1rem;
-}
-
-@media (min-width: 40rem) {
-  .cards_item {
-    width: 50%;
-  }
-}
-
-@media (min-width: 56rem) {
-  .cards_item {
-    width: 33.3333%;
-  }
+  justify-content: center;
 }
 
 .card {
-  background-color: white;
-  border-radius: 0.25rem;
-  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
+  width: 300px;
+  margin: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  background: #fff;
+  position: relative;
   overflow: hidden;
 }
-
-.card_image > img {
-  width: 300px;
-  height: 200px;
+.card:hover,
+.card.hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.3), 0 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+.card:hover .card-content,
+.card.hover .card-content {
+  box-shadow: inset 0 3px 0 0 #bc5539;
+  border-color: #bc5539;
+}
+.card:hover .card-img .overlay,
+.card.hover .card-img .overlay {
+  background-color: rgba(25, 29, 38, 0.85);
+  transition: opacity 0.2s ease;
+  opacity: 1;
+}
+.card-img {
+  position: relative;
+  height: 224px;
+  width: 100%;
+  background-color: #fff;
+  transition: opacity 0.2s ease;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card-img .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0;
+}
+.card-img .overlay .overlay-content {
+  line-height: 224px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+.card-img .overlay .overlay-content a {
+  color: #fff;
+  padding: 0 2rem;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.card-img .overlay .overlay-content a:hover,
+.card-img .overlay .overlay-content a.hover {
+  background: #bc5539;
+  border-color: #bc5539;
+  margin-top: 90px;
+}
+.card-content {
+  width: 100%;
+  min-height: 80px;
+  background-color: #fff;
+  border-top: 1px solid #e9e9eb;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding: 1rem 2rem;
+  transition: all 0.2s ease;
+}
+.card-content a {
+  text-decoration: none;
+  color: #202927;
+}
+.card-content h2 {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-.card_content {
-  margin-bottom: 5px;
-  background: linear-gradient(to bottom left);
+.card-box .card {
+  float: left;
+  width: 25%;
+  position: relative;
 }
 
-.card_title {
-  color: black;
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: capitalize;
-  margin-top: 20px;
+.card-box .card.hide {
+  display: none;
 }
 
-.card_text {
-  color: black;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
-  font-weight: 400;
+.card-box .card.show {
+  display: block;
+  animation: show 0.5s ease;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.pagination {
+  width: 100%;
+  float: left;
+  padding: 15px;
+  text-align: center;
+}
+
+.pagination div {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.pagination .page {
+  color: gray;
+}
+
+.pagination .prev,
+.pagination .next {
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-size: 15px;
+  padding: 7px 15px;
+  cursor: pointer;
+}
+
+.pagination .prev.disabled,
+.pagination .next.disabled {
+  border-color: gray;
+  color: gray;
+  pointer-events: none;
 }
