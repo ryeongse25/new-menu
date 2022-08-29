@@ -194,7 +194,7 @@
     font-size : 18px;
     font-weight : 550;
     color : white;
-    border : none;
+    border : 1px solid black;
     font-family: 'Noto Sans KR', sans-serif;
 }
 
