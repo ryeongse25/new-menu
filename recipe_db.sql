@@ -10,6 +10,7 @@ CREATE TABLE user (
     email varchar(30) not null
 );
 
+DROP TABLE review;
 DROP TABLE user_recipe_like;
 DROP TABLE user_recipe_picture;
 DROP TABLE user_recipe_step;
@@ -44,16 +45,16 @@ CREATE TABLE user_recipe_picture (
 CREATE TABLE user_recipe_like (
     id int not null primary key auto_increment,
 	user_id varchar(15) not null,
-    FOREIGN KEY ( user_id ) REFERENCES user(id),
+    FOREIGN KEY ( user_id ) REFERENCES user(id) ON DELETE CASCADE,
 	food_id int not null,
-    FOREIGN KEY ( food_id ) REFERENCES user_recipe(id)
+    FOREIGN KEY ( food_id ) REFERENCES user_recipe(id) ON DELETE CASCADE
 );
 
 CREATE TABLE review (
 	id int not null primary key auto_increment,
     user_id varchar(15) not null,
-    FOREIGN KEY ( user_id ) REFERENCES user(id),
+    FOREIGN KEY ( user_id ) REFERENCES user(id) ON DELETE CASCADE,
     food_id int not null,
-    FOREIGN KEY ( food_id ) REFERENCES user_recipe(id),
+    FOREIGN KEY ( food_id ) REFERENCES user_recipe(id) ON DELETE CASCADE,
     comment mediumtext
 );
