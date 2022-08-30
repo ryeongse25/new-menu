@@ -44,6 +44,16 @@ app.get("/logout", (req, res) => {
   });
 });
 
+app.get("/team", (req, res) => {
+  const user = req.session.user;
+
+  if (user != undefined) {
+    res.render("team", { isLogin: true, user: user, isLogout: false });
+  } else {
+    res.render("team", { isLogin: false, isLogout: false });
+  }
+});
+
 app.use("/user", userRouter);
 app.use("/recipe", recipeRouter);
 app.use("/ranking", rankingRouter);
