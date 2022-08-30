@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>신메뉴</title>
+
+        <link rel="stylesheet" href="/css/nav.css">
+        <link rel="stylesheet" href="/css/menu.css">
+        <%-include('script.ejs') %>
+    </head>
+
+    <body>
+        <%-include('nav.ejs') %>
+        <script src="/js/nav.js"></script>
+
+        <div class="container2">
+            <div class="menu_img"><img src="/img/menu_top.png" id="menu_img">
+                <div class="menu_txt">
+                    <p id="txt1">메뉴를 검색해보세요.</p>
+                    <p id="txt2">당신을 위한 메뉴가 여기 있습니다.</p>
+                </div>
+                <div class="search">
+                    <form action="/recipe/search" method="get" class="search-bar">
+                        <input type="text" class="search_box" name="q" value="<%=keyword%>">
+                        <button class="search_btn">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="option" style="visibility: hidden;">
+                    <p class="food_btn">전체</p>
+                    <p class="food_btn">밥</p>
+                    <p class="food_btn">국/찌개</p>
+                    <p class="food_btn">면</p>
+                    <p class="food_btn">고기</p>
+                    <p class="food_btn">해산물</p>
+                    <p class="food_btn">채소</p>
+                    <p class="food_btn">소스</p>
+                    <p class="food_btn">디저트</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container5">
+            <div class="container5_txt">
+                <p class="total">총 <span class="count"><%=result.length%></span>개</p>
+            </div>
+
+            <!-- 전체 -->
+            <div class="container5_card">
+                <% for (let i=0; i<result.length; i++) { %>
+                    <div class="main_card">
+                        <a href="/recipe/detail?user_id=<%=result[i].user_id%>&food_id=<%=result[i].id%>">
+                            <img src="/img/user_recipe/<%=picture[i]%>" class="main_card_image">
+                            <h4><%=result[i].title%></h4>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </body>
+</html>

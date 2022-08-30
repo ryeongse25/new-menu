@@ -284,3 +284,26 @@ exports.updateReview = async (req, res) => {
     
     res.send(true);
 }
+
+// 검색
+exports.search = async (req, res) => {
+    console.log(req.query)
+    const user = req.session.user;
+
+    let query = `select * from user_recipe where title like '%${req.query.q}%' or material like '%${req.query.q}%'`;
+    let result = await models.sequelize.query(query);
+    result = result[0];
+
+    let pictures = [];
+
+    for(let i=0; i<result.length; i++) {
+        let picture = await models.UserRecipePicture.findOne({where: {food_id: result[i].id}});
+        pictures.push(picture.filename);
+    }
+
+    if ( user != undefined ) {
+        res.render("search", {isLogin: true, user: user, keyword: req.query.q, result: result, picture: pictures});
+    } else {
+        res.render("search", {isLogin: false, keyword: req.query.q, result: result, picture: pictures});
+    }
+}
