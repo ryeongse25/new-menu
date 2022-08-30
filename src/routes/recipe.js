@@ -45,4 +45,7 @@ router.delete("/deletereview", recipe.deleteReview);
 router.get("/getreview", recipe.getReview);
 router.patch("/updatereview", recipe.updateReview);
 
+// search
+router.get("/search", recipe.search);
+
 module.exports = router;

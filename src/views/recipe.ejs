@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>RECIPE of GOD에 오신 것을 환영합니다</title>
+        <title>신메뉴에 오신 것을 환영합니다</title>
         <meta charset="utf-8">
 
         <link rel="stylesheet" href="/css/nav.css">
@@ -23,9 +23,9 @@
                     <p id="txt2">당신을 위한 메뉴가 여기 있습니다.</p>
                 </div>
                 <div class="search">
-                    <form action="" class="search-bar">
+                    <form action="/recipe/search" method="get" class="search-bar">
                         <input type="text" class="search_box" placeholder="요리/재료명을 입력해주세요" name="q">
-                        <button type="submit" class="search_btn">
+                        <button class="search_btn">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </form>
@@ -409,7 +409,7 @@
                 // 분류별 개수
                 let ct_list = ["<%=result.length%>", "<%=rice.length%>", "<%=soup.length%>", "<%=noodle.length%>", "<%=meat.length%>", "<%=seafood.length%>", "<%=vegetables.length%>", "<%=sauce.length%>", "<%=dessert.length%>"];
 
-                $(".container5_txt").html(`<p class="total">총 <span class="count">${ct_list[index-1]}</span>개</p>`)
+                $(".container5_txt").html(`<p class="total">총 <span class="count">${ct_list[index-1]}</span>개</p>`);
             });
         </script>
     </body>
