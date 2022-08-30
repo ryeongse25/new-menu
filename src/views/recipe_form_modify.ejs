@@ -7,14 +7,9 @@
 
         <%-include('script.ejs') %>
 
-        <script>
-            function next_step() {
-                let h4s = document.querySelectorAll("#steps h4");
-                let count = h4s.length;
-                let html = `<div class="flex-box"><h4>Step${count+1}</h4><textarea id="step_${count+1}" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요"></textarea></div>`;
-                $("#steps").append(html);
-            }
+        <%-include('form_func.ejs') %>
 
+        <script>
             function posting() {
                 let form = document.getElementById("write_form");
 
@@ -103,6 +98,7 @@
                     <div class="flex-box">
                         <h4>Step<%=i+1%></h4>
                         <textarea id="step_<%=i+1%>" cols="30" rows="10" class="txtb4" required><%=step[i]%></textarea>
+                        <p onclick="close_btn('step_<%=i+1%>');">x</p>
                     </div>
                 <% } %>
             </div>
