@@ -5,6 +5,7 @@
     --font: #515555;
     --bar: #D9D9D9;
     --red: #BC5539;
+    --green: #2E5543;
 }
 
 * {
@@ -99,20 +100,20 @@ form .fa-solid {
 .option {
     margin: 30px;
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
-.option button {
+.option p {
     border: none;
-    background-color: transparent;
     border-radius: 20%;
-    color: var(--dark);
     cursor: pointer;
     padding: 5px 15px 5px;
     margin: 0px 20px 0px;
     font-size: 17px;
 }
 
-.option button:hover {
+.option p:hover {
     background-color: #2E5543;
     color: white;
 }
@@ -282,3 +283,12 @@ form .fa-solid {
     font-size: 15px;
     cursor: pointer;
   }
+
+.toggle {
+    background-color: #2E5543;
+    color: white;
+}
+
+.hide {
+    display: none;
+}
