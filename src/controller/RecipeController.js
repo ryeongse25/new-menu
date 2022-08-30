@@ -151,6 +151,59 @@ exports.post_write = async (req, res) => {
     res.send({result: result.id});
 }
 
+// 레시피 폼 수정 post
+exports.post_update = async (req, res) => {
+    console.log("update req.body", req.body);
+    let delete_review = await models.Review.destroy({where: {food_id: req.body.id}});
+    let delete_like = await models.UserRecipeLike.destroy({where: {food_id: req.body.id}});
+    let delete_step = await models.UserRecipeStep.destroy({where: {food_id: req.body.id}});
+    let delete_picture = await models.UserRecipePicture.destroy({where: {food_id: req.body.id}});
+    let delete_result = await models.UserRecipe.destroy({where: {id: req.body.id}});
+
+    let count = Object.keys(req.body).length - 7;
+
+    let recipe_obj = {
+        user_id: req.body.user_id,
+        title: req.body.title,
+        comment: req.body.comment,
+        category_kind: req.body.category_kind,
+        category_food: req.body.category_food,
+        material: req.body.material
+    };
+
+    let result = await models.UserRecipe.create(recipe_obj);
+
+    let file_lst = [];
+    let file_obj = [];
+
+    for (let i=0; i<req.files.length; i++) {
+        file_lst.push(req.files[i].filename);
+    }
+
+    for (let i=0; i<file_lst.length; i++) {
+        file_obj.push({food_id: result.id, filename: file_lst[i]});
+    }
+
+    let result_pic = await models.UserRecipePicture.bulkCreate(file_obj);
+
+    let steps = [];
+    let step_obj = [];
+
+    for (let i=1; i<count+1; i++) {
+        steps.push(req.body[`step_${i}`]);
+    }
+
+    for (let i=1; i<count+1; i++) {
+        step_obj.push({food_id: result.id, stage: i, description: steps[i-1]});
+    }
+
+    console.log("step", step_obj);
+
+    let result_step = await models.UserRecipeStep.bulkCreate(step_obj);
+
+    res.send({result: result.id});
+}
+
 // 레시피 디테일 페이지 get
 exports.detail_page = async (req, res) => {
     const user = req.session.user;
