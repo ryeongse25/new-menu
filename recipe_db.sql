@@ -2,6 +2,13 @@ CREATE DATABASE recipe;
 
 USE recipe;
 
+DROP TABLE review;
+DROP TABLE user_recipe_like;
+DROP TABLE user_recipe_picture;
+DROP TABLE user_recipe_step;
+DROP TABLE user_recipe;
+DROP TABLE user;
+
 CREATE TABLE user (
 	id varchar(15) not null primary key,
     pw varchar(15) not null,
@@ -9,12 +16,6 @@ CREATE TABLE user (
     tel varchar(13) default "",
     email varchar(30) not null
 );
-
-DROP TABLE review;
-DROP TABLE user_recipe_like;
-DROP TABLE user_recipe_picture;
-DROP TABLE user_recipe_step;
-DROP TABLE user_recipe;
 
 CREATE TABLE user_recipe (
 	id int not null primary key auto_increment,
