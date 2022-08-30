@@ -106,9 +106,7 @@ exports.write_recipe_page = (req, res) => {
 
 // 레시피 폼 전송 post
 exports.post_write = async (req, res) => {
-    // console.log("req.files 결과", req.files);
-    // console.log("req.body 결과", req.body);
-
+    // step 개수
     let count = Object.keys(req.body).length - 6;
 
     let recipe_obj = {
@@ -122,6 +120,7 @@ exports.post_write = async (req, res) => {
 
     let result = await models.UserRecipe.create(recipe_obj);
 
+    // 파일명 저장할 곳
     let file_lst = [];
     let file_obj = [];
 
@@ -135,6 +134,7 @@ exports.post_write = async (req, res) => {
 
     let result_pic = await models.UserRecipePicture.bulkCreate(file_obj);
 
+    // 스텝 저장할 곳
     let steps = [];
     let step_obj = [];
 
@@ -148,18 +148,20 @@ exports.post_write = async (req, res) => {
 
     let result_step = await models.UserRecipeStep.bulkCreate(step_obj);
 
+    // food_id 보내주기
     res.send({result: result.id});
 }
 
 // 레시피 폼 수정 post
 exports.post_update = async (req, res) => {
-    console.log("update req.body", req.body);
+    // 모든 테이블에서 완래 있던 정보 삭제
     let delete_review = await models.Review.destroy({where: {food_id: req.body.id}});
     let delete_like = await models.UserRecipeLike.destroy({where: {food_id: req.body.id}});
     let delete_step = await models.UserRecipeStep.destroy({where: {food_id: req.body.id}});
     let delete_picture = await models.UserRecipePicture.destroy({where: {food_id: req.body.id}});
     let delete_result = await models.UserRecipe.destroy({where: {id: req.body.id}});
 
+    // step 개수 (레시피 작성할 때와 달리 현재 food_id의 값이 담겨있는 hidden input이 하나 더 생겼음)
     let count = Object.keys(req.body).length - 7;
 
     let recipe_obj = {
@@ -216,8 +218,6 @@ exports.detail_page = async (req, res) => {
     if ( user != undefined ) {
         let like = await models.UserRecipeLike.findAll({where: {user_id: user, food_id: req.query.food_id}});
 
-        console.log("like_length", like.length);
-
         if (like.length == 0){
             res.render("recipe_detail", {isLogin: true, user: user, data: result, step: result_step, picture: result_pic, review: review, isLike: false});
         } else {
@@ -230,14 +230,10 @@ exports.detail_page = async (req, res) => {
 
 // 레시피 정보 수정 get
 exports.update = async (req, res) => {
-    console.log("req.query", req.query);
     const user = req.session.user;
 
-    let result = await models.UserRecipe.findOne({where: {id: req.query.food_id}});
-    console.log("UserRecipe: ", result);
-        
+    let result = await models.UserRecipe.findOne({where: {id: req.query.food_id}});  
     let result_step = await models.UserRecipeStep.findAll({where: {food_id: req.query.food_id}});
-    console.log("UserRecipeStep: ", result_step.length);
 
     let steps = [];
 
@@ -258,7 +254,6 @@ exports.update = async (req, res) => {
 
 exports.like = async (req, res) => {
     const user = req.session.user;
-    // console.log(req.body);
 
     let obj = {
         user_id: user,

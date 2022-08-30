@@ -75,6 +75,7 @@ exports.register = (req, res) => {
   res.render("register", { isLogin: false });
 };
 
+// 아이디 중복확인
 exports.id_check = (req, res) => {
   models.User.findOne({
     where: { id: req.body.id },
@@ -155,6 +156,7 @@ exports.profile = async (req, res) => {
   }
 };
 
+// 회원 탈퇴
 exports.delete = (req, res) => {
   console.log(req.body);
   models.User.destroy({ where: { id: req.body.id } }).then((result) => {
@@ -164,6 +166,7 @@ exports.delete = (req, res) => {
   });
 };
 
+// 정보 수정 페이지
 exports.update_page = (req, res) => {
   const user = req.session.user;
 
