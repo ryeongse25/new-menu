@@ -7,69 +7,65 @@
     --dark: #312D2D;
     --green: #2E5543;
 }
+
 * {
-    box-sizing : border-box;
-    margin: 0;
-    padding: 0;
     font-family: 'Noto Sans KR', sans-serif;
 }
 
 #ranking_container {
-    padding-top: 10%;
-    /* text-align: center; */
+    padding: 10% 0 10% 0;
+    text-align: center;
 }
-/* h1 {
-    font-size : 30px;
-    font-weight : 1000;
-    color : rgb(46, 85, 67);
-    margin-top: 30px;
-    margin-bottom: 10px;
-} */
 
-i{
-    margin: 2rem 1rem 0 4rem;
-    /* margin: 2rem 1rem 0 29rem;  */
-    color:rgb(46, 85, 67);
+h1 {
+    margin-bottom: 5%;
 }
-/* .fa-solid fa-heart{
+
+.fa-chess-queen {
+    color: #BC5539; 
+    margin-left: 20px;
+}
+
+.fa-2x {
+    position: relative;
+    left: 30px;
+    top: 10px;
+    color:#2E5543;
+}
+
+.ten {
+    display: flex;
+    position: relative;
+    left: 15px;
+}
+
+.fa-heart {
     color:rgb(230, 12, 12); 
-    font-size: 18px; 
-    margin:0 5rem 0 28rem;
-} */
+    font-size: 18px;
+}
+
+.likes {
+    position: relative; 
+    top: -50px; 
+    margin-left: 80%;
+}
+
 #txtb{
-    background-color: white;
-    width: 100%;
-    height: 100%;
-    /* border-radius: 7px; */
-    padding-bottom: 10px;
-    margin: 10px auto;
-    /* justify-content: space-evenly; */
+    width: 60%;
+    margin: auto;
 }
-/* #txtb1, #txtb2, #txtb3, #txtb4, #txtb5{
-    background-color:white;
+
+.ranking_box {
     border: 2px solid rgb(224, 217, 214);
-    width: 40%;
-    height: 12%;
-    padding: 34px;
+    width: 50%;
+    height: 50px;
     border-radius: 7px;
-    margin: 10px 10px 0 460px;
-} */
-#txtb1, #txtb2, #txtb3, #txtb4, #txtb5{
-    background-color:white;
-    border: 2px solid rgb(224, 217, 214);
-    width: 40%;
-    height: 12%;
-    padding: 34px;
-    border-radius: 7px;
-    margin: 0px 0px 0 20px;
+    margin-bottom: 30px;
+    line-height: 50px;
+    cursor: pointer;
 }
-#txtb6, #txtb7, #txtb8, #txtb9, #txtb10{
-    background-color:white;
-    border: 2px solid rgb(224, 217, 214);
-    width: 40%;
-    height: 12%;
-    padding: 34px;
-    border-radius: 7px;
-    display: inline-block;
-    margin: 0px 0px 20px 20px;
+
+.ranking_box a {
+    text-decoration: none;
+    color: black;
 }
