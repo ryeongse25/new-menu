@@ -24,6 +24,7 @@ router.get("/", recipe.main);
 // write page
 router.get("/write", recipe.write_recipe_page);
 router.post("/post_write", upload.array("userfile"), recipe.post_write);
+router.post("/post_update", upload.array("userfile"), recipe.post_update);
 
 // detail page
 router.get("/detail", recipe.detail_page);
