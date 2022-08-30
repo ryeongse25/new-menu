@@ -14,45 +14,78 @@
         <script src="/js/nav.js"></script>
 
         <div id="ranking_container">
-            <i class="fa-regular fa-chess-queen fa-4x" style="margin: 2rem 1rem 0 45rem; color:rgb(46, 85, 67);"></i>
+            <i class="fa-regular fa-chess-queen fa-4x" style="margin: 2rem 1rem 2.5rem 45rem; color:rgb(46, 85, 67);"></i>
+            <!-- <i class="fa-solid fa-chess-queen"></i> -->
+
             <!-- <h1>레시피 랭킹</h1> -->
             <div id="txtb">
+
+                <div style="display: flex;">
                 <i class="fa-solid fa-1 fa-2x"></i>
                 <div id="txtb1">
                     <i class="fa-solid fa-heart" style="color:rgb(230, 12, 12); font-size: 18px; margin:0 5rem 0 28rem;"></i>
                     <!-- <i class="fa-regular fa-heart" style="color:rgb(230, 12, 12); font-size: 18px;"></i> -->
                 </div>
+                   <i class="fa-solid fa-6 fa-2x"></i>
+                <div id="txtb6" style="display: inline-block;">
+                    <i class="fa-solid fa-heart" style="color:rgb(230, 12, 12); font-size: 18px; margin:0 5rem 0 28rem;"></i>
+                </div>
+                </div>
+            
+                <div style="display: flex;">
                 <i class="fa-solid fa-2 fa-2x"></i> 
                 <div id="txtb2">
                     <i class="fa-solid fa-heart" style="color:rgb(230, 12, 12); font-size: 18px; margin:0 5rem 0 28rem;"></i>
                 </div>
+                <i class="fa-solid fa-7 fa-2x"></i>
+                <div id="txtb7" style="display: inline-block;">
+                    <i class="fa-solid fa-heart" style="color:rgb(230, 12, 12); font-size: 18px; margin:0 5rem 0 28rem;"></i>
+                </div>
+                </div>
+
+
+                <div style="display: flex;">
                 <i class="fa-solid fa-3 fa-2x"></i>
                 <div id="txtb3">
                     <i class="fa-solid fa-heart" style="color:rgb(230, 12, 12); font-size: 18px; margin:0 5rem 0 28rem;"></i>
                 </div>
+                <i class="fa-solid fa-8 fa-2x"></i>
+                <div id="txtb8" style="display: inline-block;">
+                    <i class="fa-solid fa-heart" style="color:rgb(230, 12, 12); font-size: 18px; margin:0 5rem 0 28rem;"></i>
+                </div>
+                </div>
+
+
+                <div style="display: flex;">
                 <i class="fa-solid fa-4 fa-2x"></i>
                 <div id="txtb4">
                     <i class="fa-solid fa-heart" style="color:rgb(230, 12, 12); font-size: 18px; margin:0 5rem 0 28rem;"></i>
                 </div>
+                <i class="fa-solid fa-9 fa-2x"></i>
+                <div id="txtb9" style="display: inline-block;">
+                    <i class="fa-solid fa-heart" style="color:rgb(230, 12, 12); font-size: 18px; margin:0 5rem 0 28rem;"></i>
+                </div>
+                </div>
+
+
+                <div style="display: flex;">
                 <i class="fa-solid fa-5 fa-2x"></i>
                 <div id="txtb5">
                     <i class="fa-solid fa-heart" style="color:rgb(230, 12, 12); font-size: 18px; margin:0 5rem 0 28rem;"></i>
                 </div>
+                <i class="fa-solid fa-1 fa-2x"></i>
+                <i class="fa-solid fa-0 fa-2x" style="margin: 2rem 0.5rem 0rem 0rem;"></i>
+                <div id="txtb10" style="display: inline-block; margin: 0px 0px 1px 1px;">
+                    <i class="fa-solid fa-heart" style="color:rgb(230, 12, 12); font-size: 18px; margin:0 5rem 0 28rem;"></i>
+                </div>
+                </div>
+                <!-- <% for(let i=0; i<like_num.length; i++) { %>
+                    <span>
+                        <a href="recipe/detail?user_id=<%=user_id[i]%>&food_id=<%=like_num[i].food_id%>"><%=title[i]%></a>
+                        <%=like_num[i].count%>
+                    </span>
+                <% } %> -->
             </div>
-
-
-            <!-- <table frame=void class="txtb" border="1" cellspacing="0">
-                <tr class="txtb1">
-                    <th width="300">제목</th>
-                    <th width="300">좋아요 수</th>
-                </tr>
-                <% for(let i=0; i<like_num.length; i++) { %>
-                    <tr class="txtb2">
-                        <th><a href="recipe/detail?user_id=<%=user_id[i]%>&food_id=<%=like_num[i].food_id%>"><%=title[i]%></a></th>
-                        <th class="like"><%=like_num[i].count%></th>
-                    </tr>
-                <% } %>
-            </table> -->
         </div>
     </body>
 </html>
