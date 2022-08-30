@@ -4,21 +4,96 @@ const models = require("../model");
 exports.main = async (req, res) => {
     const user = req.session.user;
 
+    // 전체
     let result = await models.UserRecipe.findAll();
-
     let pictures = [];
 
     for (let i=0; i<result.length; i++) {
         let result_pic = await models.UserRecipePicture.findOne({where: {food_id: result[i].id}});
-        // console.log(result_pic);
-        // console.log(result_pic.filename);
         pictures.push(result_pic.filename);
     }
 
+    // 밥
+    let rice = await models.UserRecipe.findAll({where: {category_kind: "rice"}});
+    let rice_pictures = []
+
+    for (let i=0; i<rice.length; i++) {
+        let rice_pic  = await models.UserRecipePicture.findOne({where: {food_id: rice[i].id}});
+        rice_pictures.push(rice_pic.filename);
+    }
+
+    // 국/찌개
+
+    let soup = await models.UserRecipe.findAll({where: {category_kind: "soup"}});
+    let soup_pictures = []
+
+    for (let i=0; i<soup.length; i++) {
+        let soup_pic  = await models.UserRecipePicture.findOne({where: {food_id: soup[i].id}});
+        soup_pictures.push(soup_pic.filename);
+    }
+    
+    // 면
+    let noodle = await models.UserRecipe.findAll({where: {category_kind: "noodle"}});
+    let noodle_pictures = []
+
+    for (let i=0; i<noodle.length; i++) {
+        let noodle_pic  = await models.UserRecipePicture.findOne({where: {food_id: noodle[i].id}});
+        noodle_pictures.push(noodle_pic.filename);
+    }
+
+    // 고기
+    let meat = await models.UserRecipe.findAll({where: {category_kind: "meat"}});
+    let meat_pictures = []
+
+    for (let i=0; i<meat.length; i++) {
+        let meat_pic  = await models.UserRecipePicture.findOne({where: {food_id: meat[i].id}});
+        meat_pictures.push(meat_pic.filename);
+    }
+
+    // 해산물
+    let seafood = await models.UserRecipe.findAll({where: {category_kind: "seafood"}});
+    let seafood_pictures = []
+
+    for (let i=0; i<seafood.length; i++) {
+        let seafood_pic  = await models.UserRecipePicture.findOne({where: {food_id: seafood[i].id}});
+        seafood_pictures.push(seafood_pic.filename);
+    }
+
+    // 채소
+    let vegetables = await models.UserRecipe.findAll({where: {category_kind: "vegetables"}});
+    let vegetables_pictures = []
+
+    for (let i=0; i<vegetables.length; i++) {
+        let vegetables_pic  = await models.UserRecipePicture.findOne({where: {food_id: vegetables[i].id}});
+        vegetables_pictures.push(vegetables_pic.filename);
+    }
+
+    // 소스
+    let sauce = await models.UserRecipe.findAll({where: {category_kind: "sauce"}});
+    let sauce_pictures = []
+
+    for (let i=0; i<sauce.length; i++) {
+        let sauce_pic  = await models.UserRecipePicture.findOne({where: {food_id: sauce[i].id}});
+        sauce_pictures.push(sauce_pic.filename);
+    }
+
+    // 디저트
+    let dessert = await models.UserRecipe.findAll({where: {category_kind: "dessert"}});
+    let dessert_pictures = []
+
+    for (let i=0; i<dessert.length; i++) {
+        let dessert_pic  = await models.UserRecipePicture.findOne({where: {food_id: dessert[i].id}});
+        dessert_pictures.push(dessert_pic.filename);
+    }
+
+    let data = {isLogin: false, result: result, picture: pictures, rice: rice, rice_pictures: rice_pictures, soup: soup, soup_pictures: soup_pictures, noodle: noodle, noodle_pictures: noodle_pictures, meat: meat, meat_pictures: meat_pictures, seafood: seafood, seafood_pictures: seafood_pictures, vegetables: vegetables, vegetables_pictures: vegetables_pictures, sauce: sauce, sauce_pictures, sauce_pictures, dessert: dessert, dessert_pictures: dessert_pictures}
+
+    let data_login = {isLogin: true, user: user, result: result, picture: pictures, rice: rice, rice_pictures: rice_pictures, soup: soup, soup_pictures: soup_pictures, noodle: noodle, noodle_pictures: noodle_pictures, meat: meat, meat_pictures: meat_pictures, seafood: seafood, seafood_pictures: seafood_pictures, vegetables: vegetables, vegetables_pictures: vegetables_pictures, sauce: sauce, sauce_pictures, sauce_pictures, dessert: dessert, dessert_pictures: dessert_pictures}
+
     if ( user != undefined ) {
-        res.render("recipe", {isLogin: true, user: user, result: result, picture: pictures});
+        res.render("recipe", data_login);
     } else {
-        res.render("recipe", {isLogin: false, result: result, picture: pictures});
+        res.render("recipe", data);
     }
 }
 
