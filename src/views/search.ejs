@@ -1,9 +1,11 @@
 <html>
     <head>
         <title>신메뉴</title>
+        <meta charset="utf-8">
 
         <link rel="stylesheet" href="/css/nav.css">
         <link rel="stylesheet" href="/css/menu.css">
+        <link rel="stylesheet" href="/css/bottom_bar.css">
         <%-include('script.ejs') %>
     </head>
 
@@ -59,5 +61,11 @@
 
         </div>
         
+        <script src="/js/slide.js"></script>
+
+        <%-include('footer.ejs') %>
+
+        <input class="upbtn" type="button" onclick="clickup()" value="&#xf106">
+        <script src="/js/scroll.js"></script>
     </body>
 </html>

@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>신메뉴 - 팀원 소개</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/nav.css">
+        <link rel="stylesheet" href="/css/team.css">
+        <link rel="stylesheet" href="/css/bottom_bar.css">
+
+        <%-include('script.ejs') %>
+    </head>
+    <body>
+        <%-include('nav.ejs') %>
+        <script src="/js/nav.js"></script>
+
+
+        <div class="team_container">
+
+            <div class="company_container">
+                <div class="ractangle" style="background-color: #E1DDDD;"></div>
+                <h1>서비스 소개</h1>
+                <p>서비스 / 기획 간단 소개 신메뉴 레시피 공유 플랫폼 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구</p>
+                <div class="ractangle"></div>
+                <h2>팀원 소개</h2>
+            </div>
+
+            <div class="members">
+
+                <div class="member">
+                    <div class="ballon_1 ballon hide">
+                        <p>"꿈을 향해 달려가는 <br> 멋쟁이 개발자입니다!💜 <br> 코딩 열심히 해서 <br> 부자될래요!"</p>
+                        <a href="https://velog.io/@ryeongse25" target="_blank">블로그</a> |
+                        <a href="https://github.com/ryeongse25" target="_blank">깃헙</a>
+                    </div>
+                    <img src="/img/team1.jpeg">
+                    <h5>백엔드</h5>
+                    <h4>김세령</h4>
+                </div>
+
+                <div class="member">
+                    <div class="ballon_2 ballon hide">
+                        <a href="" target="_blank">블로그</a> |
+                        <a href="" target="_blank">깃헙</a>
+                    </div>
+                    <img src="/img/team1.jpeg">
+                    <h5>프론트엔드</h5>
+                    <h4>김민지</h4>
+                </div>
+                
+                <div class="member">
+                    <div class="ballon_3 ballon hide">
+                        <a href="" target="_blank">블로그</a> |
+                        <a href="" target="_blank">깃헙</a>
+                    </div>
+                    <img src="/img/team1.jpeg">
+                    <h5>프론트엔드</h5>
+                    <h4>김지수</h4>
+                </div>
+
+                <div class="member">
+                    <div class="ballon_4 ballon hide">
+                        <a href="" target="_blank">블로그</a> |
+                        <a href="" target="_blank">깃헙</a>
+                    </div>
+                    <img src="/img/team1.jpeg">
+                    <h5>프론트엔드</h5>
+                    <h4>박자연</h4>
+                </div>
+
+            </div>
+
+        </div>
+
+         <%-include('footer.ejs') %>
+
+         <script>
+            $(".member").on("mouseover", function( obj ) {
+                let target = obj.currentTarget;
+                let index = Number($(target).prevAll().length)+1;
+
+                $(`.ballon_${index}`).removeClass("hide");
+                $(`.ballon_${index}`).addClass("visible");
+            });
+
+            $(".member").on("mouseleave", function( obj ) {
+                let target = obj.currentTarget;
+                let index = Number($(target).prevAll().length)+1;
+
+                $(`.ballon_${index}`).addClass("hide");
+                $(`.ballon_${index}`).removeClass("visible");
+            });
+         </script>
+         
+    </body>
+</html>

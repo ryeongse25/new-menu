@@ -1,10 +1,11 @@
 <html>
     <head>
         <title>게시물 랭킹</title>
+        <meta charset="utf-8">
 
         <link rel="stylesheet" href="/css/nav.css"/>
         <link rel="stylesheet" href="/css/ranking.css">
-        <script src="https://kit.fontawesome.com/3a4e397308.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/bottom_bar.css">
         <%-include('script.ejs') %>
     </head>
 
@@ -58,5 +59,12 @@
                 <% } %>
             </table> -->
         </div>
+
+        <script src="/js/slide.js"></script>
+
+        <%-include('footer.ejs') %>
+
+        <input class="upbtn" type="button" onclick="clickup()" value="&#xf106">
+        <script src="/js/scroll.js"></script>
     </body>
 </html>
