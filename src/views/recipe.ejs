@@ -407,14 +407,9 @@
                 }
 
                 // 분류별 개수
-                let ct_list = ["result", "rice", "soup", "noodle", "meat", "seafood", "vegetables", "sauce", "dessert"];
+                let ct_list = ["<%=result.length%>", "<%=rice.length%>", "<%=soup.length%>", "<%=noodle.length%>", "<%=meat.length%>", "<%=seafood.length%>", "<%=vegetables.length%>", "<%=sauce.length%>", "<%=dessert.length%>"];
 
-                console.log(index);
-                console.log(ct_list[index-1]);
-                console.log("<%=sauce.length%>");
-                console.log("<%=" + ct_list[index-1] + ".length%>");
-
-                $(".container5_txt").html('<p class="total">총 <span class="count"><%=' + ct_list[index-1] + '.length%></span>개</p>')
+                $(".container5_txt").html(`<p class="total">총 <span class="count">${ct_list[index-1]}</span>개</p>`)
             });
         </script>
     </body>
