@@ -13,116 +13,389 @@
     <body>
         <%-include('nav.ejs') %>
         <script src="/js/nav.js"></script>
-
-        <div id="ranking_container">
-            <!-- <h1>레시피 랭킹<i class="fa-regular fa-chess-queen fa-4x" style="font-size: 50px;"></i></h1> -->
-            <i class="fa-regular fa-chess-queen fa-4x" style="font-size: 60px;"></i>
-            <h1>레시피 랭킹</h1>
-
-            <div id="txtb">
-
-                <div style="display: flex;">
-                    <i class="fa-solid fa-1 fa-2x"></i>
+        
+        <div class="rangking_container">
+            <div id="ranking_container1">
+                <!-- <h1>레시피 랭킹<i class="fa-regular fa-chess-queen fa-4x" style="font-size: 50px;"></i></h1> -->
+                <i class="fa-regular fa-chess-queen fa-4x" style="font-size: 60px;"></i>
+                <h1>레시피 랭킹</h1>
+    
+                <div id="recipe_rangking">
                     <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[0]%>&food_id=<%=like_num[0].food_id%>'">
-                        <%=title[0]%>
-                        <div class="likes">
-                            <i class="fa-solid fa-heart"></i>
-                            <%=like_num[0].count%>
+                        <div class="ranking_txt">
+                            <span>1</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[0]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[0].count%></span>
+                            </div>
                         </div>
                     </div>
-                    <i class="fa-solid fa-6 fa-2x"></i>
-                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[5]%>&food_id=<%=like_num[5].food_id%>'">
-                        <%=title[5]%>
-                        <div class="likes">
-                            <i class="fa-solid fa-heart"></i>
-                            <%=like_num[5].count%>
-                        </div>
-                    </div>
-                </div>
-            
-                <div style="display: flex;">
-                    <i class="fa-solid fa-2 fa-2x"></i> 
+    
                     <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[1]%>&food_id=<%=like_num[1].food_id%>'">
-                        <%=title[1]%>
-                        <div class="likes">
-                            <i class="fa-solid fa-heart"></i>
-                            <%=like_num[1].count%>
+                        <div class="ranking_txt">
+                            <span>2</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[1]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[1].count%></span>
+                            </div>
                         </div>
                     </div>
-                    <i class="fa-solid fa-7 fa-2x"></i>
-                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[6]%>&food_id=<%=like_num[6].food_id%>'">
-                        <%=title[6]%>
-                        <div class="likes">
-                            <i class="fa-solid fa-heart"></i>
-                            <%=like_num[6].count%>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div style="display: flex;">
-                    <i class="fa-solid fa-3 fa-2x"></i>
+    
                     <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[2]%>&food_id=<%=like_num[2].food_id%>'">
-                        <%=title[2]%>
-                        <div class="likes">
-                            <i class="fa-solid fa-heart"></i>
-                            <%=like_num[2].count%>
+                        <div class="ranking_txt">
+                            <span>3</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[2]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[2].count%></span>
+                            </div>
                         </div>
                     </div>
-                    <i class="fa-solid fa-8 fa-2x"></i>
-                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[7]%>&food_id=<%=like_num[7].food_id%>'">
-                        <%=title[7]%>
-                        <div class="likes">
-                            <i class="fa-solid fa-heart"></i>
-                            <%=like_num[7].count%>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div style="display: flex;">
-                    <i class="fa-solid fa-4 fa-2x"></i>
+    
                     <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[3]%>&food_id=<%=like_num[3].food_id%>'">
-                        <%=title[3]%>
-                        <div class="likes">
-                            <i class="fa-solid fa-heart"></i>
-                            <%=like_num[3].count%>
+                        <div class="ranking_txt">
+                            <span>4</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[3]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[3].count%></span>
+                            </div>
                         </div>
                     </div>
-                    <i class="fa-solid fa-9 fa-2x"></i>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[4]%>&food_id=<%=like_num[4].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>5</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[4]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[4].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[5]%>&food_id=<%=like_num[5].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>6</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[5]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[5].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[6]%>&food_id=<%=like_num[6].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>7</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[6]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[6].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[7]%>&food_id=<%=like_num[7].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>8</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[7]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[7].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
                     <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[8]%>&food_id=<%=like_num[8].food_id%>'">
-                        <%=title[8]%>
-                        <div class="likes">
-                            <i class="fa-solid fa-heart"></i>
-                            <%=like_num[8].count%>
+                        <div class="ranking_txt">
+                            <span>9</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[8]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[8].count%></span>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-
-                <div style="display: flex;">
-                    <i class="fa-solid fa-5 fa-2x"></i>
-                    <div class="ranking_box" location.href='recipe/detail?user_id=<%=user_id[4]%>&food_id=<%=like_num[4].food_id%>'">
-                        <%=title[4]%>
-                        <div class="likes">
-                            <i class="fa-solid fa-heart"></i>
-                            <%=like_num[4].count%>
-                        </div>
-                    </div>
-                    <div class="ten">
-                        <i class="fa-solid fa-1 fa-2x"></i>
-                        <i class="fa-solid fa-0 fa-2x"></i>
-                    </div>
+    
                     <div class="ranking_box" location.href='recipe/detail?user_id=<%=user_id[9]%>&food_id=<%=like_num[9].food_id%>'">
-                        <%=title[9]%>
-                        <div class="likes">
-                            <i class="fa-solid fa-heart"></i>
-                            <%=like_num[9].count%>
+                        <div class="ranking_txt">
+                            <span>10</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[9]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[9].count%></span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <p>제목을 클릭해 관심있는 레시피 페이지에 지금 바로 방문해보세요!</p>
+            <div id="ranking_container1">
+                <!-- <h1>레시피 랭킹<i class="fa-regular fa-chess-queen fa-4x" style="font-size: 50px;"></i></h1> -->
+                <i class="fa-regular fa-chess-queen fa-4x" style="font-size: 60px;"></i>
+                <h1>레시피 랭킹</h1>
+    
+                <div id="recipe_rangking">
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[0]%>&food_id=<%=like_num[0].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>1</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[0]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[0].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[1]%>&food_id=<%=like_num[1].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>2</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[1]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[1].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[2]%>&food_id=<%=like_num[2].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>3</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[2]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[2].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[3]%>&food_id=<%=like_num[3].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>4</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[3]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[3].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[4]%>&food_id=<%=like_num[4].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>5</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[4]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[4].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[5]%>&food_id=<%=like_num[5].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>6</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[5]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[5].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[6]%>&food_id=<%=like_num[6].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>7</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[6]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[6].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[7]%>&food_id=<%=like_num[7].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>8</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[7]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[7].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[8]%>&food_id=<%=like_num[8].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>9</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[8]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[8].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" location.href='recipe/detail?user_id=<%=user_id[9]%>&food_id=<%=like_num[9].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>10</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[9]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[9].count%></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="ranking_container1">
+                <!-- <h1>레시피 랭킹<i class="fa-regular fa-chess-queen fa-4x" style="font-size: 50px;"></i></h1> -->
+                <i class="fa-regular fa-chess-queen fa-4x" style="font-size: 60px;"></i>
+                <h1>레시피 랭킹</h1>
+    
+                <div id="recipe_rangking">
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[0]%>&food_id=<%=like_num[0].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>1</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[0]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[0].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[1]%>&food_id=<%=like_num[1].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>2</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[1]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[1].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[2]%>&food_id=<%=like_num[2].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>3</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[2]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[2].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[3]%>&food_id=<%=like_num[3].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>4</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[3]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[3].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[4]%>&food_id=<%=like_num[4].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>5</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[4]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[4].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[5]%>&food_id=<%=like_num[5].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>6</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[5]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[5].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[6]%>&food_id=<%=like_num[6].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>7</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[6]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[6].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[7]%>&food_id=<%=like_num[7].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>8</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[7]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[7].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[8]%>&food_id=<%=like_num[8].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>9</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[8]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[8].count%></span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="ranking_box" location.href='recipe/detail?user_id=<%=user_id[9]%>&food_id=<%=like_num[9].food_id%>'">
+                        <div class="ranking_txt">
+                            <span>10</span>
+                            <img src="/img/궁중떡볶이.png">
+                            <span><%=title[9]%></span>
+                            <div class="likes">
+                                <i class="fa-solid fa-heart"></i>
+                                <span><%=like_num[9].count%></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <%-include('footer.ejs') %>
