@@ -111,6 +111,7 @@ form .fa-solid {
     padding: 5px 15px 5px;
     margin: 0px 20px 0px;
     font-size: 17px;
+    word-break: keep-all;
 }
 
 .option p:hover {
