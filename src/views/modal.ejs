@@ -1,18 +1,31 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <!-- <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">안내</h5>
-        </div> -->
-        <div class="modal-body">
-            <img src="/img/modal.jpeg" width="470">
-        </div>
-        <div class="modal-footer">
-            <div style="margin-right: 280;">
-                <input type="checkbox"> 오늘 그만보기
-            </div>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="close_btn()">Close</button>
-        </div>
-        </div>
+<style>
+    #exampleModal {
+        width: 470px; 
+        position: absolute; 
+        z-index: 1000;
+        background-color: white;
+        top: 25%;
+        left: 35%;
+        border-radius: 7px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    button {
+        margin: 10px 0 10px 250px;
+        background-color: rgb(186, 77, 47);
+        color: white;
+        border: none;
+        padding: 7px 20px;
+        border-radius: 7px;
+    }
+    .hide {
+        display: none;
+    }
+</style>
+
+<div id="exampleModal" class="hide">
+    <img src="/img/modal.jpeg" width="470">
+    <div style="display: flex">
+        <input type="checkbox" style="margin-left: 20px;"> <span style="margin: 15px 0 0 10px;">오늘 그만보기</span>
+        <button type="button" onclick="close_btn()">Close</button>
     </div>
 </div>

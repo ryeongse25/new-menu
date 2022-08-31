@@ -15,15 +15,22 @@
             function close_btn() {
                 let modal_checkbox = document.querySelector("input");
 
+                console.log(modal_checkbox);
+                console.log(modal_checkbox.checked);
+
                 if (modal_checkbox.checked) {
-                    document.cookie = "today=no; expires=Sat, 14 Aug 2022 00:00:00 GMT; path=/";
+                    document.cookie = "today=no; expires=Sat, 3 Sep 2022 00:00:00 GMT; path=/;";
                     console.log(document.cookie);
                 }
+
+                $("#exampleModal").addClass("hide");
             }
         </script>
     </head>
 
     <body>
+        <%-include('modal.ejs') %>
+
         <% if(isLogout) { %>
             <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -288,25 +295,29 @@
         </div>
 
         <script>
-            // let flag  = true;
-            // let cookieArr = document.cookie.split(";");
+            let flag = true;
 
-            // console.log(cookieArr);
-            // for (let i in cookieArr) {
-            //     console.log(cookieArr[i]);
-            //     let cookie = cookieArr[i].split("=");
-            //     console.log(cookie);
-            //     if (cookie[0] == " today" && cookie[1] == "no") {
-            //         flag = false;
-            //         break;
-            //     }
-            // }
+            let cookieArr = document.cookie.split(";");
+            console.log(cookieArr);
+            
+            for (let i in cookieArr) {
+                console.log(cookieArr[i]);
+                let cookie = cookieArr[i].split("=");
+                console.log(cookie);
+                if (cookie[0].trim() == "today" && cookie[1] == "no") {
+                    flag = false;
+                    break;
+                }
+            }
 
-            // if (flag == true) {
-            //     $(document).ready(function() {
-            //         $("#exampleModal").modal("show");
-            //     });
-            // }
+            console.log("type", typeof flag);
+            console.log("flag", flag);
+
+            if (flag == true) {
+                $(document).ready(function() {
+                    $("#exampleModal").removeClass("hide");
+                });
+            }
         </script>
 
         <script src="/js/slide.js"></script>
@@ -317,5 +328,6 @@
         <!-- <input class="downbtn" type="button" onclick="clickdown()" value="&#xf107"> -->
 
         <script src="/js/scroll.js"></script>
+
     </body>
 </html>
