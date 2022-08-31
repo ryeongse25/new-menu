@@ -10,6 +10,17 @@
         <link rel="stylesheet" href="/css/slide.css">
 
         <%-include('script.ejs') %>
+
+        <script>
+            function close_btn() {
+                let modal_checkbox = document.querySelector("input");
+
+                if (modal_checkbox.checked) {
+                    document.cookie = "today=no; expires=Sat, 14 Aug 2022 00:00:00 GMT; path=/";
+                    console.log(document.cookie);
+                }
+            }
+        </script>
     </head>
 
     <body>
@@ -275,6 +286,29 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            // let flag  = true;
+            // let cookieArr = document.cookie.split(";");
+
+            // console.log(cookieArr);
+            // for (let i in cookieArr) {
+            //     console.log(cookieArr[i]);
+            //     let cookie = cookieArr[i].split("=");
+            //     console.log(cookie);
+            //     if (cookie[0] == " today" && cookie[1] == "no") {
+            //         flag = false;
+            //         break;
+            //     }
+            // }
+
+            // if (flag == true) {
+            //     $(document).ready(function() {
+            //         $("#exampleModal").modal("show");
+            //     });
+            // }
+        </script>
+
         <script src="/js/slide.js"></script>
 
         <%-include('footer.ejs') %>
