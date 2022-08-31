@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Average&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
 :root {
     --light: #E1DDDD;
@@ -12,56 +11,74 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-#ranking_container {
-    padding: 10% 0 10% 0;
-    text-align: center;
+body {
+    background-color: #f1f0f0da;
 }
 
-h1 {
-    margin-bottom: 3%;
-    font-size: 29px;
-    margin-left: 15px;
+.rangking_container {
+    display: flex;
+    margin: 0 auto;
+    width: 1700px;
+}
+
+#ranking_container1 {
+    padding: 250px 0 150px 0;
+    width: 50%;
+    border-left: 1px solid black;
 }
 
 .fa-chess-queen {
     color: #BC5539; 
-    margin-left: 20px;
+    text-align: center;
 }
 
-.fa-2x {
-    position: relative;
-    left: 30px;
-    top: 10px;
-    color:#2E5543;
+h1 {
+    margin-bottom: 60px;
+    font-size: 29px;
+    text-align: center;
 }
 
+#recipe_rangking {
+    width: 100%;
+}
 
-.ten {
-    display: flex;
+.ranking_txt {
     position: relative;
-    left: 15px;
+    bottom: 10px;
+}
+
+.ranking_txt span {
+    margin: 0 30px 0 30px;
+    font-size: 20px;
+}
+
+.ranking_txt img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+
+    position: relative;
+    top: 25px;
+}
+
+.ranking_txt p {
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .fa-heart {
-    color:rgb(230, 12, 12); 
-    font-size: 18px;
+    color:rgb(224, 43, 43); 
+    font-size: 25px;
 }
 
 .likes {
-    position: relative; 
-    top: -50px; 
-    margin-left: 80%;
-}
-
-#txtb{
-    width: 60%;
-    margin: auto;
+    text-align: right;
+    position: relative;
+    bottom: 49px;
 }
 
 .ranking_box {
     border: 2px solid rgb(224, 217, 214);
-    width: 50%;
-    height: 57px;
+    height: 95px;
     border-radius: 7px;
     margin-bottom: 30px;
     line-height: 50px;
