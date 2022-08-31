@@ -39,19 +39,21 @@ app.get("/", async function (req, res) {
   console.log(result);
 
   let title = [];
+  let user_id = [];
   let pictures = [];
 
   for(let i=0; i<result.length; i++) {
       let result_title = await models.UserRecipe.findOne({where: {id: result[i].food_id}});
       let result_picture = await models.UserRecipePicture.findOne({where: {food_id: result[i].food_id}});
       title.push(result_title.title);
+      user_id.push(result_title.user_id);
       pictures.push(result_picture.filename);
   }
 
   if (user != undefined) {
-    res.render("index", { isLogin: true, user: user, isLogout: false, like_num: result, title: title, picture: pictures });
+    res.render("index", { isLogin: true, user: user, isLogout: false, like_num: result, title: title, picture: pictures, user_id: user_id });
   } else {
-    res.render("index", { isLogin: false, isLogout: false, like_num: result, title: title, picture: pictures });
+    res.render("index", { isLogin: false, isLogout: false, like_num: result, title: title, picture: pictures, user_id: user_id });
   }
 });
 
