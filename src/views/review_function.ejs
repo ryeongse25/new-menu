@@ -12,7 +12,7 @@
 
         axios({
             method: "post",
-            url: "http://localhost:8000/recipe/review",
+            url: "/recipe/review",
             data: {
                 food_id: "<%=data.id%>",
                 comment: comment
@@ -30,7 +30,7 @@
     function deleteComment(id) {
         axios({
             method: "delete",
-            url: "http://localhost:8000/recipe/deletereview",
+            url: "/recipe/deletereview",
             data: { id : id }
         }).then((response) => {
             return response.data;
@@ -44,7 +44,7 @@
 
         axios({
             method: "get",
-            url: "http://localhost:8000/recipe/getreview",
+            url: "/recipe/getreview",
             params: { id : id }
         }).then((response) => {
             return response.data;
@@ -68,7 +68,7 @@
 
         axios({
             method: "patch",
-            url: "http://localhost:8000/recipe/updatereview",
+            url: "/recipe/updatereview",
             data: { 
                 id : id,
                 food_id: "<%=data.id%>",
@@ -80,7 +80,7 @@
             console.log(data);
 
             let tr = document.getElementById("review_" + id);
-            let children = tr.children;
+            let children = tr.children[0].children;
             $(children[1]).text(form.review.value);
 
             form.reset();

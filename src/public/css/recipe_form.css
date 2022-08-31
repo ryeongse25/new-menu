@@ -170,3 +170,13 @@ p{
     color : white;
     border : none;
 }
+
+#steps p {
+    font-size: 20px;
+    margin-left: 20px;
+    position: relative;
+    top: -15px;
+    color:rgb(186, 77, 47);
+    font-weight: bolder;
+    cursor: pointer;
+}

@@ -7,14 +7,9 @@
 
         <%-include('script.ejs') %>
 
-        <script>
-            function next_step() {
-                let h4s = document.querySelectorAll("#steps h4");
-                let count = h4s.length;
-                let html = `<div class="flex-box"><h4>Step${count+1}</h4><textarea id="step_${count+1}" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요"></textarea></div>`;
-                $("#steps").append(html);
-            }
+        <%-include('form_func.ejs') %>
 
+        <script>
             function posting() {
                 let form = document.getElementById("write_form");
 
@@ -33,13 +28,14 @@
                 let fileUpload = document.getElementById("fileUpload");
 
                 for (let i=0; i<fileUpload.files.length; i++) {
-                    formData.append("userfile", fileUpload.files[i].name);
+                    formData.append("userfile", fileUpload.files[i]);
                 }
 
                 for (let i=1; i<count+1; i++) {
                     formData.append(`step_${i}`, $(`#step_${i}`).val());
                 }
 
+                formData.append("id", form.id.value);
                 formData.append("user_id", "<%=user%>");
                 formData.append("title", form.title.value);
                 formData.append("comment", form.comment.value);
@@ -47,7 +43,7 @@
                 formData.append("category_food", $("#ct_food").val());
                 formData.append("material", form.material.value);
 
-                fetch("http://localhost:8000/recipe/post_write", {
+                fetch("/recipe/post_update", {
                     method: "post",
                     body: formData
                 }).then((response) => response.json()
@@ -72,12 +68,13 @@
         <form id="write_form" enctype="multipart/form-data">
             <h3>레시피 수정</h3>
             <h4>레시피 제목</h4>
+            <input type="hidden" name="id" value="<%=result.id%>">
             <input type="text" name="title" class="txtb1" value="<%=result.title%>" required>
             <h4>요리 소개</h4> 
-            <textarea name="comment" cols="30" rows="10" class="txtb2"><%=result.comment%></textarea>
+            <textarea name="comment" cols="30" rows="10" class="txtb2" required><%=result.comment%></textarea>
             <h4>카테고리</h4>
-            <select name="ct_kind" class="txtb3">
-                <option value="kit">간편식</option>
+            <select id="ct_kind" class="txtb3">
+                <option value="rice">밥</option>
                 <option value="soup">국/찌개</option>
                 <option value="noodle">면</option>
                 <option value="meat">고기</option>
@@ -86,27 +83,28 @@
                 <option value="sauce">소스</option>
                 <option value="dessert">디저트</option>
             </select>
-            <select name="ct_food" class="txtb3">
+            <select id="ct_food" class="txtb3">
                 <option value="beef">소고기</option>
                 <option value="meaf">돼지고기</option>
                 <option value="chicken">닭고기</option>
-                <option value="potato">감자</option>
+                <option value="peanut">땅콩</option>
             </select>
             <p>분류를 바르게 설정해주시면, 사용자들이 쉽게 레시피를 검색할 수 있어요.</p>
             <h4>재료</h4> 
-            <textarea name="material" cols="30" rows="10" class="txtb2"><%=result.material%></textarea>
+            <textarea name="material" cols="30" rows="10" class="txtb2" required><%=result.material%></textarea>
             <h4>요리 순서</h4>
             <div id="steps">
                 <% for (let i=0; i<step.length; i++) { %>
                     <div class="flex-box">
                         <h4>Step<%=i+1%></h4>
-                        <textarea name="step_<%=i+1%>" cols="30" rows="10" class="txtb4"><%=step[i]%></textarea>
+                        <textarea id="step_<%=i+1%>" cols="30" rows="10" class="txtb4" required><%=step[i]%></textarea>
+                        <p onclick="close_btn('step_<%=i+1%>');">x</p>
                     </div>
                 <% } %>
             </div>
             <button type="button" onclick="next_step();" class="add_btn">+ 순서 추가</button>
             <h4>요리 완성 사진</h4>
-            <input type="file" class="imgb" name="userfile" multiple>
+            <input type="file" class="imgb" name="userfile" id="fileUpload" multiple required>
             <div class="btn">
                 <button type="button" onclick="posting();" class="posting_btn">레시피 수정</button>
                 <button type="button" onclick="alertCancel();" class="cancel_btn">취소</button>

@@ -29,7 +29,7 @@
 
                     axios({
                     method: "post",
-                    url: "http://localhost:8000/recipe/like",
+                    url: "/recipe/like",
                     data: {
                         food_id: "<%=data.id%>"
                     },
@@ -42,7 +42,7 @@
 
                     axios({
                     method: "post",
-                    url: "http://localhost:8000/recipe/dislike",
+                    url: "/recipe/dislike",
                     data: {
                         food_id: "<%=data.id%>"
                     },
@@ -96,7 +96,7 @@
             
             <div class="detail_img">
                 <% for (let i=0; i<picture.length; i++) { %>
-                    <img src='/img/user_recipe/<%=picture[i].filename%>' width="700px">
+                    <img src='/img/user_recipe/<%=picture[i].filename%>' width="300px" height="300pxß">
                 <% } %>
             </div>
     
@@ -140,8 +140,8 @@
                         
                         <!-- <th class="review_cm"><%=review[i].comment%></th> -->
                         <% if (review[i].user_id == user) { %>
-                            <td><p onclick="getReview('<%=review[i].id%>');" id="getreview">수정</p></td>
-                            <td><p onclick="deleteComment('<%=review[i].id%>');" id="deleteComment">삭제</p></td>
+                            <td  id="getreview"><p onclick="getReview('<%=review[i].id%>');">수정</p></td>
+                            <td id="deleteComment"><p onclick="deleteComment('<%=review[i].id%>');" >삭제</p></td>
                         <% } else { %>
                             <td></td>
                             <td></td>

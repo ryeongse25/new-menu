@@ -14,7 +14,7 @@
 
 			axios({
 				method: "post",
-				url: "http://localhost:8000/user/id_check",
+				url: "/user/id_check",
 				data: {
 					id: form.id.value,
 				},
@@ -47,7 +47,7 @@
 
 			axios({
 				method: "post",
-				url: "http://localhost:8000/user/register",
+				url: "/user/register",
 				data: {
 					id: form.id.value,
 					pw: form.pw.value,

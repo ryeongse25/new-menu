@@ -8,6 +8,7 @@
     --green: #2E5543;
     --red: rgb(186, 77, 47);
 }
+
 * {
     box-sizing : border-box;
     margin: 0;
@@ -236,14 +237,15 @@
 }
 
 .reviewTable {
-    margin-top: 30px;
+    margin: 30px auto 0;
     font-family: 'Noto Sans KR', sans-serif;
 
     width: 100%;
     border-top: 1px solid rgb(224, 217, 214);
     border-collapse: collapse;
-}
 
+    text-align: center;
+}
 
 .reviewTable td {
     border-bottom: 1px solid rgb(224, 217, 214);
@@ -263,6 +265,7 @@
     font-size: 14px;
     color: gray;
     text-align: center;
+    width: 60px;
 }
 
 #reviewTable tr:nth-child(even) {

@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>RECIPE of GOD에 오신 것을 환영합니다</title>
+        <title>신메뉴에 오신 것을 환영합니다</title>
         <meta charset="utf-8">
 
         <link rel="stylesheet" href="/css/nav.css">
@@ -23,39 +23,42 @@
                     <p id="txt2">당신을 위한 메뉴가 여기 있습니다.</p>
                 </div>
                 <div class="search">
-                    <form action="" class="search-bar">
+                    <form action="/recipe/search" method="get" class="search-bar">
                         <input type="text" class="search_box" placeholder="요리/재료명을 입력해주세요" name="q">
-                        <button type="submit" class="search_btn">
+                        <button class="search_btn">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </form>
                 </div>
                 <div class="option">
-                    <button type="button">밥</button>
-                    <button type="button">국/찌개</button>
-                    <button type="button">면</button>
-                    <button type="button">고기</button>
-                    <button type="button">해산물</button>
-                    <button type="button">채소</button>
-                    <button type="button">소스</button>
-                    <button type="button">디저트</button>
+                    <p class="food_btn">전체</p>
+                    <p class="food_btn">밥</p>
+                    <p class="food_btn">국/찌개</p>
+                    <p class="food_btn">면</p>
+                    <p class="food_btn">고기</p>
+                    <p class="food_btn">해산물</p>
+                    <p class="food_btn">채소</p>
+                    <p class="food_btn">소스</p>
+                    <p class="food_btn">디저트</p>
                 </div>
             </div>
         </div>
 
         <div class="container5">
             <div class="container5_txt">
-            <p class="total">총 <span class="count"><%=result.length%></span>개</p>
+                <p class="total">총 <span class="count"><%=result.length%></span>개</p>
             </div>
+
+            <!-- 전체 -->
             <div class="container5_card">
-                    <% for (let i=0; i<result.length; i++) { %>
-                        <div class="main_card">
-                            <a href="/recipe/detail?user_id=<%=result[i].user_id%>&food_id=<%=result[i].id%>">
-                                <img src="/img/user_recipe/<%=picture[i]%>" class="main_card_image">
-                                <h4><%=result[i].title%></h4>
-                            </a>
-                        </div>
-                    <% } %>
+                <% for (let i=0; i<result.length; i++) { %>
+                    <div class="main_card">
+                        <a href="/recipe/detail?user_id=<%=result[i].user_id%>&food_id=<%=result[i].id%>">
+                            <img src="/img/user_recipe/<%=picture[i]%>" class="main_card_image">
+                            <h4><%=result[i].title%></h4>
+                        </a>
+                    </div>
+                <% } %>
                 <!-- <div class="main_card">
                     <a href="#">
                         <img src="/img/menu13.png" class="main_card_image">
@@ -266,6 +269,102 @@
                 </div> -->
             </div>
 
+            <!-- 밥 -->
+            <div class="container5_card hide">
+                <% for (let i=0; i<rice.length; i++) { %>
+                    <div class="main_card">
+                        <a href="/recipe/detail?user_id=<%=rice[i].user_id%>&food_id=<%=rice[i].id%>">
+                            <img src="/img/user_recipe/<%=rice_pictures[i]%>" class="main_card_image">
+                            <h4><%=rice[i].title%></h4>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+
+            <!-- 국/찌개 -->
+            <div class="container5_card hide">
+                <% for (let i=0; i<soup.length; i++) { %>
+                    <div class="main_card">
+                        <a href="/recipe/detail?user_id=<%=soup[i].user_id%>&food_id=<%=soup[i].id%>">
+                            <img src="/img/user_recipe/<%=soup_pictures[i]%>" class="main_card_image">
+                            <h4><%=soup[i].title%></h4>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+
+            <!-- 면 -->
+            <div class="container5_card hide">
+                <% for (let i=0; i<noodle.length; i++) { %>
+                    <div class="main_card">
+                        <a href="/recipe/detail?user_id=<%=noodle[i].user_id%>&food_id=<%=noodle[i].id%>">
+                            <img src="/img/user_recipe/<%=noodle_pictures[i]%>" class="main_card_image">
+                            <h4><%=noodle[i].title%></h4>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+
+            <!-- 고기 -->
+            <div class="container5_card hide">
+                <% for (let i=0; i<meat.length; i++) { %>
+                    <div class="main_card">
+                        <a href="/recipe/detail?user_id=<%=meat[i].user_id%>&food_id=<%=meat[i].id%>">
+                            <img src="/img/user_recipe/<%=meat_pictures[i]%>" class="main_card_image">
+                            <h4><%=meat[i].title%></h4>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+
+            <!-- 해산물 -->
+            <div class="container5_card hide">
+                <% for (let i=0; i<seafood.length; i++) { %>
+                    <div class="main_card">
+                        <a href="/recipe/detail?user_id=<%=seafood[i].user_id%>&food_id=<%=seafood[i].id%>">
+                            <img src="/img/user_recipe/<%=seafood_pictures[i]%>" class="main_card_image">
+                            <h4><%=seafood[i].title%></h4>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+
+            <!-- 채소 -->
+            <div class="container5_card hide">
+                <% for (let i=0; i<vegetables.length; i++) { %>
+                    <div class="main_card">
+                        <a href="/recipe/detail?user_id=<%=vegetables[i].user_id%>&food_id=<%=vegetables[i].id%>">
+                            <img src="/img/user_recipe/<%=vegetables_pictures[i]%>" class="main_card_image">
+                            <h4><%=vegetables[i].title%></h4>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+
+            <!-- 소스 -->
+            <div class="container5_card hide">
+                <% for (let i=0; i<sauce.length; i++) { %>
+                    <div class="main_card">
+                        <a href="/recipe/detail?user_id=<%=sauce[i].user_id%>&food_id=<%=sauce[i].id%>">
+                            <img src="/img/user_recipe/<%=sauce_pictures[i]%>" class="main_card_image">
+                            <h4><%=sauce[i].title%></h4>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+
+            <!-- 디저트 -->
+            <div class="container5_card hide">
+                <% for (let i=0; i<dessert.length; i++) { %>
+                    <div class="main_card">
+                        <a href="/recipe/detail?user_id=<%=dessert[i].user_id%>&food_id=<%=dessert[i].id%>">
+                            <img src="/img/user_recipe/<%=dessert_pictures[i]%>" class="main_card_image">
+                            <h4><%=dessert[i].title%></h4>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+
             <div class="menu_more">
                 <button type="button">+ 더보기</button>
             </div>
@@ -277,5 +376,41 @@
         <input class="upbtn" type="button" onclick="clickup()" value="&#xf106">
         <!-- <input class="downbtn" type="button" onclick="clickdown()" value="&#xf107"> -->
         <script src="js/scroll.js"></script>
+
+        <script>
+            // 로딩시 전체 버튼 선택
+            window.onload = function() {
+                let all_food = document.querySelectorAll(".food_btn");
+                $(all_food[0]).addClass("toggle");
+            }
+
+            $(".food_btn").on("click", function( obj ) {
+                // 버튼 클릭시 색 변환
+                let target = obj.currentTarget;
+                let brothers = $(target).siblings();
+
+                $(target).addClass("toggle");
+                $(brothers).removeClass("toggle");
+
+                // 해당 컨텐츠만 보이게
+                let index = Number($(target).prevAll().length) + 1;
+                let container = document.querySelector(".container5");
+                let content_brothers = $(container).children();
+                content_brothers = content_brothers.slice(1,10);
+
+                $(content_brothers[index-1]).removeClass("hide");
+                for (let i=0; i<9; i++) {
+                    if (i == index-1) {
+                        continue;
+                    }
+                    $(content_brothers[i]).addClass("hide");
+                }
+
+                // 분류별 개수
+                let ct_list = ["<%=result.length%>", "<%=rice.length%>", "<%=soup.length%>", "<%=noodle.length%>", "<%=meat.length%>", "<%=seafood.length%>", "<%=vegetables.length%>", "<%=sauce.length%>", "<%=dessert.length%>"];
+
+                $(".container5_txt").html(`<p class="total">총 <span class="count">${ct_list[index-1]}</span>개</p>`);
+            });
+        </script>
     </body>
 </html>

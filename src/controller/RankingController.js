@@ -1,5 +1,6 @@
 const models = require("../model");
 
+// 랭킹 페이지 get
 exports.index = async (req, res) => {
     const user = req.session.user;
 
@@ -7,20 +8,15 @@ exports.index = async (req, res) => {
 
     let result = await models.sequelize.query(query);
     result = result[0];
-    console.log(result);
-    // console.log(result.length);
 
     let title = [];
     let user_id = [];
 
     for(let i=0; i<result.length; i++) {
         let result_title = await models.UserRecipe.findOne({where: {id: result[i].food_id}})
-        // console.log(result_title);
         user_id.push(result_title.user_id);
         title.push(result_title.title);
     }
-
-    // console.log(title);
     
     if (user != undefined) {
         res.render("ranking", { isLogin: true, user: user, isLogout: false, like_num: result, title: title, user_id: user_id});

@@ -7,15 +7,9 @@
 
         <%-include('script.ejs') %>
 
+        <%-include('form_func.ejs') %>
+        
         <script>
-            function next_step() {
-                let h4s = document.querySelectorAll("#steps h4");
-                let count = h4s.length;
-                let html = `<div class="flex-box"><h4>Step${count+1}</h4><textarea id="step_${count+1}" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요"></textarea></div>`;
-                $("#steps").append(html);
-            }
-
-
             function posting() {
                 let form = document.getElementById("write_form");
 
@@ -50,7 +44,7 @@
                 formData.append("category_food", $("#ct_food").val());
                 formData.append("material", form.material.value);
 
-                fetch("http://localhost:8000/recipe/post_write", {
+                fetch("/recipe/post_write", {
                     method: "post",
                     body: formData
                 }).then((response) => response.json()
@@ -83,7 +77,7 @@
             <h4>카테고리</h4>
             <select id="ct_kind" class="txtb3" required>
                 <option value="" selected>종류별</option>
-                <option value="kit">간편식</option>
+                <option value="rice">밥</option>
                 <option value="soup">국/찌개</option>
                 <option value="noodle">면</option>
                 <option value="meat">고기</option>
@@ -97,7 +91,7 @@
                 <option value="beef">소고기</option>
                 <option value="meaf">돼지고기</option>
                 <option value="chicken">닭고기</option>
-                <option value="potato">감자</option>
+                <option value="peanut">땅콩</option>
             </select>
             <p>분류를 바르게 설정해주시면, 사용자들이 쉽게 레시피를 검색할 수 있어요.</p>
             <h4>재료</h4> 
@@ -107,6 +101,7 @@
                 <div class="flex-box">
                     <h4>Step1</h4>
                     <textarea id="step_1" cols="30" rows="10" class="txtb4" placeholder="요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요. 예) 소고기는 기름기를 때어내고 적당한 크기로 썰어주세요" required></textarea>
+                    <p onclick="close_btn('step_1');">x</p>
                 </div>
             </div>
             <button type="button" onclick="next_step();" class="add_btn">+ 순서 추가</button>

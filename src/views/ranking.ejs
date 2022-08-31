@@ -1,11 +1,13 @@
 <html>
     <head>
         <title>게시물 랭킹</title>
+        <meta charset="utf-8">
 
         <link rel="stylesheet" href="/css/nav.css"/>
         <link rel="stylesheet" href="/css/ranking.css">
-        <script src="https://kit.fontawesome.com/3a4e397308.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/bottom_bar.css">
         <%-include('script.ejs') %>
+
     </head>
 
     <body>
@@ -13,50 +15,113 @@
         <script src="/js/nav.js"></script>
 
         <div id="ranking_container">
-            <i class="fa-regular fa-chess-queen fa-4x"></i>
-            <h1>레시피 랭킹</h1>
+            <h1>레시피 랭킹<i class="fa-regular fa-chess-queen fa-4x" style="font-size: 50px;"></i></h1>
+
             <div id="txtb">
-                <div id="txtb1">
-                    <i class="fa-solid fa-1"></i>
-                    <i class="fa-solid fa-chess-queen"></i>
-                    <i class="fa-solid fa-crown"></i>
-                    <i class="fa-regular fa-face-grin-hearts"></i>
-                    <i class="fa-regular fa-face-kiss-wink-heart"></i>
-                    <i class="fa-solid fa-heart"></i>
-                    <i class="fa-regular fa-heart"></i>
-                
-                </div>
-                <div id="txtb2">
-                    <i class="fa-solid fa-2"></i>
 
+                <div style="display: flex;">
+                    <i class="fa-solid fa-1 fa-2x"></i>
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[0]%>&food_id=<%=like_num[0].food_id%>'">
+                        <%=title[0]%>
+                        <div class="likes">
+                            <i class="fa-solid fa-heart"></i>
+                            <%=like_num[0].count%>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-6 fa-2x"></i>
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[5]%>&food_id=<%=like_num[5].food_id%>'">
+                        <%=title[5]%>
+                        <div class="likes">
+                            <i class="fa-solid fa-heart"></i>
+                            <%=like_num[5].count%>
+                        </div>
+                    </div>
                 </div>
-                <div id="txtb3">
-                    <i class="fa-solid fa-3"></i>
-
+            
+                <div style="display: flex;">
+                    <i class="fa-solid fa-2 fa-2x"></i> 
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[1]%>&food_id=<%=like_num[1].food_id%>'">
+                        <%=title[1]%>
+                        <div class="likes">
+                            <i class="fa-solid fa-heart"></i>
+                            <%=like_num[1].count%>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-7 fa-2x"></i>
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[6]%>&food_id=<%=like_num[6].food_id%>'">
+                        <%=title[6]%>
+                        <div class="likes">
+                            <i class="fa-solid fa-heart"></i>
+                            <%=like_num[6].count%>
+                        </div>
+                    </div>
                 </div>
-                <div id="txtb4">
-                    <i class="fa-solid fa-4"></i>
 
+
+                <div style="display: flex;">
+                    <i class="fa-solid fa-3 fa-2x"></i>
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[2]%>&food_id=<%=like_num[2].food_id%>'">
+                        <%=title[2]%>
+                        <div class="likes">
+                            <i class="fa-solid fa-heart"></i>
+                            <%=like_num[2].count%>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-8 fa-2x"></i>
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[7]%>&food_id=<%=like_num[7].food_id%>'">
+                        <%=title[7]%>
+                        <div class="likes">
+                            <i class="fa-solid fa-heart"></i>
+                            <%=like_num[7].count%>
+                        </div>
+                    </div>
                 </div>
-                <div id="txtb5">
-                    <i class="fa-solid fa-5"></i>
 
+
+                <div style="display: flex;">
+                    <i class="fa-solid fa-4 fa-2x"></i>
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[3]%>&food_id=<%=like_num[3].food_id%>'">
+                        <%=title[3]%>
+                        <div class="likes">
+                            <i class="fa-solid fa-heart"></i>
+                            <%=like_num[3].count%>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-9 fa-2x"></i>
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[8]%>&food_id=<%=like_num[8].food_id%>'">
+                        <%=title[8]%>
+                        <div class="likes">
+                            <i class="fa-solid fa-heart"></i>
+                            <%=like_num[8].count%>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div style="display: flex;">
+                    <i class="fa-solid fa-5 fa-2x"></i>
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[4]%>&food_id=<%=like_num[4].food_id%>'">
+                        <%=title[4]%>
+                        <div class="likes">
+                            <i class="fa-solid fa-heart"></i>
+                            <%=like_num[4].count%>
+                        </div>
+                    </div>
+                    <div class="ten">
+                        <i class="fa-solid fa-1 fa-2x"></i>
+                        <i class="fa-solid fa-0 fa-2x"></i>
+                    </div>
+                    <div class="ranking_box" onclick="location.href='recipe/detail?user_id=<%=user_id[9]%>&food_id=<%=like_num[9].food_id%>'">
+                        <%=title[9]%>
+                        <div class="likes">
+                            <i class="fa-solid fa-heart"></i>
+                            <%=like_num[9].count%>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-
-            <!-- <table frame=void class="txtb" border="1" cellspacing="0">
-                <tr class="txtb1">
-                    <th width="300">제목</th>
-                    <th width="300">좋아요 수</th>
-                </tr>
-                <% for(let i=0; i<like_num.length; i++) { %>
-                    <tr class="txtb2">
-                        <th><a href="recipe/detail?user_id=<%=user_id[i]%>&food_id=<%=like_num[i].food_id%>"><%=title[i]%></a></th>
-                        <th class="like"><%=like_num[i].count%></th>
-                    </tr>
-                <% } %>
-            </table> -->
         </div>
+
+        <%-include('footer.ejs') %>
     </body>
 </html>
