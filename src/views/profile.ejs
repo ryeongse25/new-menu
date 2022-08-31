@@ -207,49 +207,6 @@
                 <li class="message-content">받은 댓글이 없습니다.</li>
             </ul>
         </div> -->
-        <div id="write-like-content">
-            <h2>찜한 요리</h2>
-            <% if (like_title.length == 0) { %>
-              <ul>
-                  <li class="message">Message</li>
-                  <li class="message-content">찜한 요리가 없습니다.</li>
-              </ul>
-            <% } else { %>
-              <div class="cards-main">
-                <ul class="cards">
-                    <% for (let i=0; i<like_title.length; i++) { %>
-                        <a href="/recipe/detail?user_id=<%=like_title[i].user_id%>&food_id=<%=like_title[i].id%>">
-                            <li class="cards_item" style="border: none;">
-                                <div class="card">
-                                    <div class="card_image">
-                                        <img src="/img/user_recipe/<%=like_picture[i]%>">
-                                    </div>
-                                    <div class="card_content">
-                                        <h2 class="card_title"><%=like_title[i].title%></h2>
-                                    </div>
-                                </div>
-                            </li>
-                        </a>
-                    <% } %>
-                </ul>
-            <!-- <div id="write-like-content">
-                <h2>찜한 요리</h2>
-                <% if (like_title.length == 0) { %>
-                </div> -->
-                <!-- <div id="write-comment-content">
-                    <h2>내가 쓴 댓글</h2>
-                    <ul>
-                        <li class="message">Message</li>
-                        <li class="message-content">작성한 댓글이 없습니다.</li>
-                    </ul>
-                </div> -->
-                <!-- <div id="give-comment-content">
-                    <h2>받은 댓글</h2>
-                    <ul>
-                        <li class="message">Message</li>
-                        <li class="message-content">받은 댓글이 없습니다.</li>
-                    </ul>
-                </div> -->
 
                 <div id="write-like-content">
                     <h2 style="color: #2E5543">찜한 요리</h2>
@@ -287,14 +244,6 @@
                     <% } %>
                 </div>
 
-                <!-- <div id="give-like-content">
-                    <h2>찜 받은 요리</h2>
-                    <ul>
-                        <li class="message">Message</li>
-                        <li class="message-content">찜 받은 요리가 없습니다.</li>
-                    </ul>
-                </div> -->
-                
             </div>
 
         </div>
