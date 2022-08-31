@@ -195,6 +195,22 @@ form .fa-solid {
     margin: 0 auto 30px;
 }
 
+.keyword {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+}
+
+.keyword span {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 700;
+    font-size: 23px;
+    font-weight: 700;
+}
+
 .total {
     font-family: 'Nanum Gothic', sans-serif;
     font-weight: 700;
