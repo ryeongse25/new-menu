@@ -58,10 +58,29 @@ app.get("/", async function (req, res) {
 });
 
 // 로그아웃
-app.get("/logout", (req, res) => {
+app.get("/logout", async (req, res) => {
   const user = req.session.user;
+
+  let query = 'select food_id, count(food_id) as count from user_recipe_like group by food_id ORDER BY COUNT(food_id) DESC;';
+
+  let result = await models.sequelize.query(query);
+  result = result[0];
+  console.log(result);
+
+  let title = [];
+  let user_id = [];
+  let pictures = [];
+
+  for(let i=0; i<result.length; i++) {
+      let result_title = await models.UserRecipe.findOne({where: {id: result[i].food_id}});
+      let result_picture = await models.UserRecipePicture.findOne({where: {food_id: result[i].food_id}});
+      title.push(result_title.title);
+      user_id.push(result_title.user_id);
+      pictures.push(result_picture.filename);
+  }
+
   req.session.destroy(function (err) {
-    res.render("index", {isLogout: true, isLogin: false});
+    res.render("index", {isLogout: true, isLogin: false, like_num: result, title: title, picture: pictures, user_id: user_id});
   });
 });
 
