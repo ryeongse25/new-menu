@@ -201,8 +201,8 @@ hr {
     height: 30px;
     width: 30px;
     position: relative;
-    top: 25px;
-    right: 10px; 
+    bottom: 50px;
+    right: 20px; 
     float: right;
     cursor: pointer;
 }
