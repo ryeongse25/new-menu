@@ -21,7 +21,7 @@
             function delete_user() {
                 axios({
                     method: "delete",
-                    url: "http://localhost:8000/user/delete",
+                    url: "/user/delete",
                     data: {
                         id: "<%=user%>"
                     }
