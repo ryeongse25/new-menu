@@ -18,7 +18,9 @@
 }
 
 h1 {
-    margin-bottom: 5%;
+    margin-bottom: 3%;
+    font-size: 29px;
+    margin-left: 15px;
 }
 
 .fa-chess-queen {
@@ -32,6 +34,7 @@ h1 {
     top: 10px;
     color:#2E5543;
 }
+
 
 .ten {
     display: flex;
@@ -58,7 +61,7 @@ h1 {
 .ranking_box {
     border: 2px solid rgb(224, 217, 214);
     width: 50%;
-    height: 50px;
+    height: 57px;
     border-radius: 7px;
     margin-bottom: 30px;
     line-height: 50px;
@@ -68,4 +71,13 @@ h1 {
 .ranking_box a {
     text-decoration: none;
     color: black;
+}
+
+p{
+    color : rgb(81, 85, 85);
+    font-size: 15px;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
 }
