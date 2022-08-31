@@ -29,7 +29,7 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 99;
+    z-index: 99999;
     background-color: white;
     padding: 30px 32px;
     border-bottom: 2px solid var(--light);
