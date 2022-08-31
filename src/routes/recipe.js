@@ -35,6 +35,8 @@ router.get("/update", recipe.update);
 // mealkit page
 router.get("/mealkit", recipe.mealkit_page);
 router.get("/mealkit/id1", recipe.mealkit_detail);
+router.get("/mealkit/id2", recipe.mealkit_detail1);
+router.get("/mealkit/id3", recipe.mealkit_detail2);
 
 // like
 router.post("/like", recipe.like);
