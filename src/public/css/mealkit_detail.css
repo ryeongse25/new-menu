@@ -190,9 +190,10 @@
     padding: 17px;
     margin-top: 5px;
     font-size: 19px;
+    cursor: pointer;
 }
 
-/* 상세페이지 */
+/* 상세페이지 - btn */
 
 .bt_nav {
     margin: 50px auto 0;
@@ -240,4 +241,128 @@
     font-size: 16px;
     font-weight: 500;
     color: var(--green);
+}
+
+/* 상세페이지 - main */
+
+.bt-dt {
+    position: relative;
+    width: 1010px;
+    top: 30px;
+    margin:  0 auto;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.detail-txt {
+    margin-bottom: 150px;
+}
+
+.title {
+    margin: 75px 0px 0px;
+    padding-bottom: 35px;
+    font-size: 38px;
+    line-height: 50px;
+    text-align: center;
+    border-bottom: 1px solid rgb(193, 193, 193);
+    color: rgb(102, 102, 102);
+    font-weight: 500;
+}
+
+.detail-txt span {
+    font-size: 24px;
+    margin-bottom: 14px;
+}
+
+.words {
+    font-size: 18px;
+    line-height: 32px;
+    color: rgb(55, 55, 55);
+    margin-top: 30px;
+    font-weight: 300;
+}
+
+.ing-title {
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    font-size: 50px;
+    width: 100%;
+    margin-bottom: 70px;
+    font-weight: 400;
+    color: rgb(102, 102, 102);
+}
+
+.line {
+    display: flex;
+	flex-basis: 100%;
+	align-items: center;
+	color: rgb(102, 102, 102);
+	font-size: 12px;
+	margin: 8px 0px;
+}
+
+.ing-title span {
+    font-size: 45px;
+    font-weight: 500;
+    color: rgb(102, 102, 102);
+}
+
+.line::before,
+.line::after {
+	content: "";
+	flex-grow: 1;
+	background: rgba(0, 0, 0, 0.35);
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 16px;
+}
+
+.ing {
+    margin-bottom: 150px;
+}
+
+.words span:nth-child(1) {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 80px;
+}
+
+.words span:nth-child(3), .words span:nth-child(5) {
+    font-weight: 500;
+}
+
+.review {
+    text-align: center;
+
+}
+
+.review span {
+    font-size: 45px;
+    font-weight: 500;
+    margin-bottom: 100px;
+}
+
+.review p {
+    font-size: 30px;
+    margin-bottom: 100px;
+}
+
+/* 수량 */
+
+.qty {
+    display: flex;
+}
+
+#ct_qty {
+    width: 40px;
+    text-align: center;
+}
+
+.plus button {
+    width: 20px;
+}
+
+.minus button {
+    width: 20px;
 }

@@ -5,6 +5,8 @@
 
         <link rel="stylesheet" href="/css/mealkit_detail.css">
         <link rel="stylesheet" href="/css/nav.css">
+        <link rel="stylesheet" href="/css/bottom_bar.css">
+        <link rel="stylesheet" href="/css/scroll.css">
 
         <%-include('script.ejs') %>
     </head>
@@ -17,12 +19,12 @@
         <div class="container8">
             <div class="top">
                 <article class="top_article">
-                    <div class="top_left"><img src="/img/궁중떡볶이.png"></div>
+                    <div class="top_left"><img src="/img/쉬림프파스타.png"></div>
                     <div class="top_right">
                         <div class="right1">
-                            <h2>소불고기 궁중떡볶이</h2>
+                            <h2>[최현석의 쵸이닷] 쉬림프 크림 파스타</h2>
                         </div>
-                        <p class="right1_1">집에서 즐기는 궁중음식</p>
+                        <p class="right1_1">한 끝이 다른 크림 파스타</p>
                         <div class="right2">
                             <!-- <span class="percent">15%</span> -->
                             <span class="price">15,300</span>
@@ -45,17 +47,26 @@
                             </dl>
                             <dl class="right3_1">
                                 <dt>수량</dt>
-                                <dd>
-                                    <p class="sub1">1팩</p>
-                                </dd>
+                                <div class="qty">					
+                                    <div class="plus">
+                                        <a href="javascript:change_qty2('p')">
+                                            <button>+</button>
+                                        </a>
+                                    </div>
+                                    <input type="text" name="ct_qty" id="ct_qty" value="1" readonly="readonly">
+                                    <div class="minus">
+                                        <a href="javascript:change_qty2('m')">
+                                            <button>-</button>
+                                        </a>
+                                    </div>
+                                </div>	
                             </dl>
                             <dl class="right3_2">
-                                <dt>총 상품금액<br><span>15,300 원</span></dt>
+                                <dt>총 상품금액<br><span id="total_amount">15,300 원</span></dt>
                                 <dd>
                                     <button>장바구니</button>
                                 </dd>
                             </dl>
-
                         </div>
                     </div>
                 </article>
@@ -63,26 +74,92 @@
 
             <div class="bt_nav">
                 <div class="btn1">
-                    <a href="#">
+                    <a href="#one">
                         <span>상품설명</span>
                     </a>
                 </div>
                 <div class="btn1">
-                    <a href="#">
+                    <a href="#two">
                         <span>상세정보</span>
                     </a>
                 </div>
                 <div class="btn1">
-                    <a href="#">
+                    <a href="#three">
                         <span>후기</span>
                     </a>
                 </div>
                 <div class="btn2">
-                    <a href="#">
+                    <a href="#four">
                         <span>문의</span>
                     </a>
                 </div>
             </div>
+
+            <div class="bt-dt">
+                <div>
+                    <div class="pic">
+                        <img src="/img/pasta1.jpg" id="one">
+                    </div>
+                    <div class="detail-txt">
+                        <p class="title">
+                            <span>한 끝이 다른 크림 파스타</span>
+                            <br>
+                            [최현석의 쵸이닷]
+                            <br>
+                            쉬림프 크림 파스타  
+                        </p>
+                        <p class="words">
+                            청담동의 파인 다이닝 레스토랑, 쵸이닷의 쉬림프 크림 파스타를 밀키트로 만나보세요. 평범해 보이는 크림소스도 최현석 셰프의 손을 거치면 특별해지는데요. 부드러운 크림에 봉골레 올리오 소스와 홍합 국물로 진한 감칠맛을 더해준 것이 특징이에요. 튼실한 새우살은 물론, 양념이 흠뻑 배어드는 생면 스파게티까지 재료 하나하나 신경 써서 담았답니다. 간단한 조리로 집에서도 레스토랑 못지않은 근사한 한 끼를 누려보세요.
+                        </p>
+                    </div>
+                </div>
+                <div   id="two">
+                    <div class="ing">
+                        <p class="ing-title">
+                            <span class="line">新's Pick</span>
+                        </p>
+                        <div class="ing-box">
+                            <img src="/img/pasta_ing.jpg">
+                            <p class="words">
+                                <span>쉬림프 크림 파스타</span><br>
+                                <span>・구성 </span>: ①스파게티 1봉(120g), ②냉동 흰다리 새우살 1봉(57g), ③해물 크림 소스 1봉(200g)<br>
+                                <span>・특징</span> : 쵸이닷의 레시피로 만든 진한 크림 소스와 탱글한 새우가 조화롭게 어우러지는 파스타예요. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="ing">
+                        <p class="ing-title" style="margin-bottom: 0;">
+                            <span class="line">新's Tip</span>
+                        </p>
+                        <div class="ing-box">
+                            <p class="words">
+                                <span style="font-size: 25px;">보관법</span><br>
+                                -18℃ 이하의 냉동실에 보관하세요.<br><br>
+                                <span style="font-size: 25px; line-height: 60px;">조리법</span><br>  
+                                1. 소스와 냉동 새우를 1~2시간 정도 상온에서 해동하세요<br>
+                                2. 해동한 새우를 흐르는 물에 씻은 후, 물기를 제거해 올리브 오일이나 식용유에서 1~2분간 볶아 익혀 주세요.<br>
+                                3. 냉동 상태의 스파게티면을 끓는 물에 넣어 2분간 삶아 주세요.<br>
+                                4. 삶은 면과 해동한 소스를 새우와 함께 중불에서 1분 30초간 잘 섞어 볶아 주세요.<br> 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review" id="three">
+                    <span class="line">PRODUCT REVIEW</span>
+                    <p>준비중입니다</p>
+                </div>
+                <div class="review" style="margin-bottom: 400px;" id="four">
+                    <span class="line">PRODUCT Q&A</span>
+                    <p>준비중입니다</p>
+                </div>
+            </div>
         </div>
+
+        <%-include('footer.ejs') %>
+
+        <input class="upbtn" type="button" onclick="clickup()" value="&#xf106">
+
+        <script src="/js/scroll.js"></script>
+        <script src="/js/num.js"></script>
     </body>
 </html>
