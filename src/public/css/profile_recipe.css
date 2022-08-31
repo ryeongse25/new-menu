@@ -4,9 +4,14 @@
 } */
 
 /* recipe */
+
+.container {
+  width: 100%;
+}
+
 .cards {
-  display: flex;
-  justify-content: center;
+  margin-left: 10rem;
+  align-items: center;
 }
 
 .card {

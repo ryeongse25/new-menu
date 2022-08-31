@@ -12,6 +12,9 @@
         <link rel="stylesheet" href="/css/profile_recipe.css" />
         <link rel="stylesheet" href="/css/food-comment.css">
         <script src="/js/profile.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
 
         <script>
             function update_btn() {
@@ -39,6 +42,9 @@
         <script src="/js/nav.js"></script>
 
         <!-- 마이페이지 -->
+        <div id="mypage-txt">
+            <h1 style="color: #2E5543">마이페이지</h1>
+        </div>
         <div id="main">
             <div id="tab">
                 <div id="tab-box">
@@ -176,9 +182,11 @@
                         <ol class="food-comments">
                             <% for(let i=0; i<review.length; i++) { %>
                                 <li class="food-comment">
+                                    <img src="/img/comment.png" alt="">
                                     <div class="food-comment-text">
                                     <div class="food-people"><%=titles[i]%></div>
                                     <p><%=review[i].comment%></p>
+                                    <div ></div>
                                     </div>
                                 </li>
                             <% } %>
@@ -249,6 +257,5 @@
         </div>
     
     <script src="/js/card.js"></script>
-
     </body>
 </html>
