@@ -120,3 +120,14 @@ function alertCancel() {
         }
     });
 }
+
+// 품절
+function alertSoldout() {
+    Swal.fire({
+        position: "top-center",
+        icon: "warning",
+        text: "해당 상품은 품절되었습니다.",
+        showConfirmButton: false,
+        timer: 1500,
+    })
+}
