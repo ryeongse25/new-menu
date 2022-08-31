@@ -294,6 +294,26 @@ exports.mealkit_detail = (req, res) => {
     }
 }
 
+exports.mealkit_detail1 = (req, res) => {
+    const user = req.session.user;
+
+    if ( user != undefined ) {
+        res.render("mealkit_detail1", {isLogin: true, user: user});
+    } else {
+        res.render("mealkit_detail1", {isLogin: false});
+    }
+}
+
+exports.mealkit_detail2 = (req, res) => {
+    const user = req.session.user;
+
+    if ( user != undefined ) {
+        res.render("mealkit_detail2", {isLogin: true, user: user});
+    } else {
+        res.render("mealkit_detail2", {isLogin: false});
+    }
+}
+
 // 후기 기능
 exports.review = async (req, res) => {
     const user = req.session.user;
