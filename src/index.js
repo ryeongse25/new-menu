@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+const models = require("./model");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -28,13 +29,29 @@ const rankingRouter = require("./routes/ranking");
 // const { Script } = require("vm");
 
 // 메인 페이지
-app.get("/", function (req, res) {
+app.get("/", async function (req, res) {
   const user = req.session.user;
 
+  let query = 'select food_id, count(food_id) as count from user_recipe_like group by food_id ORDER BY COUNT(food_id) DESC;';
+
+  let result = await models.sequelize.query(query);
+  result = result[0];
+  console.log(result);
+
+  let title = [];
+  let pictures = [];
+
+  for(let i=0; i<result.length; i++) {
+      let result_title = await models.UserRecipe.findOne({where: {id: result[i].food_id}});
+      let result_picture = await models.UserRecipePicture.findOne({where: {food_id: result[i].food_id}});
+      title.push(result_title.title);
+      pictures.push(result_picture.filename);
+  }
+
   if (user != undefined) {
-    res.render("index", { isLogin: true, user: user, isLogout: false });
+    res.render("index", { isLogin: true, user: user, isLogout: false, like_num: result, title: title, picture: pictures });
   } else {
-    res.render("index", { isLogin: false, isLogout: false });
+    res.render("index", { isLogin: false, isLogout: false, like_num: result, title: title, picture: pictures });
   }
 });
 
