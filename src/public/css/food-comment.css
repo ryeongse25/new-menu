@@ -5,11 +5,12 @@
 }
 
 .food-comment {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 2px solid #ccc;
   padding: 2rem;
   display: flex;
   align-items: flex-start;
 }
+
 .food-comment > img {
   width: 80px;
   height: 80px;
@@ -21,7 +22,6 @@
 
 .food-comment .food-people {
   font-weight: bold;
-  text-transform: uppercase;
   letter-spacing: 2px;
   color: #777;
   font-size: 20px;

@@ -15,7 +15,7 @@
   justify-content: space-around;
 }
 
-#comment li {
+#comment li:not(.food-comment) {
   padding: 12px 0;
   width: 100%;
   border: 1px solid #ddd;
