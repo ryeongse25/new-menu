@@ -29,7 +29,7 @@
 
                     axios({
                     method: "post",
-                    url: "http://localhost:8000/recipe/like",
+                    url: "/recipe/like",
                     data: {
                         food_id: "<%=data.id%>"
                     },
@@ -42,7 +42,7 @@
 
                     axios({
                     method: "post",
-                    url: "http://localhost:8000/recipe/dislike",
+                    url: "/recipe/dislike",
                     data: {
                         food_id: "<%=data.id%>"
                     },

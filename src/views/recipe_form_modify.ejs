@@ -43,7 +43,7 @@
                 formData.append("category_food", $("#ct_food").val());
                 formData.append("material", form.material.value);
 
-                fetch("http://localhost:8000/recipe/post_update", {
+                fetch("/recipe/post_update", {
                     method: "post",
                     body: formData
                 }).then((response) => response.json()
