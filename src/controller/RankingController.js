@@ -11,16 +11,19 @@ exports.index = async (req, res) => {
 
     let title = [];
     let user_id = [];
+    let pictures = [];
 
     for(let i=0; i<result.length; i++) {
-        let result_title = await models.UserRecipe.findOne({where: {id: result[i].food_id}})
+        let result_title = await models.UserRecipe.findOne({where: {id: result[i].food_id}});
+        let result_picture = await models.UserRecipePicture.findOne({where: {food_id: result[i].food_id}});
         user_id.push(result_title.user_id);
         title.push(result_title.title);
+        pictures.push(result_picture.filename);
     }
     
     if (user != undefined) {
-        res.render("ranking", { isLogin: true, user: user, isLogout: false, like_num: result, title: title, user_id: user_id});
+        res.render("ranking", { isLogin: true, user: user, isLogout: false, like_num: result, title: title, user_id: user_id, picture: pictures});
     } else {
-        res.render("ranking", { isLogin: false, isLogout: false, like_num: result, title: title, user_id: user_id});
+        res.render("ranking", { isLogin: false, isLogout: false, like_num: result, title: title, user_id: user_id, picture: pictures});
     }
 }
