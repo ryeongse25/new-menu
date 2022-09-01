@@ -73,7 +73,7 @@
             <h4>요리 소개</h4> 
             <textarea name="comment" cols="30" rows="10" class="txtb2" required><%=result.comment%></textarea>
             <h4>카테고리</h4>
-            <select id="ct_kind" class="txtb3">
+            <select id="ct_kind" name="kind" class="txtb3">
                 <option value="rice">밥</option>
                 <option value="soup">국/찌개</option>
                 <option value="noodle">면</option>
@@ -83,7 +83,7 @@
                 <option value="sauce">소스</option>
                 <option value="dessert">디저트</option>
             </select>
-            <select id="ct_food" class="txtb3">
+            <select id="ct_food" name="food" class="txtb3">
                 <option value="beef">소고기</option>
                 <option value="meaf">돼지고기</option>
                 <option value="chicken">닭고기</option>
@@ -114,7 +114,8 @@
         <script>
             window.onload = function(){
                 let form = document.getElementById('write_form');
-                $(form.ct_kind[option="<%=result.category_kind%>"]).attr('selected', true);
+                $(form.kind[option="<%=result.category_kind%>"]).attr('selected', true);
+                $(form.food[option="<%=result.category_food%>"]).attr('selected', true);
             }
         </script>
     </body>
