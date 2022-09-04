@@ -35,6 +35,17 @@
 			});
 		}
 
+		function count(obj) {
+			// console.log(obj.value);
+			if (obj.value == "") {
+				$("#id_check").attr("disabled", true);
+				$("#id_check").addClass("disabled_btn");
+			} else {
+				$("#id_check").attr("disabled", false);
+				$("#id_check").removeClass("disabled_btn");
+			}
+		}
+
 		function register() {
 			let form = document.getElementById("register_form");
 
@@ -73,8 +84,8 @@
 	<form id="register_form">
 		<h1 class="register_font">회원가입</h1>
 		<h3>ID</h3>
-		<input type="text" name="id" class="txtb1" placeholder="아이디를 입력하세요" required />
-		<button type="button" onclick="check_duplicate()" class="btn">
+		<input type="text" name="id" class="txtb1" placeholder="아이디를 입력하세요" onkeyup="count(this)" required />
+		<button id="id_check" type="button" onclick="check_duplicate()" class="btn disabled_btn" disabled="true">
 			중복확인
 		</button>
 

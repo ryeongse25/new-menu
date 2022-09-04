@@ -76,16 +76,13 @@ exports.register = (req, res) => {
 };
 
 // 아이디 중복확인
-exports.id_check = (req, res) => {
-  models.User.findOne({
-    where: { id: req.body.id },
-  }).then((result) => {
+exports.id_check = async (req, res) => {
+    let result = await models.User.findOne({where: { id: req.body.id }});
     if (result == null) {
       res.send(true);
     } else {
       res.send(false);
     }
-  });
 };
 
 exports.post_register = (req, res) => {
