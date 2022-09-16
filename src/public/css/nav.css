@@ -1,6 +1,7 @@
 /* nav bar */
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css');
 
 :root {
     --light: #E1DDDD;
@@ -150,7 +151,7 @@ nav {
     margin-right: 5px;
 }
 
-.fa-user, .fa-pen-to-square, .fa-bookmark {
+.fa-user, .fa-pen-to-square, .fa-heart, .fi-rs-Shopping-cart {
     font-size: 30px;
     margin: 8px;
     position: relative;
@@ -160,22 +161,28 @@ nav {
     top: 8px;
 }
 
-.fa-bookmark {
-    margin-right: 40px;
+.fa-heart {
+    margin-right: 5px;
+}
+
+.fi-rs-Shopping-cart {
+    margin-right: 20px;
+    top: 8px
 }
 
 .login:hover, 
 .signup:hover {transform: scale(1.05);}
 
 .fa-user:hover,
-.fa-bookmark:hover,
-.fa-pen-to-square:hover { color: var(--red);}
+.fa-heart:hover,
+.fa-pen-to-square:hover,
+.fi-rs-Shopping-cart:hover { color: var(--red);}
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1080px) {
     .menu a { 
         font-size: 20px;
     }
-    .fa-pen-to-square, .fa-bookmark { 
+    .fa-pen-to-square, .fa-heart, .fi-rs-Shopping-cart { 
         font-size: 22px;
         top: 5px;
     }
@@ -183,6 +190,11 @@ nav {
         font-size: 22px;
         top: 13px;
     }
+
+    .fi-rs-Shopping-cart{
+        top: 13px;
+    }
+
     .login {
         font-size: 13px;
 
