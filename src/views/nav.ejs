@@ -6,8 +6,7 @@
       <a href="/team">新메뉴</a>
       <a href="/recipe">메뉴판</a>
       <a href="/recipe/mealkit">밀키트</a>
-      <a href="">쿠킹클래스</a>
-      <!-- <a href="/ranking">랭킹</a> -->
+      <a href="/ranking">랭킹</a>
       
     </div>
 
@@ -34,17 +33,14 @@
       </div>
       <% if ( !isLogin ) { %>
       <a onclick="alertBoard()"><i class="fa-regular fa-pen-to-square"></i></a>
+      <a href="/user"><i class="fa-regular fa-heart"></i></a>
+      <a href="/user"><i class="fi fi-rs-Shopping-cart"></i></a>
       <% } else { %>
       <a href="/recipe/write"><i class="fa-regular fa-pen-to-square"></i></a>
+      <a href="/user/profile"><i class="fa-regular fa-heart"></i></a>
+      <a href="/user/profile"><i class="fi fi-rs-Shopping-cart"></i></a>
       <% } %>
-      <a href="#"><i class="fa-regular fa-heart"></i></a>
-      <a href="#"><i class="fi fi-rs-Shopping-cart"></i></a>
     </div>
 
-    <button class="hamburger is-active">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
   </div>
 </nav>
